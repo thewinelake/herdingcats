@@ -18,6 +18,7 @@ HCATS.event.eventbuilder = function()
 {
     var my = {
         eid : null,
+        user: null,
         event : null,
         guestList: [],
         comments: []
@@ -27,9 +28,12 @@ HCATS.event.eventbuilder = function()
 
     module.init = function (eid)
     {
+        console.log('event.init('+eid+')');
+
         my.eid = eid;
         my.guests = [];
         my.comments = [];
+        my.User  = '';
 
         this.loadFromServer();
         this.initView();
@@ -53,6 +57,7 @@ HCATS.event.eventbuilder = function()
                my.event = msg;
                my.guestList = msg.guestList;
                my.comments = msg.comments;
+               my.user = msg.user;
 
                HCATS.event.eventbuilder.render();
 
@@ -84,6 +89,10 @@ HCATS.event.eventbuilder = function()
         $('.addGuest').bind( 'click', function() { HCATS.event.eventbuilder.addGuestStep1(); } );
         $('a.button.console').attr( 'href', '/');
         $('#guestRowInput').hide();
+        $('a.remove').bind('click',function(e) {HCATS.event.eventbuilder.guestRemove(e);});
+        $('a.nudge').bind('click',function(e) {HCATS.event.eventbuilder.guestNudge(e);});
+        $('a.addcomment').bind('click',function(e) {HCATS.event.eventbuilder.addComment(e);});
+
     }
 
     module.addGuestStep1 = function() {
@@ -151,11 +160,6 @@ HCATS.event.eventbuilder = function()
             $('#commentContainer').append($newRow);
         }
 
-        $('a.remove').bind('click',function(e) {HCATS.event.eventbuilder.guestRemove(e);});
-        $('a.nudge').bind('click',function(e) {HCATS.event.eventbuilder.guestNudge(e);});
-        $('a.addcomment').bind('click',function(e) {HCATS.event.eventbuilder.addComment(e);});
-
-
     }
 
     module.guestRemove = function(e) {
@@ -176,7 +180,7 @@ HCATS.event.eventbuilder = function()
     module.addComment = function(e) {
         var comment = {};
         comment.commentText = $('.comment').val();
-        comment.commentAuthor = 'Me';
+        comment.commentAuthor = my.user.email;
         my.comments.push(comment);
         this.render();
 

@@ -24,6 +24,7 @@ HCATS.console.wibble = function()
 
     module.init = function ()
     {
+        console.log('console.init()');
         this.loadFromServer();
         this.initView();
     };
@@ -110,7 +111,7 @@ HCATS.console.wibble = function()
         $newRow.removeAttr('ID');
         $('#myEventContainer').append($newRow);
 
-        for (eventIdx in my.myEventsList) {
+        for (var eventIdx in my.myEventsList) {
             var event = my.myEventsList[eventIdx]
             console.dir(event);
             var eid = event.id;
