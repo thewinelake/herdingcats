@@ -28,7 +28,7 @@ ini_set('short_open_tag', 'On');
 
 if (isset($_REQUEST['q']) && substr($_REQUEST['q'], -11) == 'favicon.ico') exit;
 
-include 'hcatini.php';
+include '/etc/hcat/hcatini.php';
 
 date_default_timezone_set('UTC');
 $cacheDefeat    = '?time='.date('His');
