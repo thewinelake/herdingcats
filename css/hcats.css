@@ -1,0 +1,39 @@
+.template
+{
+	display: none;
+}
+
+.rCell
+{
+    text-align: right;
+}
+
+a.button
+{
+	font-size: 10px;
+        font-weight: normal;
+	padding: 0.05em 0.75em 0.1em 0.75em;
+	border-radius: 3px;
+	color: #3C302B !important;
+	background-color: #FFD095;
+	border-width: 1px;
+	border-color: #e69900;
+	border-style: solid;
+	border-bottom: 1px solid #000 !important;
+	border-right: 1px solid #000 !important;
+        border-top: 1px solid #fff !important;
+        border-left: 1px solid #fff !important;
+
+}
+
+.commentAuthor {
+    font-style: oblique;
+}
+
+h1 {
+    font-size: 20px;
+}
+
+.header2 {
+    background-color: #fcc;
+}
