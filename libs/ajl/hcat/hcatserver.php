@@ -32,7 +32,7 @@ class hcatServer
     public function __construct() {
         $dsn  = 'mysql:host=localhost;dname=hcat';
         $dbu = 'garfield';
-        $dbp = 'JimDavis';
+        $dbp = 'JimDavis42';
         try {
             $this->dbh = new PDO($dsn,$dbu,$dbp);
         } catch (exception $e) {
