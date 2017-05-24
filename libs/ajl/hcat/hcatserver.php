@@ -83,12 +83,7 @@ class hcatServer
 
         try {
 
-            if(isset($_SESSION['uid'])) {
-                $this->user = new user($this->dbh,$_SESSION['uid']);
-            } else {
-                $guest = null;
-                $this->usr = $guest;
-            }
+            $this->setLogin();
 
 
 
@@ -253,6 +248,15 @@ class hcatServer
         /* close the connection */
         imap_close($inbox,CL_EXPUNGE);
 
+    }
+
+    public function setLogin() {
+        if(isset($_SESSION['uid'])) {
+            $this->user = new user($this->dbh,$_SESSION['uid']);
+        } else {
+            $guest = null;
+            $this->usr = $guest;
+        }
     }
 
 

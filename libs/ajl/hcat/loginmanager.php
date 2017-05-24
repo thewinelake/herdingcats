@@ -28,6 +28,7 @@ class loginmanager extends hcatUI
             if ( password_verify (  $password ,  $hash )) {
                 $_SESSION['email']=$email;
                 $_SESSION['uid']=$rows[0]['uid'];
+                $this->hcatServer->setLogin();
 
             } else {
                 $message = 'Bad password';
