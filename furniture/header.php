@@ -35,10 +35,10 @@
         <td colspan="4">HerdingCats.club</td>
     </tr>
     <tr class='header2'>
-        <td><a class='button console'>console</a></td>
+        <td><button class="link console" href="/">console</button></td>
         <td><?= $email ?></td>
-        <td class="rCell"><a href="pages/sessioninfo.php">details</a></td>
-        <td class="rCell"><a class='button' href='/logout'>logout</a></td>
+        <td class="rCell"><button class="link" href="pages/sessioninfo.php">details</button></td>
+        <td class="rCell"><button class="link" href='/logout'>logout</button></td>
 
     </tr>
 </table>

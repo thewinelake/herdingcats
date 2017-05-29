@@ -19,8 +19,8 @@ class user
     private $inDB;
     private $dbh;
 
-    function __construct($dbh, $uid=0) {
-        $this->dbh = $dbh;
+    function __construct($uid=0) {
+        $this->dbh = $GLOBALS['dbh'];
         $this->inDB=false;
         if ($uid) {
             $this->uid = $uid;
@@ -36,6 +36,8 @@ class user
 
 
     public function loadFromDB() {
+        if (!$this->dbh) exit(0);
+
         $stmt = $this->dbh->prepare("select * from hcat.user where uid=:uid");
         $stmt->bindValue(':uid', $this->uid, PDO::PARAM_INT);
         $stmt->execute();
@@ -51,9 +53,27 @@ class user
 
     }
 
+    public function loadByEmailAddr($email) {
+        if (!$this->dbh) exit(0);
+
+        $stmt = $this->dbh->prepare("select * from hcat.user where email=:email");
+        $stmt->bindValue(':email', $email, PDO::PARAM_STR);
+        $stmt->execute();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if (!$row) {
+            return false;
+        }
+
+        $this->loadFromAssocArray($row);
+        $this->inDB = true;
+        return true;
+
+    }
+
     public function loadFromAssocArray($a) {
         $this->uid = $a['uid'];
-        $this->username = valOr($a,'username','?');
+        $this->name = valOr($a,'name','?');
         $this->email = valOr($a,'email','?');
 
     }

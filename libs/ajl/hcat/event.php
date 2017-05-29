@@ -9,22 +9,37 @@
 class event extends hcatUI
 {
 
-    public $id;
+    public $eid;
     public $evtKey;
-    public $owneruid;
+    public $hostUid;
+    public $host;
     public $title;
     public $description;
-    public $descriptionmid;
+    public $descriptionMid;
     public $date;
     public $guestList; // array
     public $comments; // array
 
     public function event($hcatServer) {
+        $this->host = new stdClass();
         $this->guestList = [];
         $this->comments = [];
         parent::__construct($hcatServer);
     }
 
+    public function myEmailAddress() {
+
+        $stmt = $this->hcatServer->dbh->prepare("select * from hcat.user where uid=:owneruid");
+        $stmt->bindValue(':owneruid', $this->hostUid, PDO::PARAM_INT);
+        $this->dbExecute($stmt);
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        $name = valOr($row,'name','Anonymous');
+
+        $emailAddr = "e_{$this->eid}@herdingcats.club";
+        $emailName = "$name's cat herder";
+
+        return array($emailAddr=>$emailName);
+    }
 
 
     public function handleHit() {
@@ -73,6 +88,8 @@ class event extends hcatUI
 
     public function handleAJAXHit() {
         $cmd = $_REQUEST['cmd'];
+        $this->debug(1,"AJAX Cmd $cmd");
+
         switch ($cmd) {
             case 'GetEventJSON':
                 $result = $this;
@@ -83,10 +100,26 @@ class event extends hcatUI
                 $this->ajax_UpdateEvent($result);
                 $result = ['result'=>'OK'];
                 break;
+            case 'AddGuest':
+                $this->ajax_AddGuest($result);
+                break;
+            case 'RemoveGuest':
+                $this->ajax_RemoveGuest($result);
+                break;
             case 'AddComment':
                 $this->ajax_AddComment($result);
                 break;
+            case 'DeleteEvent':
+                $this->ajax_SetEventStatus('Deleted',$result);
+                break;
+            case 'CancelEvent':
+                $this->ajax_SetEventStatus('Cancelled',$result);
+                break;
+            case 'BroadcastComment':
+                $this->ajax_BroadcastComment($result);
+                break;
             default:
+                $this->debug(1,"Unknown AJAX Cmd $cmd");
                 $result = array();
         }
         echo json_encode($result);
@@ -102,49 +135,55 @@ class event extends hcatUI
     }
 
     public function loadFromDB() {
-        $this->debug(1,"Loading event {$this->id} from DB");
+        $this->debug(1,"Loading event {$this->eid} from DB");
         $stmt = $this->hcatServer->dbh->prepare("select e.*,m.msgtext from hcat.event as e, hcat.message as m where e.eid=:eid and m.mid=e.descriptionmid");
-        $stmt->bindValue(':eid', $this->id, PDO::PARAM_INT);
+        $stmt->bindValue(':eid', $this->eid, PDO::PARAM_INT);
         $this->dbExecute($stmt);
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-        if (!$rows) {
-            return false;
-        }
+        if (!$rows) return false;
 
         $this->loadFromAssocArray($rows[0]);
 
+        // Get the guest list
+        //
         $this->guestList = array();
-        $stmt = $this->hcatServer->dbh->prepare("select * from hcat.invitation where eid=:eid");
-        $stmt->bindValue(':eid', $this->id, PDO::PARAM_INT);
+        $stmt = $this->hcatServer->dbh->prepare("select *,i.status as invstatus from hcat.invitation as i, hcat.user as u where i.eid=:eid and i.uid=u.uid");
+        $stmt->bindValue(':eid', $this->eid, PDO::PARAM_INT);
         $this->dbExecute($stmt);
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $this->debug(1,sizeof($rows)." guests");
         foreach ($rows as $row) {
             $guestDetails = [
+                'uid' => $row['uid'],
                 'name' => $row['name'],
-                'address' => $row['address']
+                'email' => $row['email'],
+                'status' => $row['invstatus']
+
             ];
             array_push($this->guestList,$guestDetails);
         }
 
 
+        // This gets all the comments
+        //
         $this->comments = array();
-        // This gets all the messages
-        $stmt = $this->hcatServer->dbh->prepare("select * from hcat.message as m, hcat.user as u where m.eid=:eid and u.uid=m.eid and m.mid<>:descriptionmid");
-        $stmt->bindValue(':eid', $this->id, PDO::PARAM_INT);
-        $stmt->bindValue(':descriptionmid', $this->descriptionmid, PDO::PARAM_INT);
+        $stmt = $this->hcatServer->dbh->prepare("select * from hcat.message as m, hcat.user as u where m.eid=:eid and u.uid=m.uid and m.mid<>:descriptionmid");
+        $stmt->bindValue(':eid', $this->eid, PDO::PARAM_INT);
+        $stmt->bindValue(':descriptionmid', $this->descriptionMid, PDO::PARAM_INT);
 
         $this->dbExecute($stmt);
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         foreach ($rows as $row) {
             $comment = new stdClass();
+            $comment->commentMid = $row['mid'];
             $comment->commentText = $row['msgtext'];
             $comment->commentAuthor = $row['email'];
             $comment->commentGMT = $row['gmt'];
 
             array_push($this->comments,$comment);
         }
+
+        $this->host = new user($this->hostUid);
 
         return true;
 
@@ -158,27 +197,28 @@ class event extends hcatUI
     }
 
     public function loadFromAssocArray($a) {
-        $this->id = $a['eid'];
+        $this->eid = $a['eid'];
+        $this->status = valOr($a,'status','');
         $this->evtKey = valOr($a,'evtKey','');
-        $this->owneruid = $a['owneruid'];
+        $this->hostUid = $a['owneruid'];
         $this->title = $a['title'];
         $this->description = $a['msgtext'];
         $this->date = $a['date'];
-        $this->descriptionmid = $a['descriptionmid'];
+        $this->descriptionMid = $a['descriptionmid'];
 
     }
 
     public function hitAllowedAccess(&$auth) {
 
         // If you're the owner
-        if ($this->owneruid == $this->hcatServer->user->uid) {
+        if ($this->hostUid == $this->hcatServer->user->uid) {
             $auth = 'owner';
             return true;
         }
 
         // If you're logged in as a guest
         foreach($this->guestList as $guestDetails) {
-            if ($this->hcatServer->user->email==$guestDetails['address']) {
+            if ($this->hcatServer->user->email==$guestDetails['email']) {
                 $auth = 'guest';
                 return true;
             }
@@ -189,7 +229,7 @@ class event extends hcatUI
         if ($ikey) {
             $sql = "select * from hcat.invitation where ikey=:ikey and eid=:eid";
             $stmt = $this->hcatServer->dbh->prepare($sql);
-            $stmt->bindValue(':eid', $this->id, PDO::PARAM_INT);
+            $stmt->bindValue(':eid', $this->eid, PDO::PARAM_INT);
             $stmt->bindValue(':ikey', $ikey);
 
             $this->dbExecute($stmt);
@@ -198,7 +238,7 @@ class event extends hcatUI
                 // This could count as a weak form of login
                 $auth = 'ikey';
                 $_SESSION['ikey']=$ikey;
-                $_SESSION['ikey_address']=$rows[0]['ikey'];
+                $_SESSION['ikey_email']=$rows[0]['ikey'];
 
                 return true;
             }
@@ -216,11 +256,11 @@ class event extends hcatUI
         $stmt = $this->hcatServer->dbh->prepare("SELECT LAST_INSERT_ID();");
         $r = $this->dbExecute($stmt);
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        $this->descriptionmid = $rows[0]["LAST_INSERT_ID()"];
+        $this->descriptionMid = $rows[0]["LAST_INSERT_ID()"];
 
 
         $stmt = $this->hcatServer->dbh->prepare("insert into hcat.event (title,descriptionmid) values (:title,:descriptionmid)");
-        $stmt->bindValue(':descriptionmid', $this->descriptionmid, PDO::PARAM_INT);
+        $stmt->bindValue(':descriptionmid', $this->descriptionMid, PDO::PARAM_INT);
         $stmt->bindValue(':title', $this->title, PDO::PARAM_INT);
         $r = $this->dbExecute($stmt);
 
@@ -229,22 +269,25 @@ class event extends hcatUI
 
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $newEID = $rows[0]["LAST_INSERT_ID()"];
-        $this->id = $newEID;
+        $this->eid = $newEID;
     }
 
+
     public function saveToDB() {
-        $stmt = $this->hcatServer->dbh->prepare("update hcat.event set owneruid=:owneruid, title=:title, date=:date where eid=:eid");
-        $stmt->bindValue(':eid', $this->id, PDO::PARAM_INT);
-        $stmt->bindValue(':owneruid', $this->owneruid, PDO::PARAM_INT);
+        // core params
+        $stmt = $this->hcatServer->dbh->prepare("update hcat.event set owneruid=:owneruid, title=:title, date=:date, status=:status where eid=:eid");
+        $stmt->bindValue(':eid', $this->eid, PDO::PARAM_INT);
+        $stmt->bindValue(':owneruid', $this->hostUid, PDO::PARAM_INT);
         $stmt->bindValue(':title', $this->title, PDO::PARAM_STR);
         $stmt->bindValue(':date', $this->date, PDO::PARAM_STR);
+        $stmt->bindValue(':status', $this->status, PDO::PARAM_STR);
 
         $r = $this->dbExecute($stmt);
         $r2 = $stmt->errorInfo (  );
 
-
+        // description is held in a message
         $stmt = $this->hcatServer->dbh->prepare("update hcat.message set msgtext=:description where mid=:descriptionmid");
-        $stmt->bindValue(':descriptionmid', $this->descriptionmid, PDO::PARAM_INT);
+        $stmt->bindValue(':descriptionmid', $this->descriptionMid, PDO::PARAM_INT);
         $stmt->bindValue(':description', $this->description, PDO::PARAM_INT);
 
         $r = $this->dbExecute($stmt);
@@ -252,24 +295,37 @@ class event extends hcatUI
 
 
         foreach($this->guestList as $guestDetails) {
-            // Have to find the uid
-            $stmt = $this->hcatServer->dbh->prepare("select * from hcat.invitation as i where i.eid=:eid and i.address=:email");
-            $stmt->bindValue(':eid', $this->id, PDO::PARAM_INT);
-            $stmt->bindValue(':email', $guestDetails['address'], PDO::PARAM_STR);
+
+            // Have to find the user
+            $guestEmail = $guestDetails['email'];
+            $guest = new user();
+            if (!$guest->loadByEmailAddr($guestEmail)) {
+                // the guest doesn't already exist - we should create it
+                $this->debug(1,"Creating new user with email address $guestEmail");
+                $guest->email = $guestEmail;
+                $guest->saveToDB();
+            }
+
+            // is this user invited?
+            // Maybe this should be more OO
+            $stmt = $this->hcatServer->dbh->prepare("select * from hcat.invitation as i where i.eid=:eid and i.uid=:uid");
+            $stmt->bindValue(':eid', $this->eid, PDO::PARAM_INT);
+            $stmt->bindValue(':uid', $guest->uid, PDO::PARAM_STR);
             $this->dbExecute($stmt);
             $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
             $ikey = sprintf('%d',rand (100000,999999)).sprintf('%d',rand (100000,999999));
             if (sizeof($rows)==1) {
                 // Already in the db
-                $sql = "update hcat.invitation set name=:name, crtgmt=:crtgmt, status=:status, statusgmt=:statusgmt where eid=:eid and address=:email;";
+                $sql = "update hcat.invitation set name=:name, crtgmt=:crtgmt, status=:status, statusgmt=:statusgmt where eid=:eid and uid=:uid;";
             } else {
                 // this is a new one
-                $sql = "insert into hcat.invitation (eid,address,ikey,name,crtgmt,status,statusgmt) values (:eid,:email,:ikey,:name,:crtgmt,:status,:statusgmt);";
+                $sql = "insert into hcat.invitation (eid,uid,ikey,name,crtgmt,status,statusgmt) values (:eid,:uid,:ikey,:name,:crtgmt,:status,:statusgmt);";
             }
             $stmt = $this->hcatServer->dbh->prepare($sql);
             $now = date('Y-m-d H:i:s');
-            $stmt->bindValue(':eid', $this->id, PDO::PARAM_INT);
-            $stmt->bindValue(':email', $guestDetails['address'], PDO::PARAM_STR);
+            $stmt->bindValue(':eid', $this->eid, PDO::PARAM_INT);
+            $stmt->bindValue(':uid', $guest->uid, PDO::PARAM_STR);
+            $stmt->bindValue(':email', $guestDetails['email'], PDO::PARAM_STR);
             $stmt->bindValue(':ikey', $ikey, PDO::PARAM_STR);
             $stmt->bindValue(':name', $guestDetails['name'], PDO::PARAM_STR);
             $stmt->bindValue(':status', 'new', PDO::PARAM_STR);
@@ -279,7 +335,6 @@ class event extends hcatUI
             $r = $this->dbExecute($stmt);
             $r2 = $stmt->errorInfo (  );
         }
-
     }
 
     public function validateKey($key) {
@@ -288,7 +343,7 @@ class event extends hcatUI
 
     public function renderForConsole() {
         $html = '<p>';
-        $html .= "<a href=\"e_$this->id\">".$this->title.'</a>';
+        $html .= "<a href=\"e_$this->eid\">".$this->title.'</a>';
         $html .= '</p>';
         return $html;
     }
@@ -303,6 +358,14 @@ class event extends hcatUI
         // the user is specified in form data
     }
 
+
+
+    // AJAX COMMANDS
+
+
+
+
+
     public function ajax_UpdateEvent(&$result) {
 
         $guests = $_REQUEST['guests'];
@@ -314,6 +377,72 @@ class event extends hcatUI
         $result = array('cmd'=>'UpdateEventAck');
     }
 
+    public function ajax_AddGuest(&$result) {
+        $guestDetails = json_decode($_REQUEST['guestdetails']);
+
+
+        // Have to try to find the user
+        $guestEmail = $guestDetails->email;
+        $guest = new user();
+        if (!$guest->loadByEmailAddr($guestEmail)) {
+            // the guest doesn't already exist - we should create it
+            $this->debug(1,"Creating new user with email address $guestEmail");
+            $guest->email = $guestEmail;
+            $guest->name = $guestDetails->name;
+            $guest->saveToDB();
+        }
+
+        // is this user invited?
+        $stmt = $this->hcatServer->dbh->prepare("select * from hcat.invitation as i where i.eid=:eid and i.uid=:uid");
+        $stmt->bindValue(':eid', $this->eid, PDO::PARAM_INT);
+        $stmt->bindValue(':uid', $guest->uid, PDO::PARAM_STR);
+        $this->dbExecute($stmt);
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $ikey = sprintf('%d',rand (100000,999999)).sprintf('%d',rand (100000,999999));
+        if (sizeof($rows)==1) {
+            // Already in the db
+            $sql = "update hcat.invitation set name=:name, crtgmt=:crtgmt, status=:status, statusgmt=:statusgmt where eid=:eid and email=:email;";
+        } else {
+            // this is a new one
+            $sql = "insert into hcat.invitation (eid,uid,ikey,name,crtgmt,status,statusgmt) values (:eid,:uid,:ikey,:name,:crtgmt,:status,:statusgmt);";
+        }
+        $stmt = $this->hcatServer->dbh->prepare($sql);
+        $now = date('Y-m-d H:i:s');
+        $stmt->bindValue(':eid', $this->eid, PDO::PARAM_INT);
+        $stmt->bindValue(':uid', $guest->uid, PDO::PARAM_STR);
+        $stmt->bindValue(':ikey', $ikey, PDO::PARAM_STR);
+        $stmt->bindValue(':name', $guestDetails->name, PDO::PARAM_STR);
+        $stmt->bindValue(':status', 'new', PDO::PARAM_STR);
+        $stmt->bindValue(':crtgmt', $now, PDO::PARAM_STR);
+        $stmt->bindValue(':statusgmt', $now, PDO::PARAM_STR);
+
+        $r = $this->dbExecute($stmt);
+
+        if ($r) {
+            $result = array('cmd'=>'AddGuestAck');
+        } else {
+            $result = array('cmd'=>'AddGuestNak');
+        }
+    }
+
+    public function ajax_RemoveGuest(&$result) {
+        $uid='';
+        $sql = "update hcat.invitation set status=:status, statusgmt=:gmt where eid=:eid and uid=:uid";
+        $stmt = $this->hcatServer->dbh->prepare($sql);
+        $now = date('Y-m-d H:i:s');
+        $stmt->bindValue(':eid', $this->eid, PDO::PARAM_INT);
+        $stmt->bindValue(':uid', $uid, PDO::PARAM_STR);
+        $stmt->bindValue(':gmt', $now, PDO::PARAM_STR);
+        $stmt->bindValue(':status', 'deleted', PDO::PARAM_STR);
+
+        $r = $this->dbExecute($stmt);
+        if ($r) {
+            $result = array('cmd'=>'RemoveGuestAck');
+        } else {
+            $result = array('cmd'=>'RemoveGuestNak');
+        }
+    }
+
     public function ajax_AddComment(&$result) {
 
         $jcomment = $_REQUEST['comment'];
@@ -322,7 +451,7 @@ class event extends hcatUI
         $sql="insert into hcat.message (uid,eid,gmt,msgtext) values (:uid,:eid,:gmt,:msgtext);";
         $stmt = $this->hcatServer->dbh->prepare($sql);
         $stmt->bindValue(':uid', $this->hcatServer->user->uid, PDO::PARAM_INT);
-        $stmt->bindValue(':eid', $this->id, PDO::PARAM_INT);
+        $stmt->bindValue(':eid', $this->eid, PDO::PARAM_INT);
         $stmt->bindValue(':gmt', date('Y-m-d H:i:s'), PDO::PARAM_STR);
         $stmt->bindValue(':msgtext', $comment->commentText, PDO::PARAM_STR);
 
@@ -334,5 +463,102 @@ class event extends hcatUI
             $result = array('cmd'=>'AddCommentNak');
         }
     }
+
+    public function ajax_SetEventStatus($newStatus,&$result) {
+            $sql="update hcat.event set status=:newstatus,statusgmt=:gmt where eid=:eid;";
+            $stmt = $this->hcatServer->dbh->prepare($sql);
+            $stmt->bindValue(':eid', $this->eid, PDO::PARAM_INT);
+            $stmt->bindValue(':gmt', date('Y-m-d H:i:s'), PDO::PARAM_STR);
+            $stmt->bindValue(':newstatus', $newStatus, PDO::PARAM_STR);
+
+            $r = $this->dbExecute($stmt);
+            $r2 = $stmt->errorInfo (  );
+            if ($r) {
+                $result = array('cmd'=>'SetEventStatusAck');
+            } else {
+                $result = array('cmd'=>'SetEventStatusNak');
+            }
+    }
+
+    public function ajax_BroadcastComment(&$result) {
+
+        $commentMID = $_REQUEST['commentmid'];
+
+        $this->debug(2,"BroadcastComment $commentMID");
+
+        $stmt = $this->hcatServer->dbh->prepare("select * from hcat.message as m, hcat.user as u where m.eid=:eid and u.uid=m.uid and m.mid=:mid");
+        $stmt->bindValue(':eid', $this->eid, PDO::PARAM_INT);
+        $stmt->bindValue(':mid', $commentMID, PDO::PARAM_INT);
+
+        $this->dbExecute($stmt);
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        if (!$row) {
+            return false;
+        }
+
+        $sql = "SELECT * FROM hcat.invitation as i left join hcat.user as u on u.uid=i.uid";
+        $sql .= " where i.eid=:eid and i.status not in ('UNSUBSCRIBED','DECLINED')";
+        $stmt = $this->hcatServer->dbh->prepare($sql);
+        $stmt->bindValue(':eid', $this->eid, PDO::PARAM_INT);
+
+        $this->dbExecute($stmt);
+        while ($guestrow = $stmt->fetch(PDO::FETCH_ASSOC)) {
+
+            $guestEmail = $guestrow['email'];
+
+            $guestUid = $guestrow['uid'];
+            if ($guestUid) {
+                $guest = new user($guestUid);
+            } else {
+                $guest = new stdClass();
+            }
+
+
+            $mergedata = new stdClass();
+            $mergedata->comment = new stdClass();
+            $mergedata->comment->Text = $row['msgtext'];
+            $mergedata->comment->Author = $row['email'];
+            $mergedata->comment->GMT = $row['gmt'];
+            $mergedata->event = $this;
+            $mergedata->user = $guest;
+
+            $email = new Email();
+            $email->fromAddress = $this->myEmailAddress();
+            $email->destAddresses = array($guestEmail);
+            $email->mergeTemplate('e1',$mergedata);
+            $email->send();
+
+        }
+    }
+
+    public function GuestURL($guestUid=0) {
+        $url = $GLOBALS['HcatConfig']['GenConfig']['BaseURL'].'e_'.$this->eid;
+
+        if ($guestUid) {
+            $sql = "select * from hcat.invitation where uid=:uid and eid=:eid";
+            $stmt = $this->hcatServer->dbh->prepare($sql);
+            $stmt->bindValue(':eid', $this->eid, PDO::PARAM_INT);
+            $stmt->bindValue(':uid', $guestUid, PDO::PARAM_INT);
+
+            $this->dbExecute($stmt);
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            $invitationKey = $row['ikey'];
+            $url .= '?k='.$invitationKey;
+        }
+        return $url;
+    }
+
+    public function GuestUnsubscribeURL($guestUid,$eid=0) {
+        $url = $this->GuestURL($guestUid);
+        if ($eid=='ALL') {
+            $url = AddURLParam($url,"action=unsubscribe_all");
+        } elseif ($eid>0) {
+            $url = AddURLParam($url,"action=unsubscribe");
+        } else {
+            $url =  ''; // or maybe something else?
+        }
+        return $url;
+    }
+
 
 }

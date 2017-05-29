@@ -46,13 +46,14 @@ HCATS.console.wibble = function()
     }
 
     module.initView = function() {
-        // alert("eventView_init");
-        $('a.button.console').attr( 'href', '/');
 
 
         // attach handlers
+        $('button.link').bind('click',buttonLink);
+
         $('.newEvent').bind( 'click', function() { HCATS.console.wibble.addEventStep1(); } );
         $('.createEvent').bind( 'click', function() { HCATS.console.wibble.addEventStep2(); } );
+
 
         $('#newEvent').hide();
 
@@ -85,17 +86,21 @@ HCATS.console.wibble = function()
                "console",
                params,
                function(msg){
-                       console.dir(msg);
+                   console.dir(msg);
+
+                   $('#newEvent').hide();
+                   $('.newEvent').show();
+
+
+                   HCATS.console.wibble.loadFromServer();
+
+                   // We need to render the event...
+                   // HCATS.console.wibble.render();
                }
         );
 
 
 
-        $('#newEvent').hide();
-
-        // We need to render the event...
-
-        this.render();
 
         // and then maybe zoom in on it?
         // do we want to do the event view like a dialog or a whole new page?
@@ -105,29 +110,35 @@ HCATS.console.wibble = function()
     module.render = function() {
         // This will fill the variable stuff into their containers - and attach actions
         var guestIdx;
-        $('#myEventContainer').html('');
-        var $newRow = $('#myEventHeader').clone();
+        $('#myEventsContainer').empty();
+        var $newRow = $('#eventHeader').clone();
         $newRow.removeClass('template');
         $newRow.removeAttr('ID');
-        $('#myEventContainer').append($newRow);
+        $('#myEventsContainer').append($newRow);
+
+        if (my.myEventsList.length==0) {
+            var $newRow = $('#noEvents').clone();
+            $newRow.removeClass('template');
+            $newRow.removeAttr('ID');
+            $('#myEventsContainer').append($newRow)
+        }
+
 
         for (var eventIdx in my.myEventsList) {
             var event = my.myEventsList[eventIdx]
-            console.dir(event);
-            var eid = event.id;
-            var title = event.title;
-            var date = event.date;
+            console.log('adding '+eventIdx+' '+event.title);
+            var eid = event.eid;
             var eventURL = '/e_'+eid;
 
             var $newRow = $('#eventRow').clone();
             $newRow.removeClass('template');
             $newRow.removeAttr('ID');
 
-            $newRow.find('td[name=title]').text(title);
-            $newRow.find('td[name=date]').text(date);
-            var before = $newRow.find('a.button.zoom').attr('href');
-            $newRow.find('a.button.zoom').attr('href',eventURL);
-            var after = $newRow.find('a.button.zoom').attr('href');
+            $newRow.find('td[name=title]').text(event.title);
+            $newRow.find('td[name=date]').text(event.date);
+            $newRow.find('td[name=status]').text(event.status);
+            $newRow.find('button.zoom').attr('href',eventURL);
+            $newRow.find('button.zoom').bind('click',buttonLink);
 
             $('#myEventsContainer').append($newRow);
         }

@@ -32,19 +32,31 @@ class hcatServer
     public function __construct() {
         $dsn  = 'mysql:host=localhost;dname=hcat';
         $dbu = 'garfield';
-        $dbp = 'JimDavis42';
+        $dbp = 'JimDavis';
         try {
             $this->dbh = new PDO($dsn,$dbu,$dbp);
+            $GLOBALS['dbh'] = $this->dbh;
         } catch (exception $e) {
             $this->debug(3, 'Error connecting DB');
+            exit(0);
         }
-        $this->user = new user($this->dbh);
+        $this->user = new user();
     }
 
-    public function dbExecute($stmt) {
+    public function dbExecute($stmt,$data=null) {
         $this->debug(1,'dbExecute '.$stmt->queryString);
+        if ($data) {
+            $dataParams='';
+            foreach($data as $k=>$v) {
+                $dataParams.="[$k=$v]";
+            }
+            $this->debug(1,"Params $dataParams");
+
+        }
         $r = $stmt->execute();
-        if (!$r) {
+        if ($r) {
+            $this->debug(2,'OK');
+        } else {
             $r2=$stmt->errorInfo();
             $this->debug(2,$r2[2]);
         }
@@ -151,7 +163,7 @@ class hcatServer
                     $eid = $actionchunks[1];
                     $this->debug(1,"hit to event $eid. path_info=".$_SERVER['PATH_INFO']);
                     $e = new event($this);
-                    $e->id = $eid;
+                    $e->eid = $eid;
                     if($e->loadFromDB()) {
 
                        if (!$e->handleHit()) {
@@ -166,7 +178,7 @@ class hcatServer
 
         } catch (Exception $e) {
             $msg = $e->getMessage();
-            echo $msg;
+            $this->debug(3, $msg);
         }
         $timeOut = time() + microtime();
         $duration = $timeOut - $timeIn;
@@ -221,7 +233,7 @@ class hcatServer
                         $eid = $toAddrBits2[1];
                         $evtKey = valOr($toAddrBits2,2,'');
                         $e = new event($this);
-                        $e->id = $eid;
+                        $e->eid = $eid;
                         if($e->loadFromDB()) {
                             if ($e->validateKey($evtKey)) {
                                 $e->handleEmail($inbox,$email_number);
@@ -252,7 +264,7 @@ class hcatServer
 
     public function setLogin() {
         if(isset($_SESSION['uid'])) {
-            $this->user = new user($this->dbh,$_SESSION['uid']);
+            $this->user = new user($_SESSION['uid']);
         } else {
             $guest = null;
             $this->usr = $guest;
@@ -260,4 +272,34 @@ class hcatServer
     }
 
 
+
+};
+
+function debug($level,$msg) {
+    $d = date('H:i:s');
+
+    if (isset($_REQUEST['debug']) && $_REQUEST['debug']=='Y') {
+        echo "<p>$d : $level : $msg";
+    }
+    if ($level==2) {
+        $level+=0;
+    }
+    // Need a side-channel in a log file (use tail -f in separate console)
+    $logPath = '/var/log/hcat.log';
+    $l="$d : $level : $msg\n";
+    $fp=fopen($logPath,'a');
+    if ($fp) {
+        fputs($fp,$l);
+        fclose($fp);
+    }
+
+}
+
+function AddURLParam($baseURL,$extraKVP) {
+    if (strpos($baseURL,'?')!== false) {
+        // There's already an & in the URL
+        return $baseURL.'&'.$extraKVP;
+    } else {
+        return $baseURL.'?'.$extraKVP;
+    }
 }

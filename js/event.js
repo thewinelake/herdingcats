@@ -36,14 +36,9 @@ HCATS.event.eventbuilder = function()
         my.User  = '';
 
         this.loadFromServer();
-        this.initView();
     };
 
-    module.inviteGuest = function(guestDetails) {
-        // alert("inviting guest");
-        my.guestList.push(guestDetails);
-        this.saveToServer();
-    };
+
 
     module.loadFromServer = function() {
         var params = {
@@ -68,6 +63,8 @@ HCATS.event.eventbuilder = function()
     module.saveToServer = function() {
         // This is where we do an AJAX hit to the server to save the latest event settings
         // and get updates - there could be a "merge"?
+        //
+        // NB - this is very different to the way in which comments are submitted. Not sure if it's better!
         var params = {
             cmd:        'UpdateEvent',
             guests:     my.guestList
@@ -83,42 +80,16 @@ HCATS.event.eventbuilder = function()
     }
 
     module.initView = function() {
-        // alert("eventView_init");
-
         // attach handlers
+        $('button.link').bind('click',buttonLink);
+
         $('.addGuest').bind( 'click', function() { HCATS.event.eventbuilder.addGuestStep1(); } );
-        $('a.button.console').attr( 'href', '/');
         $('#guestRowInput').hide();
-        $('a.remove').bind('click',function(e) {HCATS.event.eventbuilder.guestRemove(e);});
-        $('a.nudge').bind('click',function(e) {HCATS.event.eventbuilder.guestNudge(e);});
-        $('a.addcomment').bind('click',function(e) {HCATS.event.eventbuilder.addComment(e);});
-
-    }
-
-    module.addGuestStep1 = function() {
-        // alert("Add a guest");
-
-        $('#guestRowInput').show();
-
-        $(".inviteGuestButton").bind( 'click', function() { HCATS.event.eventbuilder.addGuestStep2(); });
-        $('.addGuest').hide();
-
-    }
-
-    module.addGuestStep2 = function () {
-        //alert("Add a guest step 2");
-        var guestDetails = {
-            name: $('#guestRowInput').find("[name=guestName]")[0].value,
-            address: $('#guestRowInput').find("[name=guestAddress]")[0].value
-        };
-
-        this.inviteGuest(guestDetails);
-
-        $('#guestRowInput').find("[name=guestName]").attr('value','');
-        $('#guestRowInput').find("[name=guestAddress]").attr('value','');
-
-        // Send an AJAX hit
-        this.render();
+        $('button.remove').bind('click',function(e) {HCATS.event.eventbuilder.removeGuest(e);});
+        $('button.nudge').bind('click',function(e) {HCATS.event.eventbuilder.guestNudge(e);});
+        $('button.addcomment').bind('click',function(e) {HCATS.event.eventbuilder.addComment(e);});
+        $('button.deleteevent').bind('click',function(e) {HCATS.event.eventbuilder.sendEventCmd(e,'DeleteEvent');});
+        $('button.cancelevent').bind('click',function(e) {HCATS.event.eventbuilder.sendEventCmd(e,'CancelEvent');});
 
     }
 
@@ -135,42 +106,120 @@ HCATS.event.eventbuilder = function()
 
         for (guestIdx in my.guestList) {
             console.dir(my.guestList[guestIdx]);
-            var name = my.guestList[guestIdx]['name'];
-            var address = my.guestList[guestIdx]['address'];
-
+            var guestDetails = my.guestList[guestIdx];
             var $newRow = $('#guestRow').clone();
             $newRow.removeClass('template');
             $newRow.removeAttr('ID');
+            $newRow.attr('ID','uid_'+guestDetails['uid']);
 
-            $newRow.find('td[name=name]').text(name);
-            $newRow.find('td[name=address]').text(address);
+
+            $newRow.find('td[name=name]').text(guestDetails['name']);
+            $newRow.find('td[name=email]').text(guestDetails['email']);
+            $newRow.find('td[name=status]').text( my.guestList[guestIdx]['status']);
+
             $('#guestListContainer').append($newRow);
         }
 
         for (commentIdx in my.comments) {
-            var commentText = my.comments[commentIdx]['commentText'];
-            var commentAuthor = my.comments[commentIdx]['commentAuthor'];
+            var comment = my.comments[commentIdx];
+            var commentText = comment['commentText'];
+            var commentAuthor = comment['commentAuthor'];
 
             var $newRow = $('#comment').clone();
             $newRow.removeClass('template');
             $newRow.removeAttr('ID');
+            $newRow.attr('ID', 'mid_'+comment['commentMid']);
 
             $newRow.find('.commentText').text(commentText);
             $newRow.find('.commentAuthor').text(commentAuthor);
+
+            $newRow.find('.broadcast').bind( 'click', function(e) { HCATS.event.eventbuilder.broadcastComment(e); });
+
+            //$newRow.find('.commentActions').html(commentActions);
+
             $('#commentContainer').append($newRow);
         }
 
+        this.initView();
+
+
     }
 
-    module.guestRemove = function(e) {
-        var guestAddress= $(e.target).closest('tr').children('td[name=address]').text();
-        console.log("Remove "+guestAddress);
-        for (guestIdx in my.guestList) {
-            if (my.guestList[guestIdx]['address']==guestAddress) {
-                my.guestList.splice(guestIdx,1);
-            }
-        }
-        HCATS.event.eventbuilder.render();
+    module.addGuestStep1 = function() {
+        // alert("Add a guest");
+
+        $('#guestRowInput').show();
+        $(".inviteGuestButton").bind( 'click', function() { HCATS.event.eventbuilder.addGuestStep2(); });
+        $('.addGuest').hide();
+
+    }
+
+    module.addGuestStep2 = function () {
+        this.addGuest();
+
+        $('#guestRowInput').find("[name=guestName]").attr('value','');
+        $('#guestRowInput').find("[name=guestEmail]").attr('value','');
+    }
+
+    module.inviteGuest = function(guestDetails) {
+        // alert("inviting guest");
+        my.guestList.push(guestDetails);
+        this.saveToServer();
+    };
+
+
+    module.addGuest = function(e) {
+        var guestDetails = {
+            name: $('#guestRowInput').find("[name=guestName]")[0].value,
+            email: $('#guestRowInput').find("[name=guestEmail]")[0].value
+        };
+        //my.guestList.push(guestDetails);
+        //this.render();
+
+        var params = {
+            cmd:            'AddGuest',
+            guestdetails:   JSON.stringify(guestDetails)
+        };
+        $.getJSON(
+               "e_"+my.eid,
+               params,
+               function(msg){
+                   console.dir(msg);
+                   HCATS.event.eventbuilder.loadFromServer();
+                   // Maybe this is where we should render?
+               }
+        );
+
+    }
+
+    module.removeGuest = function(e) {
+        var guestEmail= $(e.target).closest('tr').children('td[name=email]').text();
+        var guestUID = $(e.target).closest('tr').attr('ID');
+        guestUID = guestUID.split('_')[1];
+
+        console.log("Remove "+guestEmail);
+//        for (guestIdx in my.guestList) {
+//           if (my.guestList[guestIdx]['email']==guestEmail) {
+//                var removeGuestUID = guestIdx;
+//                my.guestList.splice(guestIdx,1);
+//            }
+//        }
+//        HCATS.event.eventbuilder.render();
+
+        var params = {
+             cmd:           'RemoveGuest',
+             guestuid:      guestUID
+         };
+         $.getJSON(
+                "e_"+my.eid,
+                params,
+                function(msg){
+                    console.dir(msg);
+                    HCATS.event.eventbuilder.loadFromServer();
+
+                    // Maybe this is where we should render? Slower but safer
+                }
+         );
     }
 
     module.guestNudge = function(e) {
@@ -181,8 +230,8 @@ HCATS.event.eventbuilder = function()
         var comment = {};
         comment.commentText = $('.comment').val();
         comment.commentAuthor = my.user.email;
-        my.comments.push(comment);
-        this.render();
+        //my.comments.push(comment);
+        //this.render();
 
         var params = {
             cmd:        'AddComment',
@@ -193,10 +242,46 @@ HCATS.event.eventbuilder = function()
                "e_"+my.eid,
                params,
                function(msg){
-                       console.dir(msg);
+                   console.dir(msg);
+                   HCATS.event.eventbuilder.loadFromServer();
+
                }
         );
 
+    }
+
+    module.broadcastComment = function(e) {
+        var commentMID = $(e.target).closest('div.comment').attr('ID');
+        commentMID = commentMID.split('_')[1];
+
+        var params = {
+            cmd:        'BroadcastComment',
+            commentmid:  commentMID
+
+        };
+        $.getJSON(
+               "e_"+my.eid,
+               params,
+               function(msg){
+                       console.dir(msg);
+               }
+        );
+    }
+
+    module.sendEventCmd = function(e,cmd) {
+        var params = {
+            cmd:        cmd
+        };
+        $.getJSON(
+               "e_"+my.eid,
+               params,
+               function(msg){
+                   console.dir(msg);
+                   // Then what do we do?
+                   window.location.href='/';
+
+               }
+        );
     }
 
     return module;

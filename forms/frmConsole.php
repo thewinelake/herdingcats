@@ -31,24 +31,25 @@ include "furniture/header.php"
 
 </div>
 
-<div id="otherevents">
-    <h1>other events</h1>
-</div>
-
 <!--- Some templates --->
 
 <table>
     <tr id="eventHeader" class="template">
         <td>Date</td>
         <td>Title</td>
+        <td>Status</td>
         <td>Guests</td>
         <td>Zoom</td>
+    </tr>
+    <tr id="noEvents" class="template">
+        <td colspan="10"><i>You have no events at the moment. Create them or be invited to them</i></td>
     </tr>
     <tr id="eventRow" class="template">
         <td name="date">?</td>
         <td name="title">?</td>
+        <td name="status">?</td>
         <td name="guestinfo">?</td>
-        <td name="eventzoom"><a class="button zoom" href="#">Zoom</a></td>
+        <td name="eventzoom"><button class="zoom link">Zoom</button></td>
 
     </tr>
 </table>

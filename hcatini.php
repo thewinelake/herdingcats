@@ -7,12 +7,13 @@
  * To change this template use File | Settings | File Templates.
  */
 
-$GLOBALS['hcatConfig'] = array (
+$GLOBALS['HcatConfig'] = array (
 
     'GenConfig' => array (
-        'svn_revision'      => '!svn-revision!',
-        'deploy_gmt'   => '!deploy-gmt!',
-        'release_version'   => '2012-04-30 16:11'
+        'DeployGMT'   => '!deploy-gmt!',
+        'ReleaseVersion'   => '2012-04-30 16:11',
+        'EmailTemplateDir' => '/Users/alexlake/Sites/herdingcats/templates',
+        'BaseURL' => 'http://127.0.0.1/',
     ),
 
 
@@ -23,6 +24,7 @@ $GLOBALS['hcatConfig'] = array (
              'db_password' => 'JimDavis'
          ),
      ),
+
 );
 
 

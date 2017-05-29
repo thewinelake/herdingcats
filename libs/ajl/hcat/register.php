@@ -38,7 +38,7 @@ class register extends hcatUI
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         if (sizeof($rows)==0) {
             // That's encouraging?
-            $user = new user($this->hcatServer->dbh);
+            $user = new user();
             $user->email = $email;
             $user->name = $name;
             $user->setPassword($pwd);

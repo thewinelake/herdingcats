@@ -7,6 +7,8 @@
  */
 include_once 'libs/ajl/hcat/hcatui.php';
 
+include_once 'libs/ajl/hcat/email.php';
+
 
 include_once 'libs/ajl/hcat/console.php';
 include_once 'libs/ajl/hcat/event.php';

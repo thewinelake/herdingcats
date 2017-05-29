@@ -29,10 +29,12 @@ class console extends hcatUI
             case 'CreateEvent':
                 $evt = new event($this->hcatServer);
                 $evt->allocateNewEventID();
-                $evt->owneruid = $_SESSION['uid'];
+                $evt->hostUid = $_SESSION['uid'];
                 $evt->title = $_REQUEST['title'];
                 $evt->description = $_REQUEST['description'];
                 $evt->date = $_REQUEST['date'];
+                $evt->status = 'Planning';
+
                 $evt->saveToDB();
                 $result = $evt;
                 break;
@@ -41,6 +43,7 @@ class console extends hcatUI
                 $myevents = [];
                 $sql="select e.*,m.msgtext,m.uid from hcat.event as e,hcat.message as m";
                 $sql.=" where e.owneruid=:myuid and e.descriptionmid=m.mid and e.eid is not null";
+                $sql.=" and e.status not in ('deleted')";
                 $sql.=" order by e.eid";
 
                 // @var $stmt PDOStatement
@@ -54,7 +57,7 @@ class console extends hcatUI
                     /** @var $event event */
                     $event = new event($this->hcatServer);
                     $event->loadFromAssocArray($row);
-                    $eid = $event->id;
+                    $eid = $event->eid;
                     $myevents[$eid] = $event;
                 }
                 $events['myEventsList'] = $myevents;

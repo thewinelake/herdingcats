@@ -18,3 +18,9 @@ var HCATS = HCATS || {};
 
 
 
+function buttonLink(e) {
+    var url = $(e.target).closest('button').attr('href');
+    if (url) {
+        window.location.href=url;
+    }
+};
