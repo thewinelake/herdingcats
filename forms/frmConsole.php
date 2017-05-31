@@ -12,7 +12,7 @@ include "furniture/header.php"
         <tbody id="myEventsContainer" >
         </tbody>
     </table>
-    <p><a class="button newevent">New Event...</a></p>
+    <p><button class="newevent">New Event...</button></p>
 
     <div id='newEvent'>
         <p>
@@ -20,7 +20,7 @@ include "furniture/header.php"
             <span>Description:<input type='text' name='description'></span>
             <span>When:<input type='text' name='date'></span>
 
-            <a class='button createevent'>Create Event.</a>
+            <button class='createevent'>Create Event</button>
         </p>
     </div>
 
@@ -30,12 +30,12 @@ include "furniture/header.php"
 
 <table>
     <tr id="eventHeader" class="template">
-        <td>Date</td>
-        <td>Title</td>
-        <td>Host</td>
-        <td>Status</td>
-        <td>Guests</td>
-        <td>Zoom</td>
+        <th>Date</th>
+        <th>Title</th>
+        <th>Host</th>
+        <th>Status</th>
+        <th>Guests</th>
+        <th>Zoom</th>
     </tr>
     <tr id="noEvents" class="template">
         <td colspan="10"><i>You have no events at the moment. Create them or be invited to them</i></td>
@@ -43,7 +43,7 @@ include "furniture/header.php"
     <tr id="eventRow" class="template">
         <td name="date">?</td>
         <td name="title">?</td>
-        <td name="host">?</td>
+        <td name="hostname">?</td>
         <td name="status">?</td>
         <td name="guestinfo">?</td>
         <td name="eventzoom"><button class="zoom link">Zoom</button></td>

@@ -80,14 +80,25 @@ HCATS.event.eventbuilder = function()
     }
 
     module.initView = function() {
+
+        $('#guestRowInput').hide();
+
+        // reset bound functions
+        $('button').unbind();
+
         // attach handlers
         $('button.link').bind('click',buttonLink);
 
-        $('.addGuest').bind( 'click', function() { HCATS.event.eventbuilder.addGuestStep1(); } );
-        $('#guestRowInput').hide();
+        // Guests
+        $('button.addGuest').bind( 'click', function(e) { HCATS.event.eventbuilder.addGuestStep1(e); } );
+        $("button.inviteGuest").bind( 'click', function(e) { HCATS.event.eventbuilder.addGuestStep2(e); });
         $('button.remove').bind('click',function(e) {HCATS.event.eventbuilder.removeGuest(e);});
         $('button.nudge').bind('click',function(e) {HCATS.event.eventbuilder.guestNudge(e);});
+
+        // Comments
         $('button.addcomment').bind('click',function(e) {HCATS.event.eventbuilder.addComment(e);});
+
+        // Generic
         $('button.deleteevent').bind('click',function(e) {HCATS.event.eventbuilder.sendEventCmd(e,'DeleteEvent');});
         $('button.cancelevent').bind('click',function(e) {HCATS.event.eventbuilder.sendEventCmd(e,'CancelEvent');});
         $('button.editEvent').bind('click',function(e) {HCATS.event.eventbuilder.editEvent();});
@@ -157,16 +168,17 @@ HCATS.event.eventbuilder = function()
 
     }
 
-    module.addGuestStep1 = function() {
+    module.addGuestStep1 = function(e) {
         // alert("Add a guest");
 
+        $._data( $("button.addGuest"), "events" );
+
         $('#guestRowInput').show();
-        $(".inviteGuestButton").bind( 'click', function() { HCATS.event.eventbuilder.addGuestStep2(); });
-        $('.addGuest').hide();
+        $('button.addGuest').hide();
 
     }
 
-    module.addGuestStep2 = function () {
+    module.addGuestStep2 = function (e) {
         this.addGuest();
 
         $('#guestRowInput').find("[name=guestName]").attr('value','');
