@@ -20,11 +20,16 @@ class event extends hcatUI
     public $guestList; // array
     public $comments; // array
 
-    public function event($hcatServer) {
+    public function event($hcatServer,$eid=0) {
         $this->host = new stdClass();
         $this->guestList = [];
         $this->comments = [];
         parent::__construct($hcatServer);
+        if ($eid) {
+            $this->eid = $eid;
+            if (!$this->loadFromDB()) $this->eid = 0;
+        }
+
     }
 
     public function myEmailAddress() {
@@ -118,6 +123,9 @@ class event extends hcatUI
             case 'BroadcastComment':
                 $this->ajax_BroadcastComment($result);
                 break;
+            case 'DeleteComment':
+                $this->ajax_DeleteComment($result);
+                break;
             default:
                 $this->debug(1,"Unknown AJAX Cmd $cmd");
                 $result = array();
@@ -125,14 +133,7 @@ class event extends hcatUI
         echo json_encode($result);
     }
 
-    public function handleEmail($inbox,$email_number) {
-        $overview = imap_fetch_overview($inbox,$email_number,0);
-        $body = imap_fetchbody($inbox,$email_number,'1');
-        $subject = $overview[0]->subject;
-        $this->debug(1,"Event handling email with subject $subject");
-        $this->debug(1,"Message reads $body");
 
-    }
 
     public function loadFromDB() {
         $this->debug(1,"Loading event {$this->eid} from DB");
@@ -176,7 +177,8 @@ class event extends hcatUI
         foreach ($rows as $row) {
             $comment = new stdClass();
             $comment->commentMid = $row['mid'];
-            $comment->commentText = $row['msgtext'];
+            $comment->commentText = $this->renderCommentCompactAsHtml($row['msgtext']);
+            $comment->commentHtml = $this->renderCommentCompactAsHtml($row['msgtext']);
             $comment->commentAuthor = $row['email'];
             $comment->commentGMT = $row['gmt'];
 
@@ -205,6 +207,10 @@ class event extends hcatUI
         $this->description = $a['msgtext'];
         $this->date = $a['date'];
         $this->descriptionMid = $a['descriptionmid'];
+
+    }
+
+    public function handleEmail() {
 
     }
 
@@ -264,12 +270,7 @@ class event extends hcatUI
         $stmt->bindValue(':title', $this->title, PDO::PARAM_INT);
         $r = $this->dbExecute($stmt);
 
-        $stmt = $this->hcatServer->dbh->prepare("SELECT LAST_INSERT_ID();");
-        $r = $this->dbExecute($stmt);
-
-        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        $newEID = $rows[0]["LAST_INSERT_ID()"];
-        $this->eid = $newEID;
+        $this->eid = $this->hcatServer->dbLastInsertID();
     }
 
 
@@ -314,20 +315,19 @@ class event extends hcatUI
             $this->dbExecute($stmt);
             $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
             $ikey = sprintf('%d',rand (100000,999999)).sprintf('%d',rand (100000,999999));
-            if (sizeof($rows)==1) {
-                // Already in the db
-                $sql = "update hcat.invitation set name=:name, crtgmt=:crtgmt, status=:status, statusgmt=:statusgmt where eid=:eid and uid=:uid;";
-            } else {
+            $insert = sizeof($rows)==0;
+            if ($insert) {
                 // this is a new one
                 $sql = "insert into hcat.invitation (eid,uid,ikey,name,crtgmt,status,statusgmt) values (:eid,:uid,:ikey,:name,:crtgmt,:status,:statusgmt);";
+            } else {
+                // Already in the db
+                $sql = "update hcat.invitation set name=:name, crtgmt=:crtgmt, status=:status, statusgmt=:statusgmt where eid=:eid and uid=:uid;";
             }
             $stmt = $this->hcatServer->dbh->prepare($sql);
             $now = date('Y-m-d H:i:s');
             $stmt->bindValue(':eid', $this->eid, PDO::PARAM_INT);
             $stmt->bindValue(':uid', $guest->uid, PDO::PARAM_STR);
-            $stmt->bindValue(':email', $guestDetails['email'], PDO::PARAM_STR);
-            $stmt->bindValue(':ikey', $ikey, PDO::PARAM_STR);
-            $stmt->bindValue(':name', $guestDetails['name'], PDO::PARAM_STR);
+            if ($insert) $stmt->bindValue(':ikey', $ikey, PDO::PARAM_STR);
             $stmt->bindValue(':status', 'new', PDO::PARAM_STR);
             $stmt->bindValue(':crtgmt', $now, PDO::PARAM_STR);
             $stmt->bindValue(':statusgmt', $now, PDO::PARAM_STR);
@@ -448,6 +448,8 @@ class event extends hcatUI
         $jcomment = $_REQUEST['comment'];
         $comment = json_decode($jcomment);
 
+        $this->debug(1,"Adding comment [$comment->commentText]");
+
         $sql="insert into hcat.message (uid,eid,gmt,msgtext) values (:uid,:eid,:gmt,:msgtext);";
         $stmt = $this->hcatServer->dbh->prepare($sql);
         $stmt->bindValue(':uid', $this->hcatServer->user->uid, PDO::PARAM_INT);
@@ -521,6 +523,7 @@ class event extends hcatUI
             $mergedata->comment->GMT = $row['gmt'];
             $mergedata->event = $this;
             $mergedata->user = $guest;
+            $mergedata->mid = $commentMID;
 
             $email = new Email();
             $email->fromAddress = $this->myEmailAddress();
@@ -529,6 +532,21 @@ class event extends hcatUI
             $email->send();
 
         }
+    }
+
+    public function ajax_DeleteComment(&$result) {
+
+        $commentMID = $_REQUEST['commentmid'];
+
+        $this->debug(2,"DeleteComment $commentMID");
+
+        $stmt = $this->hcatServer->dbh->prepare("delete from hcat.message where eid=:eid and mid=:mid");
+        $stmt->bindValue(':eid', $this->eid, PDO::PARAM_INT);
+        $stmt->bindValue(':mid', $commentMID, PDO::PARAM_INT);
+
+        $this->dbExecute($stmt);
+
+        $result = array('refresh'=>'1');
     }
 
     public function GuestURL($guestUid=0) {
@@ -558,6 +576,19 @@ class event extends hcatUI
             $url =  ''; // or maybe something else?
         }
         return $url;
+    }
+
+    private function renderCommentCompactAsHtml($msgText) {
+        $msgHtml = '';
+        $lines = explode("\r\n",$msgText);
+        foreach ($lines as $line) {
+            if (substr(trim($line),0,1)!='>') {
+                if (($line!='') || (substr($msgHtml,-5)!='<br/>')) {
+                    $msgHtml.=htmlentities($line).'<br/>';
+                }
+            }
+        }
+        return $msgHtml;
     }
 
 

@@ -10,11 +10,6 @@ include "furniture/header.php"
 
     <table border=1>
         <tbody id="myEventsContainer" >
-        <tr>
-            <td>Date</td>
-            <td>Title</td>
-            <td>Guests ??</td>
-        </tr>
         </tbody>
     </table>
     <p><a class="button newevent">New Event...</a></p>
@@ -37,6 +32,7 @@ include "furniture/header.php"
     <tr id="eventHeader" class="template">
         <td>Date</td>
         <td>Title</td>
+        <td>Host</td>
         <td>Status</td>
         <td>Guests</td>
         <td>Zoom</td>
@@ -47,6 +43,7 @@ include "furniture/header.php"
     <tr id="eventRow" class="template">
         <td name="date">?</td>
         <td name="title">?</td>
+        <td name="host">?</td>
         <td name="status">?</td>
         <td name="guestinfo">?</td>
         <td name="eventzoom"><button class="zoom link">Zoom</button></td>

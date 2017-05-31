@@ -35,8 +35,8 @@ class register extends hcatUI
         $stmt = $this->hcatServer->dbh->prepare($sql);
         $stmt->bindValue(':email', $email, PDO::PARAM_STR);
         $stmt->execute();
-        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        if (sizeof($rows)==0) {
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        if (sizeof($row)==0) {
             // That's encouraging?
             $user = new user();
             $user->email = $email;
@@ -53,7 +53,10 @@ class register extends hcatUI
             $l = new login($this->hcatServer);
             $l->render();
         } else {
-            $_SESSION['message']="Account already created for {$user->email}.";
+            $user = new user($row['uid']);
+            $_SESSION['message']="!Account already created for {$user->email}.";
+            $r = new register($this->hcatServer);
+            $r->render();
         }
     }
 }

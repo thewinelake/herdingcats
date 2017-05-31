@@ -8,11 +8,13 @@
 include_once 'libs/ajl/hcat/hcatui.php';
 
 include_once 'libs/ajl/hcat/email.php';
+include_once 'libs/ajl/hcat/emailParser.php';
 
 
 include_once 'libs/ajl/hcat/console.php';
 include_once 'libs/ajl/hcat/event.php';
 include_once 'libs/ajl/hcat/login.php';
+include_once 'libs/ajl/hcat/message.php';
 include_once 'libs/ajl/hcat/register.php';
 include_once 'libs/ajl/hcat/hcatserver.php';
 include_once 'libs/ajl/hcat/user.php';

@@ -63,6 +63,17 @@ class hcatServer
         return $r;
     }
 
+    public function dbLastInsertID() {
+        $stmt = $this->dbh->prepare("SELECT LAST_INSERT_ID();");
+        $r = $this->dbExecute($stmt);
+        if ($r) {
+            $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $rows[0]["LAST_INSERT_ID()"];
+        } else {
+            return 0;
+        }
+    }
+
     public function debug($level,$msg) {
         $d = date('H:i:s');
 
@@ -95,6 +106,8 @@ class hcatServer
 
         try {
 
+            $cmd = '?';
+
             $this->setLogin();
 
 
@@ -108,8 +121,8 @@ class hcatServer
             $actionchunks = explode('_',$action);
 
             // echo "[$verb:$action]";
-
-            switch ($actionchunks[0]) {
+            $cmd = $actionchunks[0];
+            switch ($cmd) {
                 case '':
                     if (isset($_SESSION['uid']) && $_SESSION['uid']) {
                         $l = new console($this);
@@ -182,6 +195,8 @@ class hcatServer
         }
         $timeOut = time() + microtime();
         $duration = $timeOut - $timeIn;
+        $this->debug(1, "Handling $cmd took {$duration}ms");
+
     }
 
     public function errorPage($errMsg) {
@@ -192,74 +207,10 @@ class hcatServer
         include "furniture/footer.php";
     }
 
+
     public function pollEmail() {
-        $hostname = 'mail3.gridhost.co.uk:993/imap/ssl';
-        $username = 'all@herdingcats.club';
-        $password = 'Cool4cats';
-
-
-
-        $inbox = imap_open("{{$hostname}}INBOX",$username,$password) or die('Cannot connect to IMAP['.$hostname.']: ' . imap_last_error());
-
-
-        /* grab emails */
-        $emails = imap_search($inbox,'ALL');
-
-
-
-        /* if emails are returned, cycle through each... */
-        if($emails) {
-
-
-            /* put the newest emails on top */
-            rsort($emails);
-
-            /* for every email... */
-            foreach($emails as $email_number) {
-
-                /* get information specific to this email */
-                $overview = imap_fetch_overview($inbox,$email_number,0);
-
-                $toAddr = strtolower($overview[0]->to);
-
-                // the toAddr is like the REST hit
-                // At the moment, we can only handle to-addresses of the form e_<evtId>@herdingcats.club
-
-                $toAddrBits1 = explode("@",$toAddr);
-                $toAddrBits2 = explode("_",$toAddrBits1[0]);
-
-                switch ($toAddrBits2[0]) {
-                    case 'e':
-                        $eid = $toAddrBits2[1];
-                        $evtKey = valOr($toAddrBits2,2,'');
-                        $e = new event($this);
-                        $e->eid = $eid;
-                        if($e->loadFromDB()) {
-                            if ($e->validateKey($evtKey)) {
-                                $e->handleEmail($inbox,$email_number);
-                            }
-                        } else {
-                            $this->errorPage("Unable to find event $eid");
-                        }
-                        break;
-                    default:
-                        // Ignore it
-                        $this->debug(1,"Binning spam to $toAddr");
-                }
-
-                $r = imap_delete($inbox,$email_number); // But does this really not shuffle up?
-                $this->debug(1,"Delete $email_number returns $r");
-
-            }
-
-
-        } else {
-            $this->debug(1,"No emails to handle");
-        }
-
-        /* close the connection */
-        imap_close($inbox,CL_EXPUNGE);
-
+        $emailParser = new emailParser($this);
+        $emailParser->poll();
     }
 
     public function setLogin() {

@@ -10,9 +10,9 @@
 class login extends hcatUI
 {
     function render() {
-        include 'furniture/header.php';
+        //include 'furniture/header.php';
         include 'forms/frmLogin.php';
-        include 'furniture/footer.php';
+        //include 'furniture/footer.php';
 
     }
 }

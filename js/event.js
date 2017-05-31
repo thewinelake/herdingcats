@@ -90,6 +90,9 @@ HCATS.event.eventbuilder = function()
         $('button.addcomment').bind('click',function(e) {HCATS.event.eventbuilder.addComment(e);});
         $('button.deleteevent').bind('click',function(e) {HCATS.event.eventbuilder.sendEventCmd(e,'DeleteEvent');});
         $('button.cancelevent').bind('click',function(e) {HCATS.event.eventbuilder.sendEventCmd(e,'CancelEvent');});
+        $('button.editEvent').bind('click',function(e) {HCATS.event.eventbuilder.editEvent();});
+
+
 
     }
 
@@ -122,26 +125,35 @@ HCATS.event.eventbuilder = function()
 
         for (commentIdx in my.comments) {
             var comment = my.comments[commentIdx];
-            var commentText = comment['commentText'];
+            var commentHtml = comment['commentHtml'];
             var commentAuthor = comment['commentAuthor'];
+
+            var commentInfo = '['+comment['commentMid']+'] '+comment['commentAuthor']+' @ '+comment['commentGMT'];
 
             var $newRow = $('#comment').clone();
             $newRow.removeClass('template');
             $newRow.removeAttr('ID');
             $newRow.attr('ID', 'mid_'+comment['commentMid']);
 
-            $newRow.find('.commentText').text(commentText);
-            $newRow.find('.commentAuthor').text(commentAuthor);
+            $newRow.find('.commentHtml').html(commentHtml);
+            $newRow.find('.commentInfo').text(commentInfo);
 
-            $newRow.find('.broadcast').bind( 'click', function(e) { HCATS.event.eventbuilder.broadcastComment(e); });
 
             //$newRow.find('.commentActions').html(commentActions);
 
             $('#commentContainer').append($newRow);
         }
 
+        $('.broadcastComment').bind( 'click', function(e) { HCATS.event.eventbuilder.broadcastComment(e); });
+        $('.deleteComment').bind( 'click', function(e) { HCATS.event.eventbuilder.deleteComment(e); });
+
+
         this.initView();
 
+
+    }
+
+    module.editEvent = function() {
 
     }
 
@@ -228,7 +240,7 @@ HCATS.event.eventbuilder = function()
 
     module.addComment = function(e) {
         var comment = {};
-        comment.commentText = $('.comment').val();
+        comment.commentText = $('.newComment').val();
         comment.commentAuthor = my.user.email;
         //my.comments.push(comment);
         //this.render();
@@ -251,11 +263,18 @@ HCATS.event.eventbuilder = function()
     }
 
     module.broadcastComment = function(e) {
+        this.sendCommentCmd(e,'BroadcastComment');
+    }
+    module.deleteComment = function(e) {
+        this.sendCommentCmd(e,'DeleteComment');
+    }
+
+    module.sendCommentCmd = function(e,cmd) {
         var commentMID = $(e.target).closest('div.comment').attr('ID');
         commentMID = commentMID.split('_')[1];
 
         var params = {
-            cmd:        'BroadcastComment',
+            cmd:        cmd,
             commentmid:  commentMID
 
         };
@@ -263,7 +282,10 @@ HCATS.event.eventbuilder = function()
                "e_"+my.eid,
                params,
                function(msg){
-                       console.dir(msg);
+                   console.dir(msg);
+                   if (msg.refresh) {
+                       HCATS.event.eventbuilder.loadFromServer();
+                   }
                }
         );
     }

@@ -41,8 +41,8 @@ class console extends hcatUI
             case "GetEvents":
                 $events = [];
                 $myevents = [];
-                $sql="select e.*,m.msgtext,m.uid from hcat.event as e,hcat.message as m";
-                $sql.=" where e.owneruid=:myuid and e.descriptionmid=m.mid and e.eid is not null";
+                $sql="select e.*,m.msgtext,m.uid,u.name,u.email from hcat.event as e,hcat.message as m,hcat.user as u";
+                $sql.=" where e.owneruid=:myuid and e.descriptionmid=m.mid and e.eid is not null and e.owneruid=u.uid";
                 $sql.=" and e.status not in ('deleted')";
                 $sql.=" order by e.eid";
 
@@ -57,6 +57,9 @@ class console extends hcatUI
                     /** @var $event event */
                     $event = new event($this->hcatServer);
                     $event->loadFromAssocArray($row);
+                    $event->hostName = $row['name'];
+                    $event->hostEmail = $row['email'];
+
                     $eid = $event->eid;
                     $myevents[$eid] = $event;
                 }

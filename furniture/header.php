@@ -4,8 +4,10 @@
     } else {
         $hs =$this->hcatServer;
     }
-    $uid = $hs->user->uid;
-    $email = $hs->user->email;
+    if ($hs->user) {
+        $uid = $hs->user->uid;
+        $email = $hs->user->email;
+    }
 ?>
 
 <html>
@@ -29,11 +31,9 @@
 
 </head>
 <body>
+<div class="header1">herdingCats.club</div>
+<table width="100%">
 <?php if ($uid) { ?>
-<table  width="100%">
-    <tr class="header1">
-        <td colspan="4">HerdingCats.club</td>
-    </tr>
     <tr class='header2'>
         <td><button class="link console" href="/">console</button></td>
         <td><?= $email ?></td>
@@ -41,5 +41,5 @@
         <td class="rCell"><button class="link" href='/logout'>logout</button></td>
 
     </tr>
-</table>
 <?php } ?>
+</table>

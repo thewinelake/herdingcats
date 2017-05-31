@@ -55,6 +55,8 @@ HCATS.console.wibble = function()
         $('.createEvent').bind( 'click', function() { HCATS.console.wibble.addEventStep2(); } );
 
 
+
+
         $('#newEvent').hide();
 
         this.render();
@@ -136,6 +138,7 @@ HCATS.console.wibble = function()
 
             $newRow.find('td[name=title]').text(event.title);
             $newRow.find('td[name=date]').text(event.date);
+            $newRow.find('td[name=host]').text(event.host);
             $newRow.find('td[name=status]').text(event.status);
             $newRow.find('button.zoom').attr('href',eventURL);
             $newRow.find('button.zoom').bind('click',buttonLink);

@@ -4,7 +4,7 @@
 /* @var $mergedata->user user */
 
 
-$this->subject = "Update for {$mergedata->event->title}";
+$this->subject = "Update for {$mergedata->event->title} [$mergedata->mid]";
 $guestURL = $mergedata->event->GuestURL($mergedata->user->uid);
 $guestUnsubscribeURL = $mergedata->event->GuestUnsubscribeURL($mergedata->user->uid, $mergedata->event->eid);
 $guestUnsubscribeAllURL = $mergedata->event->GuestUnsubscribeURL($mergedata->user->uid,'ALL');

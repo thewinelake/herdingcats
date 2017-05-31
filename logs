@@ -4123,3 +4123,334 @@
 [Mon May 29 23:19:55.998001 2017] [:error] [pid 3446] [client 127.0.0.1:62449] PHP   5. event->ajax_BroadcastComment($result = *uninitialized*) /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:119, referer: http://127.0.0.1/e_24?XDEBUG_SESSION_START=18330
 [Mon May 29 23:19:55.998008 2017] [:error] [pid 3446] [client 127.0.0.1:62449] PHP   6. Email->mergeTemplate($templatename = *uninitialized*, $mergedata = *uninitialized*) /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:528, referer: http://127.0.0.1/e_24?XDEBUG_SESSION_START=18330
 [Mon May 29 23:19:55.998014 2017] [:error] [pid 3446] [client 127.0.0.1:62449] PHP   7. include() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/email.php:50, referer: http://127.0.0.1/e_24?XDEBUG_SESSION_START=18330
+[Tue May 30 07:37:14.191994 2017] [:error] [pid 3250] [client 127.0.0.1:60005] PHP Fatal error:  Cannot redeclare valOr() (previously declared in /Users/alexlake/Sites/herdingcats/common.php:41) in /Users/alexlake/Sites/herdingcats/common.php on line 44
+[Tue May 30 07:37:14.197378 2017] [:error] [pid 3250] [client 127.0.0.1:60005] PHP Stack trace:
+[Tue May 30 07:37:14.197435 2017] [:error] [pid 3250] [client 127.0.0.1:60005] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0
+[Tue May 30 07:42:46.100004 2017] [:error] [pid 3467] [client 127.0.0.1:60313] PHP Notice:  Unknown: Can't connect to mail.gridhost.co.uk,993: Operation timed out (errflg=1) in Unknown on line 0
+[Tue May 30 07:42:46.100124 2017] [:error] [pid 3467] [client 127.0.0.1:60313] PHP Stack trace:
+[Tue May 30 07:42:46.100132 2017] [:error] [pid 3467] [client 127.0.0.1:60313] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0
+[Tue May 30 07:42:46.100139 2017] [:error] [pid 3467] [client 127.0.0.1:60313] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16
+[Tue May 30 07:42:46.100145 2017] [:error] [pid 3467] [client 127.0.0.1:60313] PHP   3. hcatServer->pollEmail() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:152
+[Tue May 30 21:20:09.927597 2017] [:error] [pid 3446] [client 127.0.0.1:62309] PHP Warning:  imap_fetchstructure(): No body information available in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php on line 138
+[Tue May 30 21:20:09.928139 2017] [:error] [pid 3446] [client 127.0.0.1:62309] PHP Stack trace:
+[Tue May 30 21:20:09.928159 2017] [:error] [pid 3446] [client 127.0.0.1:62309] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0
+[Tue May 30 21:20:09.928193 2017] [:error] [pid 3446] [client 127.0.0.1:62309] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16
+[Tue May 30 21:20:09.928211 2017] [:error] [pid 3446] [client 127.0.0.1:62309] PHP   3. hcatServer->pollEmail() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:152
+[Tue May 30 21:20:09.928219 2017] [:error] [pid 3446] [client 127.0.0.1:62309] PHP   4. event->handleEmail($inbox = *uninitialized*, $email_number = *uninitialized*) /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:243
+[Tue May 30 21:20:09.928226 2017] [:error] [pid 3446] [client 127.0.0.1:62309] PHP   5. imap_fetchstructure(*uninitialized*, *uninitialized*) /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:138
+[Tue May 30 21:20:14.629388 2017] [:error] [pid 3446] [client 127.0.0.1:62309] PHP Notice:  Unknown: Invalid quoted-printable sequence: =&quot;Content-Type&quot; content=&quot;text/html charset=us-ascii&quot;&gt;&lt;/head&gt;&lt;body style=&quot;word-wra (errflg=3) in Unknown on line 0
+[Tue May 30 21:20:14.630415 2017] [:error] [pid 3446] [client 127.0.0.1:62309] PHP Notice:  Unknown: [CLOSED] IMAP connection broken (server response) (errflg=2) in Unknown on line 0
+[Tue May 30 21:20:14.630432 2017] [:error] [pid 3446] [client 127.0.0.1:62309] PHP Notice:  Unknown: [CLOSED] IMAP connection lost (errflg=2) in Unknown on line 0
+[Tue May 30 21:20:14.630445 2017] [:error] [pid 3446] [client 127.0.0.1:62309] PHP Notice:  Unknown: [CLOSED] IMAP connection lost (errflg=2) in Unknown on line 0
+[Tue May 30 21:20:14.630457 2017] [:error] [pid 3446] [client 127.0.0.1:62309] PHP Notice:  Unknown: [CLOSED] IMAP connection lost (errflg=2) in Unknown on line 0
+[Tue May 30 21:20:33.101008 2017] [:error] [pid 3362] [client 127.0.0.1:63547] PHP Notice:  Unknown: Invalid quoted-printable sequence: =&quot;Content-Type&quot; content=&quot;text/html charset=us-ascii&quot;&gt;&lt;/head&gt;&lt;body style=&quot;word-wra (errflg=3) in Unknown on line 0
+[Tue May 30 21:20:33.101161 2017] [:error] [pid 3362] [client 127.0.0.1:63547] PHP Notice:  Unknown: Invalid quoted-printable sequence: =&quot;Content-Type&quot; content=&quot;text/html charset=us-ascii&quot;&gt;&lt;/head&gt;&lt;body style=&quot;word-wra (errflg=3) in Unknown on line 0
+[Tue May 30 21:51:56.100018 2017] [:error] [pid 3808] [client 127.0.0.1:64253] PHP Notice:  Unknown: Invalid quoted-printable sequence: =&quot;Content-Type&quot; content=&quot;text/html charset=us-ascii&quot;&gt;&lt;/head&gt;&lt;body style=&quot;word-wra (errflg=3) in Unknown on line 0
+[Tue May 30 21:52:15.118734 2017] [:error] [pid 3447] [client 127.0.0.1:50667] PHP Notice:  Undefined property: emailParser::$dbh in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php on line 137
+[Tue May 30 21:52:15.118839 2017] [:error] [pid 3447] [client 127.0.0.1:50667] PHP Stack trace:
+[Tue May 30 21:52:15.118848 2017] [:error] [pid 3447] [client 127.0.0.1:50667] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0
+[Tue May 30 21:52:15.118856 2017] [:error] [pid 3447] [client 127.0.0.1:50667] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16
+[Tue May 30 21:52:15.118862 2017] [:error] [pid 3447] [client 127.0.0.1:50667] PHP   3. hcatServer->pollEmail() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:163
+[Tue May 30 21:52:15.118868 2017] [:error] [pid 3447] [client 127.0.0.1:50667] PHP   4. emailParser->poll() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:209
+[Tue May 30 21:52:15.118874 2017] [:error] [pid 3447] [client 127.0.0.1:50667] PHP   5. event->event($hcatServer = *uninitialized*, $eid = *uninitialized*) /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/emailParser.php:65
+[Tue May 30 21:52:15.118880 2017] [:error] [pid 3447] [client 127.0.0.1:50667] PHP   6. event->loadFromDB() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:30
+[Tue May 30 21:52:15.118942 2017] [:error] [pid 3447] [client 127.0.0.1:50667] PHP Fatal error:  Call to a member function prepare() on a non-object in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php on line 137
+[Tue May 30 21:52:15.118948 2017] [:error] [pid 3447] [client 127.0.0.1:50667] PHP Stack trace:
+[Tue May 30 21:52:15.118962 2017] [:error] [pid 3447] [client 127.0.0.1:50667] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0
+[Tue May 30 21:52:15.118969 2017] [:error] [pid 3447] [client 127.0.0.1:50667] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16
+[Tue May 30 21:52:15.118974 2017] [:error] [pid 3447] [client 127.0.0.1:50667] PHP   3. hcatServer->pollEmail() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:163
+[Tue May 30 21:52:15.118980 2017] [:error] [pid 3447] [client 127.0.0.1:50667] PHP   4. emailParser->poll() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:209
+[Tue May 30 21:52:15.118986 2017] [:error] [pid 3447] [client 127.0.0.1:50667] PHP   5. event->event($hcatServer = *uninitialized*, $eid = *uninitialized*) /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/emailParser.php:65
+[Tue May 30 21:52:15.118991 2017] [:error] [pid 3447] [client 127.0.0.1:50667] PHP   6. event->loadFromDB() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:30
+[Tue May 30 21:53:34.161274 2017] [:error] [pid 3448] [client 127.0.0.1:50754] PHP Notice:  Undefined property: emailParser::$dbh in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php on line 137
+[Tue May 30 21:53:34.161372 2017] [:error] [pid 3448] [client 127.0.0.1:50754] PHP Stack trace:
+[Tue May 30 21:53:34.161382 2017] [:error] [pid 3448] [client 127.0.0.1:50754] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0
+[Tue May 30 21:53:34.161389 2017] [:error] [pid 3448] [client 127.0.0.1:50754] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16
+[Tue May 30 21:53:34.161396 2017] [:error] [pid 3448] [client 127.0.0.1:50754] PHP   3. hcatServer->pollEmail() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:163
+[Tue May 30 21:53:34.161402 2017] [:error] [pid 3448] [client 127.0.0.1:50754] PHP   4. emailParser->poll() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:209
+[Tue May 30 21:53:34.161409 2017] [:error] [pid 3448] [client 127.0.0.1:50754] PHP   5. event->event($hcatServer = *uninitialized*, $eid = *uninitialized*) /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/emailParser.php:65
+[Tue May 30 21:53:34.161414 2017] [:error] [pid 3448] [client 127.0.0.1:50754] PHP   6. event->loadFromDB() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:30
+[Tue May 30 21:53:34.161475 2017] [:error] [pid 3448] [client 127.0.0.1:50754] PHP Fatal error:  Call to a member function prepare() on a non-object in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php on line 137
+[Tue May 30 21:53:34.161481 2017] [:error] [pid 3448] [client 127.0.0.1:50754] PHP Stack trace:
+[Tue May 30 21:53:34.161486 2017] [:error] [pid 3448] [client 127.0.0.1:50754] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0
+[Tue May 30 21:53:34.161492 2017] [:error] [pid 3448] [client 127.0.0.1:50754] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16
+[Tue May 30 21:53:34.161498 2017] [:error] [pid 3448] [client 127.0.0.1:50754] PHP   3. hcatServer->pollEmail() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:163
+[Tue May 30 21:53:34.161503 2017] [:error] [pid 3448] [client 127.0.0.1:50754] PHP   4. emailParser->poll() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:209
+[Tue May 30 21:53:34.161510 2017] [:error] [pid 3448] [client 127.0.0.1:50754] PHP   5. event->event($hcatServer = *uninitialized*, $eid = *uninitialized*) /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/emailParser.php:65
+[Tue May 30 21:53:34.161515 2017] [:error] [pid 3448] [client 127.0.0.1:50754] PHP   6. event->loadFromDB() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:30
+[Tue May 30 22:09:09.229132 2017] [:error] [pid 3415] [client 127.0.0.1:51635] PHP Fatal error:  Call to undefined method event::handleEmail() in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/emailParser.php on line 68
+[Tue May 30 22:09:09.229282 2017] [:error] [pid 3415] [client 127.0.0.1:51635] PHP Stack trace:
+[Tue May 30 22:09:09.229300 2017] [:error] [pid 3415] [client 127.0.0.1:51635] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0
+[Tue May 30 22:09:09.229308 2017] [:error] [pid 3415] [client 127.0.0.1:51635] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16
+[Tue May 30 22:09:09.229314 2017] [:error] [pid 3415] [client 127.0.0.1:51635] PHP   3. hcatServer->pollEmail() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:163
+[Tue May 30 22:09:09.229320 2017] [:error] [pid 3415] [client 127.0.0.1:51635] PHP   4. emailParser->poll() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:209
+[Tue May 30 22:23:59.114032 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP Notice:  Undefined property: message::$hcatServer in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/message.php on line 33
+[Tue May 30 22:23:59.114140 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP Stack trace:
+[Tue May 30 22:23:59.114148 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0
+[Tue May 30 22:23:59.114156 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16
+[Tue May 30 22:23:59.114162 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP   3. hcatServer->pollEmail() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:163
+[Tue May 30 22:23:59.114168 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP   4. emailParser->poll() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:209
+[Tue May 30 22:23:59.114177 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP   5. emailParser->handleEmail($inbox = *uninitialized*, $email_number = *uninitialized*, $e = *uninitialized*) /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/emailParser.php:68
+[Tue May 30 22:23:59.114183 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP   6. message->saveToDB() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/emailParser.php:133
+[Tue May 30 22:23:59.114231 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP Notice:  Trying to get property of non-object in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/message.php on line 33
+[Tue May 30 22:23:59.114237 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP Stack trace:
+[Tue May 30 22:23:59.114243 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0
+[Tue May 30 22:23:59.114249 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16
+[Tue May 30 22:23:59.114255 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP   3. hcatServer->pollEmail() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:163
+[Tue May 30 22:23:59.114261 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP   4. emailParser->poll() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:209
+[Tue May 30 22:23:59.114268 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP   5. emailParser->handleEmail($inbox = *uninitialized*, $email_number = *uninitialized*, $e = *uninitialized*) /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/emailParser.php:68
+[Tue May 30 22:23:59.114274 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP   6. message->saveToDB() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/emailParser.php:133
+[Tue May 30 22:23:59.114320 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP Fatal error:  Call to a member function prepare() on a non-object in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/message.php on line 33
+[Tue May 30 22:23:59.114326 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP Stack trace:
+[Tue May 30 22:23:59.114332 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0
+[Tue May 30 22:23:59.114339 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16
+[Tue May 30 22:23:59.114358 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP   3. hcatServer->pollEmail() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:163
+[Tue May 30 22:23:59.114364 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP   4. emailParser->poll() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:209
+[Tue May 30 22:23:59.114410 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP   5. emailParser->handleEmail($inbox = *uninitialized*, $email_number = *uninitialized*, $e = *uninitialized*) /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/emailParser.php:68
+[Tue May 30 22:23:59.114425 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP   6. message->saveToDB() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/emailParser.php:133
+[Tue May 30 22:23:59.115054 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP Notice:  Unknown: Invalid quoted-printable sequence: =&quot;Content-Type&quot; content=&quot;text/html charset=us-ascii&quot;&gt;&lt;/head&gt;&lt;body style=&quot;word-wra (errflg=3) in Unknown on line 0
+[Tue May 30 22:23:59.115066 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP Stack trace:
+[Tue May 30 22:23:59.115075 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0
+[Tue May 30 22:23:59.115083 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16
+[Tue May 30 22:23:59.115089 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP   3. hcatServer->pollEmail() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:163
+[Tue May 30 22:23:59.115095 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP   4. emailParser->poll() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:209
+[Tue May 30 22:23:59.115103 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP   5. emailParser->handleEmail($inbox = *uninitialized*, $email_number = *uninitialized*, $e = *uninitialized*) /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/emailParser.php:68
+[Tue May 30 22:23:59.115109 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP   6. message->saveToDB() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/emailParser.php:133
+[Tue May 30 22:34:18.970417 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP Notice:  Undefined property: stdClass::$parts in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/emailParser.php on line 151
+[Tue May 30 22:34:18.970524 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP Stack trace:
+[Tue May 30 22:34:18.970532 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0
+[Tue May 30 22:34:18.970539 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16
+[Tue May 30 22:34:18.970545 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP   3. hcatServer->pollEmail() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:163
+[Tue May 30 22:34:18.970551 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP   4. emailParser->poll() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:209
+[Tue May 30 22:34:18.970560 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP   5. emailParser->handleEmail($inbox = *uninitialized*, $email_number = *uninitialized*, $e = *uninitialized*) /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/emailParser.php:68
+[Tue May 30 22:34:18.970566 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP   6. emailParser->getUidFromEmail($header = *uninitialized*) /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/emailParser.php:127
+[Tue May 30 22:34:18.970668 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP Notice:  Undefined property: message::$hcatServer in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/message.php on line 33
+[Tue May 30 22:34:18.970675 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP Stack trace:
+[Tue May 30 22:34:18.970722 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0
+[Tue May 30 22:34:18.971701 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16
+[Tue May 30 22:34:18.971738 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP   3. hcatServer->pollEmail() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:163
+[Tue May 30 22:34:18.971750 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP   4. emailParser->poll() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:209
+[Tue May 30 22:34:18.971759 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP   5. emailParser->handleEmail($inbox = *uninitialized*, $email_number = *uninitialized*, $e = *uninitialized*) /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/emailParser.php:68
+[Tue May 30 22:34:18.971765 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP   6. message->saveToDB() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/emailParser.php:134
+[Tue May 30 22:34:18.971837 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP Notice:  Trying to get property of non-object in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/message.php on line 33
+[Tue May 30 22:34:18.971847 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP Stack trace:
+[Tue May 30 22:34:18.971856 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0
+[Tue May 30 22:34:18.971866 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16
+[Tue May 30 22:34:18.971874 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP   3. hcatServer->pollEmail() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:163
+[Tue May 30 22:34:18.971881 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP   4. emailParser->poll() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:209
+[Tue May 30 22:34:18.971889 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP   5. emailParser->handleEmail($inbox = *uninitialized*, $email_number = *uninitialized*, $e = *uninitialized*) /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/emailParser.php:68
+[Tue May 30 22:34:18.971894 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP   6. message->saveToDB() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/emailParser.php:134
+[Tue May 30 22:34:18.971929 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP Fatal error:  Call to a member function prepare() on a non-object in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/message.php on line 33
+[Tue May 30 22:34:18.971935 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP Stack trace:
+[Tue May 30 22:34:18.971940 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0
+[Tue May 30 22:34:18.971945 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16
+[Tue May 30 22:34:18.971951 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP   3. hcatServer->pollEmail() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:163
+[Tue May 30 22:34:18.971956 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP   4. emailParser->poll() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:209
+[Tue May 30 22:34:18.971962 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP   5. emailParser->handleEmail($inbox = *uninitialized*, $email_number = *uninitialized*, $e = *uninitialized*) /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/emailParser.php:68
+[Tue May 30 22:34:18.971968 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP   6. message->saveToDB() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/emailParser.php:134
+[Tue May 30 22:34:18.972055 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP Notice:  Unknown: Invalid quoted-printable sequence: =&quot;Content-Type&quot; content=&quot;text/html charset=us-ascii&quot;&gt;&lt;/head&gt;&lt;body style=&quot;word-wra (errflg=3) in Unknown on line 0
+[Tue May 30 22:34:18.972069 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP Stack trace:
+[Tue May 30 22:34:18.972075 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0
+[Tue May 30 22:34:18.972083 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16
+[Tue May 30 22:34:18.972092 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP   3. hcatServer->pollEmail() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:163
+[Tue May 30 22:34:18.972101 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP   4. emailParser->poll() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:209
+[Tue May 30 22:34:18.972112 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP   5. emailParser->handleEmail($inbox = *uninitialized*, $email_number = *uninitialized*, $e = *uninitialized*) /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/emailParser.php:68
+[Tue May 30 22:34:18.972120 2017] [:error] [pid 3446] [client 127.0.0.1:52307] PHP   6. message->saveToDB() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/emailParser.php:134
+[Tue May 30 22:37:02.841419 2017] [:error] [pid 3362] [client 127.0.0.1:53680] PHP Notice:  Undefined property: message::$hcatServer in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/message.php on line 35
+[Tue May 30 22:37:02.841531 2017] [:error] [pid 3362] [client 127.0.0.1:53680] PHP Stack trace:
+[Tue May 30 22:37:02.841540 2017] [:error] [pid 3362] [client 127.0.0.1:53680] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0
+[Tue May 30 22:37:02.841547 2017] [:error] [pid 3362] [client 127.0.0.1:53680] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16
+[Tue May 30 22:37:02.841553 2017] [:error] [pid 3362] [client 127.0.0.1:53680] PHP   3. hcatServer->pollEmail() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:163
+[Tue May 30 22:37:02.841559 2017] [:error] [pid 3362] [client 127.0.0.1:53680] PHP   4. emailParser->poll() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:209
+[Tue May 30 22:37:02.841567 2017] [:error] [pid 3362] [client 127.0.0.1:53680] PHP   5. emailParser->handleEmail($inbox = *uninitialized*, $email_number = *uninitialized*, $e = *uninitialized*) /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/emailParser.php:68
+[Tue May 30 22:37:02.841572 2017] [:error] [pid 3362] [client 127.0.0.1:53680] PHP   6. message->saveToDB() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/emailParser.php:135
+[Tue May 30 22:37:02.841619 2017] [:error] [pid 3362] [client 127.0.0.1:53680] PHP Notice:  Trying to get property of non-object in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/message.php on line 35
+[Tue May 30 22:37:02.841624 2017] [:error] [pid 3362] [client 127.0.0.1:53680] PHP Stack trace:
+[Tue May 30 22:37:02.841630 2017] [:error] [pid 3362] [client 127.0.0.1:53680] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0
+[Tue May 30 22:37:02.841636 2017] [:error] [pid 3362] [client 127.0.0.1:53680] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16
+[Tue May 30 22:37:02.841642 2017] [:error] [pid 3362] [client 127.0.0.1:53680] PHP   3. hcatServer->pollEmail() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:163
+[Tue May 30 22:37:02.841647 2017] [:error] [pid 3362] [client 127.0.0.1:53680] PHP   4. emailParser->poll() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:209
+[Tue May 30 22:37:02.841654 2017] [:error] [pid 3362] [client 127.0.0.1:53680] PHP   5. emailParser->handleEmail($inbox = *uninitialized*, $email_number = *uninitialized*, $e = *uninitialized*) /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/emailParser.php:68
+[Tue May 30 22:37:02.841660 2017] [:error] [pid 3362] [client 127.0.0.1:53680] PHP   6. message->saveToDB() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/emailParser.php:135
+[Tue May 30 22:37:02.841710 2017] [:error] [pid 3362] [client 127.0.0.1:53680] PHP Fatal error:  Call to a member function prepare() on a non-object in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/message.php on line 35
+[Tue May 30 22:37:02.841727 2017] [:error] [pid 3362] [client 127.0.0.1:53680] PHP Stack trace:
+[Tue May 30 22:37:02.841733 2017] [:error] [pid 3362] [client 127.0.0.1:53680] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0
+[Tue May 30 22:37:02.841739 2017] [:error] [pid 3362] [client 127.0.0.1:53680] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16
+[Tue May 30 22:37:02.841744 2017] [:error] [pid 3362] [client 127.0.0.1:53680] PHP   3. hcatServer->pollEmail() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:163
+[Tue May 30 22:37:02.841750 2017] [:error] [pid 3362] [client 127.0.0.1:53680] PHP   4. emailParser->poll() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:209
+[Tue May 30 22:37:02.841756 2017] [:error] [pid 3362] [client 127.0.0.1:53680] PHP   5. emailParser->handleEmail($inbox = *uninitialized*, $email_number = *uninitialized*, $e = *uninitialized*) /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/emailParser.php:68
+[Tue May 30 22:37:02.841762 2017] [:error] [pid 3362] [client 127.0.0.1:53680] PHP   6. message->saveToDB() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/emailParser.php:135
+[Tue May 30 22:37:02.842002 2017] [:error] [pid 3362] [client 127.0.0.1:53680] PHP Notice:  Unknown: Invalid quoted-printable sequence: =&quot;Content-Type&quot; content=&quot;text/html charset=us-ascii&quot;&gt;&lt;/head&gt;&lt;body style=&quot;word-wra (errflg=3) in Unknown on line 0
+[Tue May 30 22:37:02.842012 2017] [:error] [pid 3362] [client 127.0.0.1:53680] PHP Stack trace:
+[Tue May 30 22:37:02.842021 2017] [:error] [pid 3362] [client 127.0.0.1:53680] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0
+[Tue May 30 22:37:02.842030 2017] [:error] [pid 3362] [client 127.0.0.1:53680] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16
+[Tue May 30 22:37:02.842038 2017] [:error] [pid 3362] [client 127.0.0.1:53680] PHP   3. hcatServer->pollEmail() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:163
+[Tue May 30 22:37:02.842044 2017] [:error] [pid 3362] [client 127.0.0.1:53680] PHP   4. emailParser->poll() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:209
+[Tue May 30 22:37:02.842051 2017] [:error] [pid 3362] [client 127.0.0.1:53680] PHP   5. emailParser->handleEmail($inbox = *uninitialized*, $email_number = *uninitialized*, $e = *uninitialized*) /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/emailParser.php:68
+[Tue May 30 22:37:02.842056 2017] [:error] [pid 3362] [client 127.0.0.1:53680] PHP   6. message->saveToDB() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/emailParser.php:135
+[Tue May 30 22:38:52.517161 2017] [:error] [pid 3426] [client 127.0.0.1:53835] PHP Fatal error:  Call to undefined method message::dbExecute() in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/message.php on line 45
+[Tue May 30 22:38:52.517293 2017] [:error] [pid 3426] [client 127.0.0.1:53835] PHP Stack trace:
+[Tue May 30 22:38:52.517301 2017] [:error] [pid 3426] [client 127.0.0.1:53835] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0
+[Tue May 30 22:38:52.517309 2017] [:error] [pid 3426] [client 127.0.0.1:53835] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16
+[Tue May 30 22:38:52.517315 2017] [:error] [pid 3426] [client 127.0.0.1:53835] PHP   3. hcatServer->pollEmail() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:163
+[Tue May 30 22:38:52.517321 2017] [:error] [pid 3426] [client 127.0.0.1:53835] PHP   4. emailParser->poll() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:209
+[Tue May 30 22:38:52.517329 2017] [:error] [pid 3426] [client 127.0.0.1:53835] PHP   5. emailParser->handleEmail($inbox = *uninitialized*, $email_number = *uninitialized*, $e = *uninitialized*) /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/emailParser.php:68
+[Tue May 30 22:38:52.517334 2017] [:error] [pid 3426] [client 127.0.0.1:53835] PHP   6. message->saveToDB() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/emailParser.php:135
+[Tue May 30 22:38:52.517596 2017] [:error] [pid 3426] [client 127.0.0.1:53835] PHP Notice:  Unknown: Invalid quoted-printable sequence: =&quot;Content-Type&quot; content=&quot;text/html charset=us-ascii&quot;&gt;&lt;/head&gt;&lt;body style=&quot;word-wra (errflg=3) in Unknown on line 0
+[Tue May 30 22:38:52.517612 2017] [:error] [pid 3426] [client 127.0.0.1:53835] PHP Stack trace:
+[Tue May 30 22:38:52.517618 2017] [:error] [pid 3426] [client 127.0.0.1:53835] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0
+[Tue May 30 22:38:52.517624 2017] [:error] [pid 3426] [client 127.0.0.1:53835] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16
+[Tue May 30 22:38:52.517629 2017] [:error] [pid 3426] [client 127.0.0.1:53835] PHP   3. hcatServer->pollEmail() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:163
+[Tue May 30 22:38:52.517635 2017] [:error] [pid 3426] [client 127.0.0.1:53835] PHP   4. emailParser->poll() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:209
+[Tue May 30 22:38:52.517642 2017] [:error] [pid 3426] [client 127.0.0.1:53835] PHP   5. emailParser->handleEmail($inbox = *uninitialized*, $email_number = *uninitialized*, $e = *uninitialized*) /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/emailParser.php:68
+[Tue May 30 22:38:52.517647 2017] [:error] [pid 3426] [client 127.0.0.1:53835] PHP   6. message->saveToDB() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/emailParser.php:135
+[Tue May 30 22:39:22.234300 2017] [:error] [pid 3426] [client 127.0.0.1:53835] PHP Fatal error:  Call to undefined method message::dbExecute() in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/message.php on line 45
+[Tue May 30 22:39:22.234493 2017] [:error] [pid 3426] [client 127.0.0.1:53835] PHP Stack trace:
+[Tue May 30 22:39:22.234554 2017] [:error] [pid 3426] [client 127.0.0.1:53835] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0
+[Tue May 30 22:39:22.234564 2017] [:error] [pid 3426] [client 127.0.0.1:53835] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16
+[Tue May 30 22:39:22.234571 2017] [:error] [pid 3426] [client 127.0.0.1:53835] PHP   3. hcatServer->pollEmail() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:163
+[Tue May 30 22:39:22.234577 2017] [:error] [pid 3426] [client 127.0.0.1:53835] PHP   4. emailParser->poll() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:209
+[Tue May 30 22:39:22.234586 2017] [:error] [pid 3426] [client 127.0.0.1:53835] PHP   5. emailParser->handleEmail($inbox = *uninitialized*, $email_number = *uninitialized*, $e = *uninitialized*) /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/emailParser.php:68
+[Tue May 30 22:39:22.234592 2017] [:error] [pid 3426] [client 127.0.0.1:53835] PHP   6. message->saveToDB() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/emailParser.php:135
+[Tue May 30 22:39:22.234660 2017] [:error] [pid 3426] [client 127.0.0.1:53835] PHP Notice:  Unknown: Invalid quoted-printable sequence: =&quot;Content-Type&quot; content=&quot;text/html charset=us-ascii&quot;&gt;&lt;/head&gt;&lt;body style=&quot;word-wra (errflg=3) in Unknown on line 0
+[Tue May 30 22:39:22.234666 2017] [:error] [pid 3426] [client 127.0.0.1:53835] PHP Stack trace:
+[Tue May 30 22:39:22.234671 2017] [:error] [pid 3426] [client 127.0.0.1:53835] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0
+[Tue May 30 22:39:22.234677 2017] [:error] [pid 3426] [client 127.0.0.1:53835] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16
+[Tue May 30 22:39:22.234683 2017] [:error] [pid 3426] [client 127.0.0.1:53835] PHP   3. hcatServer->pollEmail() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:163
+[Tue May 30 22:39:22.234688 2017] [:error] [pid 3426] [client 127.0.0.1:53835] PHP   4. emailParser->poll() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:209
+[Tue May 30 22:39:22.234695 2017] [:error] [pid 3426] [client 127.0.0.1:53835] PHP   5. emailParser->handleEmail($inbox = *uninitialized*, $email_number = *uninitialized*, $e = *uninitialized*) /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/emailParser.php:68
+[Tue May 30 22:39:22.234713 2017] [:error] [pid 3426] [client 127.0.0.1:53835] PHP   6. message->saveToDB() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/emailParser.php:135
+[Tue May 30 22:40:33.427915 2017] [:error] [pid 3467] [client 127.0.0.1:54011] PHP Fatal error:  Call to undefined method message::dbExecute() in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/message.php on line 45
+[Tue May 30 22:40:33.428037 2017] [:error] [pid 3467] [client 127.0.0.1:54011] PHP Stack trace:
+[Tue May 30 22:40:33.428045 2017] [:error] [pid 3467] [client 127.0.0.1:54011] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0
+[Tue May 30 22:40:33.428053 2017] [:error] [pid 3467] [client 127.0.0.1:54011] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16
+[Tue May 30 22:40:33.428059 2017] [:error] [pid 3467] [client 127.0.0.1:54011] PHP   3. hcatServer->pollEmail() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:163
+[Tue May 30 22:40:33.428065 2017] [:error] [pid 3467] [client 127.0.0.1:54011] PHP   4. emailParser->poll() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:209
+[Tue May 30 22:40:33.428072 2017] [:error] [pid 3467] [client 127.0.0.1:54011] PHP   5. emailParser->handleEmail($inbox = *uninitialized*, $email_number = *uninitialized*, $e = *uninitialized*) /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/emailParser.php:68
+[Tue May 30 22:40:33.428078 2017] [:error] [pid 3467] [client 127.0.0.1:54011] PHP   6. message->saveToDB() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/emailParser.php:135
+[Tue May 30 22:40:33.428316 2017] [:error] [pid 3467] [client 127.0.0.1:54011] PHP Notice:  Unknown: Invalid quoted-printable sequence: =&quot;Content-Type&quot; content=&quot;text/html charset=us-ascii&quot;&gt;&lt;/head&gt;&lt;body style=&quot;word-wra (errflg=3) in Unknown on line 0
+[Tue May 30 22:40:33.428338 2017] [:error] [pid 3467] [client 127.0.0.1:54011] PHP Stack trace:
+[Tue May 30 22:40:33.428344 2017] [:error] [pid 3467] [client 127.0.0.1:54011] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0
+[Tue May 30 22:40:33.428351 2017] [:error] [pid 3467] [client 127.0.0.1:54011] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16
+[Tue May 30 22:40:33.428356 2017] [:error] [pid 3467] [client 127.0.0.1:54011] PHP   3. hcatServer->pollEmail() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:163
+[Tue May 30 22:40:33.428362 2017] [:error] [pid 3467] [client 127.0.0.1:54011] PHP   4. emailParser->poll() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:209
+[Tue May 30 22:40:33.428368 2017] [:error] [pid 3467] [client 127.0.0.1:54011] PHP   5. emailParser->handleEmail($inbox = *uninitialized*, $email_number = *uninitialized*, $e = *uninitialized*) /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/emailParser.php:68
+[Tue May 30 22:40:33.428374 2017] [:error] [pid 3467] [client 127.0.0.1:54011] PHP   6. message->saveToDB() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/emailParser.php:135
+[Tue May 30 22:42:42.489766 2017] [:error] [pid 3808] [client 127.0.0.1:54234] PHP Notice:  Unknown: Invalid quoted-printable sequence: =&quot;Content-Type&quot; content=&quot;text/html charset=us-ascii&quot;&gt;&lt;/head&gt;&lt;body style=&quot;word-wra (errflg=3) in Unknown on line 0
+[Tue May 30 22:43:41.444183 2017] [:error] [pid 3362] [client 127.0.0.1:54334] PHP Notice:  Unknown: Invalid quoted-printable sequence: =&quot;Content-Type&quot; content=&quot;text/html charset=us-ascii&quot;&gt;&lt;/head&gt;&lt;body style=&quot;word-wra (errflg=3) in Unknown on line 0
+[Tue May 30 22:44:39.362780 2017] [:error] [pid 3446] [client 127.0.0.1:54526] PHP Notice:  Unknown: Invalid quoted-printable sequence: =&quot;Content-Type&quot; content=&quot;text/html charset=us-ascii&quot;&gt;&lt;/head&gt;&lt;body style=&quot;word-wra (errflg=3) in Unknown on line 0
+[Tue May 30 22:46:35.132348 2017] [:error] [pid 3447] [client 127.0.0.1:54715] PHP Notice:  Unknown: Invalid quoted-printable sequence: =&quot;Content-Type&quot; content=&quot;text/html charset=us-ascii&quot;&gt;&lt;/head&gt;&lt;body style=&quot;word-wra (errflg=3) in Unknown on line 0
+[Tue May 30 22:47:09.049075 2017] [:error] [pid 3415] [client 127.0.0.1:54741] PHP Notice:  Unknown: Invalid quoted-printable sequence: =&quot;Content-Type&quot; content=&quot;text/html charset=us-ascii&quot;&gt;&lt;/head&gt;&lt;body style=&quot;word-wra (errflg=3) in Unknown on line 0
+[Tue May 30 22:48:45.622678 2017] [:error] [pid 3362] [client 127.0.0.1:54799] PHP Notice:  Unknown: Invalid quoted-printable sequence: =&quot;Content-Type&quot; content=&quot;text/html charset=us-ascii&quot;&gt;&lt;/head&gt;&lt;body style=&quot;word-wra (errflg=3) in Unknown on line 0
+[Tue May 30 23:11:19.317841 2017] [:error] [pid 4399] [client 127.0.0.1:59178] PHP Fatal error:  Call to undefined method event::renderCommentCompact() in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php on line 177, referer: http://127.0.0.1/e_24?XDEBUG_SESSION_START=11545
+[Tue May 30 23:11:19.317952 2017] [:error] [pid 4399] [client 127.0.0.1:59178] PHP Stack trace:, referer: http://127.0.0.1/e_24?XDEBUG_SESSION_START=11545
+[Tue May 30 23:11:19.317970 2017] [:error] [pid 4399] [client 127.0.0.1:59178] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0, referer: http://127.0.0.1/e_24?XDEBUG_SESSION_START=11545
+[Tue May 30 23:11:19.317978 2017] [:error] [pid 4399] [client 127.0.0.1:59178] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16, referer: http://127.0.0.1/e_24?XDEBUG_SESSION_START=11545
+[Tue May 30 23:11:19.317986 2017] [:error] [pid 4399] [client 127.0.0.1:59178] PHP   3. event->loadFromDB() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:180, referer: http://127.0.0.1/e_24?XDEBUG_SESSION_START=11545
+[Tue May 30 23:11:28.341072 2017] [:error] [pid 4491] [client 127.0.0.1:59837] PHP Fatal error:  Call to undefined method event::renderCommentCompact() in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php on line 177
+[Tue May 30 23:11:28.341165 2017] [:error] [pid 4491] [client 127.0.0.1:59837] PHP Stack trace:
+[Tue May 30 23:11:28.341187 2017] [:error] [pid 4491] [client 127.0.0.1:59837] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0
+[Tue May 30 23:11:28.341195 2017] [:error] [pid 4491] [client 127.0.0.1:59837] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16
+[Tue May 30 23:11:28.341202 2017] [:error] [pid 4491] [client 127.0.0.1:59837] PHP   3. event->loadFromDB() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:180
+[Tue May 30 23:11:50.307144 2017] [:error] [pid 3467] [client 127.0.0.1:59965] PHP Fatal error:  Call to undefined method event::renderCommentCompact() in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php on line 177
+[Tue May 30 23:11:50.307227 2017] [:error] [pid 3467] [client 127.0.0.1:59965] PHP Stack trace:
+[Tue May 30 23:11:50.307236 2017] [:error] [pid 3467] [client 127.0.0.1:59965] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0
+[Tue May 30 23:11:50.307243 2017] [:error] [pid 3467] [client 127.0.0.1:59965] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16
+[Tue May 30 23:11:50.307250 2017] [:error] [pid 3467] [client 127.0.0.1:59965] PHP   3. event->loadFromDB() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:180
+[Wed May 31 00:03:59.711963 2017] [:error] [pid 4711] [client 127.0.0.1:61083] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php on line 56, referer: http://127.0.0.1/e_25
+[Wed May 31 00:03:59.712147 2017] [:error] [pid 4711] [client 127.0.0.1:61083] PHP Stack trace:, referer: http://127.0.0.1/e_25
+[Wed May 31 00:03:59.712214 2017] [:error] [pid 4711] [client 127.0.0.1:61083] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0, referer: http://127.0.0.1/e_25
+[Wed May 31 00:03:59.712233 2017] [:error] [pid 4711] [client 127.0.0.1:61083] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16, referer: http://127.0.0.1/e_25
+[Wed May 31 00:03:59.712241 2017] [:error] [pid 4711] [client 127.0.0.1:61083] PHP   3. event->handleHit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:182, referer: http://127.0.0.1/e_25
+[Wed May 31 00:03:59.712248 2017] [:error] [pid 4711] [client 127.0.0.1:61083] PHP   4. event->saveToDB() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:72, referer: http://127.0.0.1/e_25
+[Wed May 31 00:03:59.712254 2017] [:error] [pid 4711] [client 127.0.0.1:61083] PHP   5. hcatUI->dbExecute() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:336, referer: http://127.0.0.1/e_25
+[Wed May 31 00:03:59.712262 2017] [:error] [pid 4711] [client 127.0.0.1:61083] PHP   6. hcatServer->dbExecute() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatui.php:29, referer: http://127.0.0.1/e_25
+[Wed May 31 00:03:59.712268 2017] [:error] [pid 4711] [client 127.0.0.1:61083] PHP   7. PDOStatement->execute() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:56, referer: http://127.0.0.1/e_25
+[Wed May 31 00:05:01.937912 2017] [:error] [pid 4726] [client 127.0.0.1:61407] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php on line 56, referer: http://127.0.0.1/e_25
+[Wed May 31 00:05:01.938009 2017] [:error] [pid 4726] [client 127.0.0.1:61407] PHP Stack trace:, referer: http://127.0.0.1/e_25
+[Wed May 31 00:05:01.938036 2017] [:error] [pid 4726] [client 127.0.0.1:61407] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0, referer: http://127.0.0.1/e_25
+[Wed May 31 00:05:01.938045 2017] [:error] [pid 4726] [client 127.0.0.1:61407] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16, referer: http://127.0.0.1/e_25
+[Wed May 31 00:05:01.938052 2017] [:error] [pid 4726] [client 127.0.0.1:61407] PHP   3. event->handleHit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:182, referer: http://127.0.0.1/e_25
+[Wed May 31 00:05:01.938059 2017] [:error] [pid 4726] [client 127.0.0.1:61407] PHP   4. event->saveToDB() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:72, referer: http://127.0.0.1/e_25
+[Wed May 31 00:05:01.938065 2017] [:error] [pid 4726] [client 127.0.0.1:61407] PHP   5. hcatUI->dbExecute() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:336, referer: http://127.0.0.1/e_25
+[Wed May 31 00:05:01.938071 2017] [:error] [pid 4726] [client 127.0.0.1:61407] PHP   6. hcatServer->dbExecute() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatui.php:29, referer: http://127.0.0.1/e_25
+[Wed May 31 00:05:01.938077 2017] [:error] [pid 4726] [client 127.0.0.1:61407] PHP   7. PDOStatement->execute() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:56, referer: http://127.0.0.1/e_25
+[Wed May 31 00:08:37.223078 2017] [:error] [pid 4696] [client 127.0.0.1:62581] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php on line 56, referer: http://127.0.0.1/e_25
+[Wed May 31 00:08:37.223175 2017] [:error] [pid 4696] [client 127.0.0.1:62581] PHP Stack trace:, referer: http://127.0.0.1/e_25
+[Wed May 31 00:08:37.223193 2017] [:error] [pid 4696] [client 127.0.0.1:62581] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0, referer: http://127.0.0.1/e_25
+[Wed May 31 00:08:37.223202 2017] [:error] [pid 4696] [client 127.0.0.1:62581] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16, referer: http://127.0.0.1/e_25
+[Wed May 31 00:08:37.223210 2017] [:error] [pid 4696] [client 127.0.0.1:62581] PHP   3. event->handleHit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:182, referer: http://127.0.0.1/e_25
+[Wed May 31 00:08:37.223224 2017] [:error] [pid 4696] [client 127.0.0.1:62581] PHP   4. event->saveToDB() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:72, referer: http://127.0.0.1/e_25
+[Wed May 31 00:08:37.223231 2017] [:error] [pid 4696] [client 127.0.0.1:62581] PHP   5. hcatUI->dbExecute() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:336, referer: http://127.0.0.1/e_25
+[Wed May 31 00:08:37.223237 2017] [:error] [pid 4696] [client 127.0.0.1:62581] PHP   6. hcatServer->dbExecute() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatui.php:29, referer: http://127.0.0.1/e_25
+[Wed May 31 00:08:37.223243 2017] [:error] [pid 4696] [client 127.0.0.1:62581] PHP   7. PDOStatement->execute() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:56, referer: http://127.0.0.1/e_25
+[Wed May 31 00:16:57.547374 2017] [:error] [pid 4769] [client 127.0.0.1:65376] PHP Notice:  Undefined index: name in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/console.php on line 60, referer: http://127.0.0.1/
+[Wed May 31 00:16:57.547407 2017] [:error] [pid 4769] [client 127.0.0.1:65376] PHP Stack trace:, referer: http://127.0.0.1/
+[Wed May 31 00:16:57.547431 2017] [:error] [pid 4769] [client 127.0.0.1:65376] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0, referer: http://127.0.0.1/
+[Wed May 31 00:16:57.547441 2017] [:error] [pid 4769] [client 127.0.0.1:65376] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16, referer: http://127.0.0.1/
+[Wed May 31 00:16:57.547448 2017] [:error] [pid 4769] [client 127.0.0.1:65376] PHP   3. console->handleHit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:169, referer: http://127.0.0.1/
+[Wed May 31 00:16:57.547454 2017] [:error] [pid 4769] [client 127.0.0.1:65376] PHP   4. console->handleAJAXHit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/console.php:19, referer: http://127.0.0.1/
+[Wed May 31 00:16:57.547633 2017] [:error] [pid 4769] [client 127.0.0.1:65376] PHP Notice:  Undefined index: email in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/console.php on line 61, referer: http://127.0.0.1/
+[Wed May 31 00:16:57.547640 2017] [:error] [pid 4769] [client 127.0.0.1:65376] PHP Stack trace:, referer: http://127.0.0.1/
+[Wed May 31 00:16:57.547647 2017] [:error] [pid 4769] [client 127.0.0.1:65376] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0, referer: http://127.0.0.1/
+[Wed May 31 00:16:57.547653 2017] [:error] [pid 4769] [client 127.0.0.1:65376] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16, referer: http://127.0.0.1/
+[Wed May 31 00:16:57.547660 2017] [:error] [pid 4769] [client 127.0.0.1:65376] PHP   3. console->handleHit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:169, referer: http://127.0.0.1/
+[Wed May 31 00:16:57.547666 2017] [:error] [pid 4769] [client 127.0.0.1:65376] PHP   4. console->handleAJAXHit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/console.php:19, referer: http://127.0.0.1/
+[Wed May 31 00:17:00.449705 2017] [:error] [pid 4769] [client 127.0.0.1:65376] PHP Notice:  Undefined index: name in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/console.php on line 60, referer: http://127.0.0.1/
+[Wed May 31 00:17:00.449726 2017] [:error] [pid 4769] [client 127.0.0.1:65376] PHP Stack trace:, referer: http://127.0.0.1/
+[Wed May 31 00:17:00.449738 2017] [:error] [pid 4769] [client 127.0.0.1:65376] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0, referer: http://127.0.0.1/
+[Wed May 31 00:17:00.449749 2017] [:error] [pid 4769] [client 127.0.0.1:65376] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16, referer: http://127.0.0.1/
+[Wed May 31 00:17:00.449760 2017] [:error] [pid 4769] [client 127.0.0.1:65376] PHP   3. console->handleHit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:169, referer: http://127.0.0.1/
+[Wed May 31 00:17:00.449812 2017] [:error] [pid 4769] [client 127.0.0.1:65376] PHP   4. console->handleAJAXHit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/console.php:19, referer: http://127.0.0.1/
+[Wed May 31 00:17:00.449895 2017] [:error] [pid 4769] [client 127.0.0.1:65376] PHP Notice:  Undefined index: email in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/console.php on line 61, referer: http://127.0.0.1/
+[Wed May 31 00:17:00.449905 2017] [:error] [pid 4769] [client 127.0.0.1:65376] PHP Stack trace:, referer: http://127.0.0.1/
+[Wed May 31 00:17:00.449913 2017] [:error] [pid 4769] [client 127.0.0.1:65376] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0, referer: http://127.0.0.1/
+[Wed May 31 00:17:00.449923 2017] [:error] [pid 4769] [client 127.0.0.1:65376] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16, referer: http://127.0.0.1/
+[Wed May 31 00:17:00.449933 2017] [:error] [pid 4769] [client 127.0.0.1:65376] PHP   3. console->handleHit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:169, referer: http://127.0.0.1/
+[Wed May 31 00:17:00.449943 2017] [:error] [pid 4769] [client 127.0.0.1:65376] PHP   4. console->handleAJAXHit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/console.php:19, referer: http://127.0.0.1/
+[Wed May 31 00:17:22.418051 2017] [:error] [pid 4764] [client 127.0.0.1:65520] PHP Notice:  Undefined index: name in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/console.php on line 60, referer: http://127.0.0.1/
+[Wed May 31 00:17:22.418073 2017] [:error] [pid 4764] [client 127.0.0.1:65520] PHP Stack trace:, referer: http://127.0.0.1/
+[Wed May 31 00:17:22.418100 2017] [:error] [pid 4764] [client 127.0.0.1:65520] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0, referer: http://127.0.0.1/
+[Wed May 31 00:17:22.418109 2017] [:error] [pid 4764] [client 127.0.0.1:65520] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16, referer: http://127.0.0.1/
+[Wed May 31 00:17:22.418116 2017] [:error] [pid 4764] [client 127.0.0.1:65520] PHP   3. console->handleHit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:169, referer: http://127.0.0.1/
+[Wed May 31 00:17:22.418122 2017] [:error] [pid 4764] [client 127.0.0.1:65520] PHP   4. console->handleAJAXHit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/console.php:19, referer: http://127.0.0.1/
+[Wed May 31 00:17:22.418288 2017] [:error] [pid 4764] [client 127.0.0.1:65520] PHP Notice:  Undefined index: email in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/console.php on line 61, referer: http://127.0.0.1/
+[Wed May 31 00:17:22.418295 2017] [:error] [pid 4764] [client 127.0.0.1:65520] PHP Stack trace:, referer: http://127.0.0.1/
+[Wed May 31 00:17:22.418301 2017] [:error] [pid 4764] [client 127.0.0.1:65520] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0, referer: http://127.0.0.1/
+[Wed May 31 00:17:22.418307 2017] [:error] [pid 4764] [client 127.0.0.1:65520] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16, referer: http://127.0.0.1/
+[Wed May 31 00:17:22.418313 2017] [:error] [pid 4764] [client 127.0.0.1:65520] PHP   3. console->handleHit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:169, referer: http://127.0.0.1/
+[Wed May 31 00:17:22.418319 2017] [:error] [pid 4764] [client 127.0.0.1:65520] PHP   4. console->handleAJAXHit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/console.php:19, referer: http://127.0.0.1/
+[Wed May 31 00:18:03.218552 2017] [:error] [pid 4781] [client 127.0.0.1:49209] PHP Notice:  Undefined index: name in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/console.php on line 60, referer: http://127.0.0.1/?XDEBUG_SESSION_START=13668
+[Wed May 31 00:18:03.218671 2017] [:error] [pid 4781] [client 127.0.0.1:49209] PHP Stack trace:, referer: http://127.0.0.1/?XDEBUG_SESSION_START=13668
+[Wed May 31 00:18:03.218681 2017] [:error] [pid 4781] [client 127.0.0.1:49209] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0, referer: http://127.0.0.1/?XDEBUG_SESSION_START=13668
+[Wed May 31 00:18:03.218689 2017] [:error] [pid 4781] [client 127.0.0.1:49209] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16, referer: http://127.0.0.1/?XDEBUG_SESSION_START=13668
+[Wed May 31 00:18:03.218701 2017] [:error] [pid 4781] [client 127.0.0.1:49209] PHP   3. console->handleHit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:169, referer: http://127.0.0.1/?XDEBUG_SESSION_START=13668
+[Wed May 31 00:18:03.218708 2017] [:error] [pid 4781] [client 127.0.0.1:49209] PHP   4. console->handleAJAXHit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/console.php:19, referer: http://127.0.0.1/?XDEBUG_SESSION_START=13668
+[Wed May 31 00:18:03.218896 2017] [:error] [pid 4781] [client 127.0.0.1:49209] PHP Notice:  Undefined index: email in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/console.php on line 61, referer: http://127.0.0.1/?XDEBUG_SESSION_START=13668
+[Wed May 31 00:18:03.218903 2017] [:error] [pid 4781] [client 127.0.0.1:49209] PHP Stack trace:, referer: http://127.0.0.1/?XDEBUG_SESSION_START=13668
+[Wed May 31 00:18:03.218909 2017] [:error] [pid 4781] [client 127.0.0.1:49209] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0, referer: http://127.0.0.1/?XDEBUG_SESSION_START=13668
+[Wed May 31 00:18:03.218915 2017] [:error] [pid 4781] [client 127.0.0.1:49209] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16, referer: http://127.0.0.1/?XDEBUG_SESSION_START=13668
+[Wed May 31 00:18:03.218920 2017] [:error] [pid 4781] [client 127.0.0.1:49209] PHP   3. console->handleHit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:169, referer: http://127.0.0.1/?XDEBUG_SESSION_START=13668
+[Wed May 31 00:18:03.218926 2017] [:error] [pid 4781] [client 127.0.0.1:49209] PHP   4. console->handleAJAXHit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/console.php:19, referer: http://127.0.0.1/?XDEBUG_SESSION_START=13668
+[Wed May 31 07:20:13.411243 2017] [:error] [pid 5399] [client 127.0.0.1:55533] PHP Notice:  Undefined variable: user in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/register.php on line 56, referer: http://127.0.0.1/showregister
+[Wed May 31 07:20:13.411443 2017] [:error] [pid 5399] [client 127.0.0.1:55533] PHP Stack trace:, referer: http://127.0.0.1/showregister
+[Wed May 31 07:20:13.411511 2017] [:error] [pid 5399] [client 127.0.0.1:55533] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0, referer: http://127.0.0.1/showregister
+[Wed May 31 07:20:13.411524 2017] [:error] [pid 5399] [client 127.0.0.1:55533] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16, referer: http://127.0.0.1/showregister
+[Wed May 31 07:20:13.411530 2017] [:error] [pid 5399] [client 127.0.0.1:55533] PHP   3. register->doregister() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:155, referer: http://127.0.0.1/showregister
+[Wed May 31 07:20:13.411711 2017] [:error] [pid 5399] [client 127.0.0.1:55533] PHP Notice:  Trying to get property of non-object in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/register.php on line 56, referer: http://127.0.0.1/showregister
+[Wed May 31 07:20:13.411719 2017] [:error] [pid 5399] [client 127.0.0.1:55533] PHP Stack trace:, referer: http://127.0.0.1/showregister
+[Wed May 31 07:20:13.411725 2017] [:error] [pid 5399] [client 127.0.0.1:55533] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0, referer: http://127.0.0.1/showregister
+[Wed May 31 07:20:13.411738 2017] [:error] [pid 5399] [client 127.0.0.1:55533] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16, referer: http://127.0.0.1/showregister
+[Wed May 31 07:20:13.411744 2017] [:error] [pid 5399] [client 127.0.0.1:55533] PHP   3. register->doregister() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:155, referer: http://127.0.0.1/showregister
+[Wed May 31 07:21:25.605281 2017] [:error] [pid 4793] [client 127.0.0.1:55939] PHP Notice:  Undefined variable: user in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/register.php on line 56, referer: http://127.0.0.1/showregister
+[Wed May 31 07:21:25.605460 2017] [:error] [pid 4793] [client 127.0.0.1:55939] PHP Stack trace:, referer: http://127.0.0.1/showregister
+[Wed May 31 07:21:25.605508 2017] [:error] [pid 4793] [client 127.0.0.1:55939] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0, referer: http://127.0.0.1/showregister
+[Wed May 31 07:21:25.605564 2017] [:error] [pid 4793] [client 127.0.0.1:55939] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16, referer: http://127.0.0.1/showregister
+[Wed May 31 07:21:25.605629 2017] [:error] [pid 4793] [client 127.0.0.1:55939] PHP   3. register->doregister() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:155, referer: http://127.0.0.1/showregister
+[Wed May 31 07:21:25.605802 2017] [:error] [pid 4793] [client 127.0.0.1:55939] PHP Notice:  Trying to get property of non-object in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/register.php on line 56, referer: http://127.0.0.1/showregister
+[Wed May 31 07:21:25.605811 2017] [:error] [pid 4793] [client 127.0.0.1:55939] PHP Stack trace:, referer: http://127.0.0.1/showregister
+[Wed May 31 07:21:25.605818 2017] [:error] [pid 4793] [client 127.0.0.1:55939] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0, referer: http://127.0.0.1/showregister
+[Wed May 31 07:21:25.605825 2017] [:error] [pid 4793] [client 127.0.0.1:55939] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16, referer: http://127.0.0.1/showregister
+[Wed May 31 07:21:25.605831 2017] [:error] [pid 4793] [client 127.0.0.1:55939] PHP   3. register->doregister() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:155, referer: http://127.0.0.1/showregister
+[Wed May 31 07:52:23.645336 2017] [:error] [pid 5478] [client 127.0.0.1:50375] PHP Notice:  Unknown: Invalid quoted-printable sequence: =&quot;Content-Type&quot; content=&quot;text/html charset=us-ascii&quot;&gt;&lt;/head&gt;&lt;body style=&quot;word-wra (errflg=3) in Unknown on line 0
+[Wed May 31 07:52:23.645700 2017] [:error] [pid 5478] [client 127.0.0.1:50375] PHP Notice:  Unknown: Invalid quoted-printable sequence: =&quot;Content-Type&quot; content=&quot;text/html charset=us-ascii&quot;&gt;&lt;/head&gt;&lt;body style=&quot;word-wra (errflg=3) in Unknown on line 0

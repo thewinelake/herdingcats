@@ -1,3 +1,6 @@
+body {
+    font-family: helvetica;
+}
 .template
 {
 	display: none;
@@ -8,22 +11,13 @@
     text-align: right;
 }
 
-a.button
+button
 {
 	font-size: 10px;
-        font-weight: normal;
+    font-weight: normal;
 	padding: 0.05em 0.75em 0.1em 0.75em;
-	border-radius: 3px;
-	color: #3C302B !important;
-	background-color: #FFD095;
-	border-width: 1px;
-	border-color: #e69900;
-	border-style: solid;
-	border-bottom: 1px solid #000 !important;
-	border-right: 1px solid #000 !important;
-        border-top: 1px solid #fff !important;
-        border-left: 1px solid #fff !important;
-
+	/* color: #3C302B !important;
+	background-color: #FFD095; */
 }
 
 .commentAuthor {
@@ -34,6 +28,73 @@ h1 {
     font-size: 20px;
 }
 
+h1 {
+    font-size: 15px;
+}
+
 .header2 {
     background-color: #fcc;
+}
+
+body {
+    max-width:800px;
+}
+
+.commentFooter {
+    width: 700px;
+    background-color: #ccc;
+}
+.commentInfo{
+    display: inline-block;
+    font-size: small;
+}
+.commentActions {
+    display: inline-block;
+}
+
+.formParamName {
+    display: inline-block;
+    width: 120px;
+}
+.formParamValue {
+    display: inline-block;
+    width: 400px;
+}
+.formParamValue input {
+    width: 380px;
+}
+
+.consolemessage {
+    height: 23px;
+}
+.consolemessage.warning {
+    background-image: url("/image/msgwarning.png");
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    padding-left: 25px;
+    padding-top: 2px;
+    background-color: #fc9;
+    vertical-align: middle;
+
+}
+
+.header1 {
+    background-image: url("/resources/hcats.png");
+    background-repeat: no-repeat;
+    background-size: 28px 50px;
+    height: 35px;
+    vertical-align: middle;
+    padding-left: 40px;
+    padding-top: 15px;
+    font-size: 25px;
+}
+.header1 .title {
+    height: 20px;
+
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+
 }

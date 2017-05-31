@@ -30,9 +30,11 @@ console.dir(event);
     </tr>
 </table>
 <div id="comment" class="comment template">
-    <div class="commentText"></div>
-    <div class="commentAuthor"></div>
-    <div class="commentActions"><button class="broadcast">Broadcast</button></div>
+    <div class="commentHtml"></div>
+    <div class="commentFooter">
+    <div class="commentInfo"></div>
+    <div class="commentActions"><button class="broadcastComment">Broadcast</button><button class="deleteComment">Delete</button></div>
+    </div>
 </div>
 
 
@@ -45,12 +47,9 @@ console.dir(event);
 
     <p><input type="submit" name="action" value="save"></p>
 <?php } else { ?>
-    <h1><?= $event->title ?></h1>
+    <h1><?= $event->title ?> <button class="editEvent">Edit</button></h1>
     <p><i><?= $event->description ?></i></p>
     <p>Date: <?= $event->date ?></p>
-
-    <p><input type="submit" name="action" value="edit"></p>
-
     <h2>Guest List</h2>
     <table border=1>
         <tbody id="guestListContainer"></tbody>
@@ -71,7 +70,7 @@ console.dir(event);
 
 
 <form name="comment" id="comment" method="POST" action="e_<?= $event->eid ?>">
-    <p><textarea name="comment" class="comment"></textarea></p>
+    <p><textarea name="comment" class="newComment"></textarea></p>
     <button class='addcomment'>Add Comment</button>
 </form>
 

@@ -1,6 +1,15 @@
 
 <?php
     $message = valOr($_SESSION,'message');
+    switch (substr($message,0,1)) {
+        case '!':
+            $message=substr($message,1);
+            $messageStyle = "warning";
+            break;
+        default:
+            $messageStyle = "";
+    }
+
     $email = valOr($_POST,'email');
     $name = valOr($_POST,'name');
     $pwd = valOr($_POST,'pwd');
@@ -15,16 +24,16 @@ include "furniture/header.php"
 ?>
 
 <h1>HerdingCats.club registration</h1>
-<div id='message'><?= $message ?></div>
+<div id='message' class="consolemessage <?= $messageStyle ?>"><?= $message ?></div>
 <form name="register" id="register" method="POST" action="register">
-    <p>Primary Email:<input type="text" name="email" value="<?= $email ?>"></p>
+    <p><div class="formParamName">Primary Email</div><div class="formParamValue"><input type="text" name="email" value="<?= $email ?>"></div></p>
 
-    <p>Name:<input type="text" name="Name" value="<?= $name ?>"></p>
+    <p><div class="formParamName">Name</div><div class="formParamValue"><input type="text" name="name" value="<?= $name ?>"></div></p>
 
-    <p>Password:<input type="password" name="pwd"></p>
+    <p><div class="formParamName">Password</div><div class="formParamValue"><input type="password" name="pwd"></div></p>
 
 
-    <p><a class="button register">Register</a></p>
+    <p><button class="register">Register</button></p>
 
 </form>
 
