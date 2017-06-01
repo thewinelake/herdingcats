@@ -550,7 +550,11 @@ class event extends hcatUI
     }
 
     public function GuestURL($guestUid=0) {
-        $url = $GLOBALS['HcatConfig']['GenConfig']['BaseURL'].'e_'.$this->eid;
+
+        $baseURL = $GLOBALS['HcatConfig']['GenConfig']['BaseURL'];
+        $baseURL = $_REQUEST['REQUEST_SCHEME'].'://'.$_REQUEST['SERVER_ADDR'].'/';
+
+        $url = $baseURL.'e_'.$this->eid;
 
         if ($guestUid) {
             $sql = "select * from hcat.invitation where uid=:uid and eid=:eid";

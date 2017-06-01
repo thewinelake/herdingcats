@@ -4482,3 +4482,67 @@
 [Thu Jun 01 18:58:31.995110 2017] [:error] [pid 6286] [client 127.0.0.1:56435] PHP   3. event->handleHit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:182, referer: http://127.0.0.1/e_24?XDEBUG_SESSION_START=18098
 [Thu Jun 01 18:58:31.995115 2017] [:error] [pid 6286] [client 127.0.0.1:56435] PHP   4. event->handleAJAXHit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:65, referer: http://127.0.0.1/e_24?XDEBUG_SESSION_START=18098
 [Thu Jun 01 18:58:31.995121 2017] [:error] [pid 6286] [client 127.0.0.1:56435] PHP   5. event->ajax_RemoveGuest($result = *uninitialized*) /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:112, referer: http://127.0.0.1/e_24?XDEBUG_SESSION_START=18098
+[Thu Jun 01 19:11:33.668827 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP Notice:  Undefined index: REQUEST_SCHEME in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php on line 555, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.668937 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP Stack trace:, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.668972 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.668994 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.669001 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP   3. event->handleHit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:182, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.669008 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP   4. event->handleAJAXHit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:65, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.669014 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP   5. event->ajax_BroadcastComment() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:124, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.669020 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP   6. Email->mergeTemplate() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:531, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.669025 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP   7. include() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/e2.php:50, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.669031 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP   8. event->GuestURL() /Users/alexlake/Sites/herdingcats/templates/e1_html.php:8, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.669271 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP Notice:  Undefined index: SERVER_ADDR in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php on line 555, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.669278 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP Stack trace:, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.669284 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.669291 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.669297 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP   3. event->handleHit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:182, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.669303 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP   4. event->handleAJAXHit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:65, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.669309 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP   5. event->ajax_BroadcastComment() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:124, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.669314 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP   6. Email->mergeTemplate() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:531, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.669320 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP   7. include() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/e2.php:50, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.669326 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP   8. event->GuestURL() /Users/alexlake/Sites/herdingcats/templates/e1_html.php:8, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.669853 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP Notice:  Undefined index: REQUEST_SCHEME in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php on line 555, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.669865 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP Stack trace:, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.669871 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.669879 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.669893 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP   3. event->handleHit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:182, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.669900 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP   4. event->handleAJAXHit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:65, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.669906 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP   5. event->ajax_BroadcastComment() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:124, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.669912 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP   6. Email->mergeTemplate() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:531, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.669917 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP   7. include() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/e2.php:50, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.669923 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP   8. event->GuestUnsubscribeURL() /Users/alexlake/Sites/herdingcats/templates/e1_html.php:9, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.669929 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP   9. event->GuestURL() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:574, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.670002 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP Notice:  Undefined index: SERVER_ADDR in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php on line 555, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.670009 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP Stack trace:, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.670015 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.670021 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.670027 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP   3. event->handleHit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:182, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.670032 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP   4. event->handleAJAXHit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:65, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.670038 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP   5. event->ajax_BroadcastComment() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:124, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.670044 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP   6. Email->mergeTemplate() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:531, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.670050 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP   7. include() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/e2.php:50, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.670055 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP   8. event->GuestUnsubscribeURL() /Users/alexlake/Sites/herdingcats/templates/e1_html.php:9, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.670061 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP   9. event->GuestURL() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:574, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.670533 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP Notice:  Undefined index: REQUEST_SCHEME in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php on line 555, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.670542 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP Stack trace:, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.670548 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.670560 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.670567 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP   3. event->handleHit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:182, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.670572 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP   4. event->handleAJAXHit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:65, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.670578 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP   5. event->ajax_BroadcastComment() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:124, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.670584 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP   6. Email->mergeTemplate() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:531, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.670590 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP   7. include() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/e2.php:50, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.670595 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP   8. event->GuestUnsubscribeURL() /Users/alexlake/Sites/herdingcats/templates/e1_html.php:10, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.670601 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP   9. event->GuestURL() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:574, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.670660 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP Notice:  Undefined index: SERVER_ADDR in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php on line 555, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.670666 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP Stack trace:, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.670672 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.670678 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.670684 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP   3. event->handleHit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:182, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.670689 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP   4. event->handleAJAXHit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:65, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.670695 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP   5. event->ajax_BroadcastComment() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:124, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.670701 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP   6. Email->mergeTemplate() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:531, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.670707 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP   7. include() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/e2.php:50, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.670713 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP   8. event->GuestUnsubscribeURL() /Users/alexlake/Sites/herdingcats/templates/e1_html.php:10, referer: http://127.0.0.1/e_24
+[Thu Jun 01 19:11:33.670718 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP   9. event->GuestURL() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:574, referer: http://127.0.0.1/e_24
