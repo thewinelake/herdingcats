@@ -36,7 +36,7 @@ class register extends hcatUI
         $stmt->bindValue(':email', $email, PDO::PARAM_STR);
         $stmt->execute();
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
-        if (sizeof($row)==0) {
+        if (!$row || sizeof($row)==0) {
             // That's encouraging?
             $user = new user();
             $user->email = $email;

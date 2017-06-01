@@ -4454,3 +4454,24 @@
 [Wed May 31 07:21:25.605831 2017] [:error] [pid 4793] [client 127.0.0.1:55939] PHP   3. register->doregister() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:155, referer: http://127.0.0.1/showregister
 [Wed May 31 07:52:23.645336 2017] [:error] [pid 5478] [client 127.0.0.1:50375] PHP Notice:  Unknown: Invalid quoted-printable sequence: =&quot;Content-Type&quot; content=&quot;text/html charset=us-ascii&quot;&gt;&lt;/head&gt;&lt;body style=&quot;word-wra (errflg=3) in Unknown on line 0
 [Wed May 31 07:52:23.645700 2017] [:error] [pid 5478] [client 127.0.0.1:50375] PHP Notice:  Unknown: Invalid quoted-printable sequence: =&quot;Content-Type&quot; content=&quot;text/html charset=us-ascii&quot;&gt;&lt;/head&gt;&lt;body style=&quot;word-wra (errflg=3) in Unknown on line 0
+[Wed May 31 22:58:33.410322 2017] [:error] [pid 5980] [client 127.0.0.1:61624] PHP Notice:  Undefined property: event::$hostName in /Users/alexlake/Sites/herdingcats/forms/frmEventView.php on line 54, referer: http://127.0.0.1/
+[Wed May 31 22:58:33.410652 2017] [:error] [pid 5980] [client 127.0.0.1:61624] PHP Stack trace:, referer: http://127.0.0.1/
+[Wed May 31 22:58:33.410731 2017] [:error] [pid 5980] [client 127.0.0.1:61624] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0, referer: http://127.0.0.1/
+[Wed May 31 22:58:33.410740 2017] [:error] [pid 5980] [client 127.0.0.1:61624] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16, referer: http://127.0.0.1/
+[Wed May 31 22:58:33.410747 2017] [:error] [pid 5980] [client 127.0.0.1:61624] PHP   3. event->handleHit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:182, referer: http://127.0.0.1/
+[Wed May 31 22:58:33.410753 2017] [:error] [pid 5980] [client 127.0.0.1:61624] PHP   4. event->renderViewEdit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:87, referer: http://127.0.0.1/
+[Wed May 31 22:58:33.410759 2017] [:error] [pid 5980] [client 127.0.0.1:61624] PHP   5. include() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:354, referer: http://127.0.0.1/
+[Wed May 31 22:58:44.418666 2017] [:error] [pid 6046] [client 127.0.0.1:61714] PHP Notice:  Undefined property: event::$hostName in /Users/alexlake/Sites/herdingcats/forms/frmEventView.php on line 54, referer: http://127.0.0.1/
+[Wed May 31 22:58:44.418780 2017] [:error] [pid 6046] [client 127.0.0.1:61714] PHP Stack trace:, referer: http://127.0.0.1/
+[Wed May 31 22:58:44.418800 2017] [:error] [pid 6046] [client 127.0.0.1:61714] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0, referer: http://127.0.0.1/
+[Wed May 31 22:58:44.418812 2017] [:error] [pid 6046] [client 127.0.0.1:61714] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16, referer: http://127.0.0.1/
+[Wed May 31 22:58:44.418834 2017] [:error] [pid 6046] [client 127.0.0.1:61714] PHP   3. event->handleHit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:182, referer: http://127.0.0.1/
+[Wed May 31 22:58:44.418842 2017] [:error] [pid 6046] [client 127.0.0.1:61714] PHP   4. event->renderViewEdit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:87, referer: http://127.0.0.1/
+[Wed May 31 22:58:44.418848 2017] [:error] [pid 6046] [client 127.0.0.1:61714] PHP   5. include() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:354, referer: http://127.0.0.1/
+[Wed May 31 22:58:46.912715 2017] [:error] [pid 6046] [client 127.0.0.1:61714] PHP Notice:  Undefined property: user::$hostName in /Users/alexlake/Sites/herdingcats/forms/frmEventView.php on line 54, referer: http://127.0.0.1/
+[Wed May 31 22:58:46.912803 2017] [:error] [pid 6046] [client 127.0.0.1:61714] PHP Stack trace:, referer: http://127.0.0.1/
+[Wed May 31 22:58:46.912811 2017] [:error] [pid 6046] [client 127.0.0.1:61714] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0, referer: http://127.0.0.1/
+[Wed May 31 22:58:46.912819 2017] [:error] [pid 6046] [client 127.0.0.1:61714] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16, referer: http://127.0.0.1/
+[Wed May 31 22:58:46.912826 2017] [:error] [pid 6046] [client 127.0.0.1:61714] PHP   3. event->handleHit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:182, referer: http://127.0.0.1/
+[Wed May 31 22:58:46.912832 2017] [:error] [pid 6046] [client 127.0.0.1:61714] PHP   4. event->renderViewEdit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:87, referer: http://127.0.0.1/
+[Wed May 31 22:58:46.912838 2017] [:error] [pid 6046] [client 127.0.0.1:61714] PHP   5. include() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:354, referer: http://127.0.0.1/

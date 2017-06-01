@@ -1,5 +1,9 @@
 body {
     font-family: helvetica;
+    max-width:800px;
+    background-color: #f8f8f8;
+    font-size: 15px;
+
 }
 .template
 {
@@ -25,10 +29,10 @@ button
 }
 
 h1 {
-    font-size: 20px;
+    font-size: 18px;
 }
 
-h1 {
+h2 {
     font-size: 15px;
 }
 
@@ -36,17 +40,24 @@ h1 {
     background-color: #fcc;
 }
 
-body {
-    max-width:800px;
+.label {
+    display: inline-block;
+    color: #006;
+    font-weight: bold;
 }
-
+.newcomment {
+    width: 700px;
+}
 .commentFooter {
     width: 700px;
     background-color: #ccc;
+    color: #fff;
 }
 .commentInfo{
     display: inline-block;
     font-size: small;
+    font-style: oblique;
+
 }
 .commentActions {
     display: inline-block;
@@ -96,5 +107,59 @@ body {
 table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
+}
 
+th {
+    text-align: left;
+}
+
+
+/* Tooltip container */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+    visibility: hidden;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    padding:1px 10px 1px 10px;
+}
+
+.eventInfo {
+    font-style: oblique;
+    font-size: 15px;
+}
+
+.eventDescription {
+    font-style: oblique;
+    border: 1px solid black;
+    border-radius: 6px;
+    padding:10px;
+    background-color: #fff;
+
+    font-size: 15px;
+
+
+
+
+}
+
+.rightalign {
+    float:right;
 }

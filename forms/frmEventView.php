@@ -17,10 +17,10 @@ console.dir(event);
 </script>
 <table>
     <tr id="guestHeader" class="template">
-        <td>Name</td>
-        <td>Address</td>
-        <td>Status</td>
-        <td>Actions</td>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Status</th>
+        <th>Actions</th>
     </tr>
     <tr id="guestRow" class="guest template">
         <td name="name">?</td>
@@ -38,32 +38,42 @@ console.dir(event);
 </div>
 
 
-<form name="event" method="POST" action="e_<?= $event->eid ?>">
 
 <?php if ($mode=='edit') { ?>
-    <p>Title:<input name="title" type="text" value="<?= $event->title ?>"></p>
-    <p>Description:<textarea name="description"><?= $event->description ?></textarea></p>
-    <p>Date: <input name="date" type="text" value="<?= $event->date ?>"></p>
+<form name="event" method="POST" action="e_<?= $event->eid ?>">
+
+    <p class="label">Title:<input name="title" type="text" value="<?= $event->title ?>"></p>
+    <p class="label">Description:<textarea name="description"><?= $event->description ?></textarea></p>
+    <p class="label">Date: <input name="date" type="text" value="<?= $event->date ?>"></p>
 
     <p><input type="submit" name="action" value="save"></p>
+</form>
+
 <?php } else { ?>
-    <h1><?= $event->title ?> <button class="editEvent">Edit</button></h1>
-    <p><i><?= $event->description ?></i></p>
-    <p>Date: <?= $event->date ?></p>
-    <h2>Guest List</h2>
+    <h1>
+        <?= $event->title ?>
+        <span><button class="editEvent rightalign">Edit</button></span>
+    </h1>
+<hr/>
+    <div class="eventinfo"><div class="label">Host:</div> <div class="tooltip"><?= $event->host->name ?><span class="tooltiptext"><?= $event->host->email ?></span></div>
+    <div class="label">Date:</div> <?= $event->date ?>
+
+    <div class="eventDescription"><?= $event->description ?></div>
+    <h2>
+        Guest List
+        <span><button class="addGuest rightalign">Add Guest...</button></span>
+    </h2>
     <table border=1>
         <tbody id="guestListContainer"></tbody>
     </table>
-    <a class="addGuest button">Add Guest</a>
     <div id='guestRowInput'>
         <p>
             <span>Email Address:<input type='text' name='guestEmail'></span>
             <span>Name:<input type='text' name='guestName'></span>
-            <a class='button inviteGuestButton'>Invite</a>
+            <button class='inviteGuest'>Invite</button>
         </p>
     </div>
 <?php } ?>
-</form>
 
 <h2>Comments</h2>
 <div id="commentContainer"></div>
