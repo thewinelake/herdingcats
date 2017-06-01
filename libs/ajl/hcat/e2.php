@@ -81,9 +81,12 @@ class Email {
         $message->setBody($bodyHtml, 'text/html');
 
 
-        $transport = Swift_SmtpTransport::newInstance('10.168.1.70',25)
-        ->setUsername('emailout@herdingcats.club')
-        ->setPassword('email55TSO')
+        //$transport = Swift_SmtpTransport::newInstance('mail3.gridhost.co.uk',465,'ssl')
+        //->setUsername('emailout@herdingcats.club')
+        //->setPassword('email55TSO')
+        //;
+        $transport = Swift_SmtpTransport::newInstance('10.168.1.70 25',25)
+
         ;
         $swiftmailer = new Swift_Mailer($transport);
         $to = '';
