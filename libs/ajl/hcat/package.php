@@ -7,7 +7,7 @@
  */
 include_once 'libs/ajl/hcat/hcatui.php';
 
-include_once 'libs/ajl/hcat/email.php';
+include_once 'libs/ajl/hcat/e2.php';
 include_once 'libs/ajl/hcat/emailParser.php';
 
 
