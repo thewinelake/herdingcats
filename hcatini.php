@@ -19,7 +19,7 @@ $GLOBALS['HcatConfig'] = array (
 
     'Db' => array(
          'hcat'    => array(
-             'db_dsn' => "mysql:dbname=hcat;host=localhost",
+             'db_dsn' => "mysql:dbname=hcat;host=hcatjun17.herdingcats.com",
              'db_user' =>'garfield',
              'db_password' => 'JimDavis'
          ),
