@@ -75,6 +75,8 @@ class Email {
         } else {
             $message->setTo($this->destAddresses);
         }
+
+
         //$bannerPath = $this->templateDir."APCustBill_$this->banner.png";
         //if (file_exists($bannerPath)) $bodyHtml = str_replace('<<banner-content-id>>', $message->embed(Swift_Image::fromPath($bannerPath)), $bodyHtml);
 
