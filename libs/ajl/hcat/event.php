@@ -426,7 +426,7 @@ class event extends hcatUI
     }
 
     public function ajax_RemoveGuest(&$result) {
-        $uid=$_REQUEST['uid'];
+        $uid = $_REQUEST['guestuid'];
         $sql = "update hcat.invitation set status=:status, statusgmt=:gmt where eid=:eid and uid=:uid";
         $stmt = $this->hcatServer->dbh->prepare($sql);
         $now = date('Y-m-d H:i:s');

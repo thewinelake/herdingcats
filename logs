@@ -4475,3 +4475,10 @@
 [Wed May 31 22:58:46.912826 2017] [:error] [pid 6046] [client 127.0.0.1:61714] PHP   3. event->handleHit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:182, referer: http://127.0.0.1/
 [Wed May 31 22:58:46.912832 2017] [:error] [pid 6046] [client 127.0.0.1:61714] PHP   4. event->renderViewEdit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:87, referer: http://127.0.0.1/
 [Wed May 31 22:58:46.912838 2017] [:error] [pid 6046] [client 127.0.0.1:61714] PHP   5. include() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:354, referer: http://127.0.0.1/
+[Thu Jun 01 18:58:31.994681 2017] [:error] [pid 6286] [client 127.0.0.1:56435] PHP Notice:  Undefined index: uid in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php on line 429, referer: http://127.0.0.1/e_24?XDEBUG_SESSION_START=18098
+[Thu Jun 01 18:58:31.995017 2017] [:error] [pid 6286] [client 127.0.0.1:56435] PHP Stack trace:, referer: http://127.0.0.1/e_24?XDEBUG_SESSION_START=18098
+[Thu Jun 01 18:58:31.995095 2017] [:error] [pid 6286] [client 127.0.0.1:56435] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0, referer: http://127.0.0.1/e_24?XDEBUG_SESSION_START=18098
+[Thu Jun 01 18:58:31.995103 2017] [:error] [pid 6286] [client 127.0.0.1:56435] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16, referer: http://127.0.0.1/e_24?XDEBUG_SESSION_START=18098
+[Thu Jun 01 18:58:31.995110 2017] [:error] [pid 6286] [client 127.0.0.1:56435] PHP   3. event->handleHit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:182, referer: http://127.0.0.1/e_24?XDEBUG_SESSION_START=18098
+[Thu Jun 01 18:58:31.995115 2017] [:error] [pid 6286] [client 127.0.0.1:56435] PHP   4. event->handleAJAXHit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:65, referer: http://127.0.0.1/e_24?XDEBUG_SESSION_START=18098
+[Thu Jun 01 18:58:31.995121 2017] [:error] [pid 6286] [client 127.0.0.1:56435] PHP   5. event->ajax_RemoveGuest($result = *uninitialized*) /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:112, referer: http://127.0.0.1/e_24?XDEBUG_SESSION_START=18098

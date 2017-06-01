@@ -97,6 +97,8 @@ HCATS.event.eventbuilder = function()
 
         // Comments
         $('button.addcomment').bind('click',function(e) {HCATS.event.eventbuilder.addComment(e);});
+        $('button.broadcastComment').bind( 'click', function(e) { HCATS.event.eventbuilder.broadcastComment(e); });
+        $('button.deleteComment').bind( 'click', function(e) { HCATS.event.eventbuilder.deleteComment(e); });
 
         // Generic
         $('button.deleteevent').bind('click',function(e) {HCATS.event.eventbuilder.sendEventCmd(e,'DeleteEvent');});
@@ -154,9 +156,6 @@ HCATS.event.eventbuilder = function()
 
             $('#commentContainer').append($newRow);
         }
-
-        $('.broadcastComment').bind( 'click', function(e) { HCATS.event.eventbuilder.broadcastComment(e); });
-        $('.deleteComment').bind( 'click', function(e) { HCATS.event.eventbuilder.deleteComment(e); });
 
 
         this.initView();
