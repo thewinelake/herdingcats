@@ -4,6 +4,8 @@
 /* @var $event event */
 $onloadJS = "HCATS.event.eventbuilder.init({$event->eid});";
 
+$userCSS = $event->makeUserCSS();
+
 ?>
 
 
@@ -11,18 +13,23 @@ $onloadJS = "HCATS.event.eventbuilder.init({$event->eid});";
 include "furniture/header.php"
 ?>
 
+<?= $userCSS ?>
+
+
 <script>
 var event = <?= $eventJson ?>;
 console.dir(event);
 </script>
 <table>
     <tr id="guestHeader" class="template">
+        <th>&nbsp;</th>
         <th>Name</th>
         <th>Address</th>
         <th>Status</th>
         <th>Actions</th>
     </tr>
     <tr id="guestRow" class="guest template">
+        <td name="colourkey">&nbsp;</td>
         <td name="name">?</td>
         <td name="email">?</td>
         <td name="status">?</td>

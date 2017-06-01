@@ -129,6 +129,7 @@ HCATS.event.eventbuilder = function()
             $newRow.attr('ID','uid_'+guestDetails['uid']);
 
 
+            $newRow.find('td[name=colourkey]').addClass('u'+guestDetails['uid']);
             $newRow.find('td[name=name]').text(guestDetails['name']);
             $newRow.find('td[name=email]').text(guestDetails['email']);
             $newRow.find('td[name=status]').text( my.guestList[guestIdx]['status']);
@@ -139,12 +140,14 @@ HCATS.event.eventbuilder = function()
         for (commentIdx in my.comments) {
             var comment = my.comments[commentIdx];
             var commentHtml = comment['commentHtml'];
-            var commentAuthor = comment['commentAuthor'];
 
-            var commentInfo = '['+comment['commentMid']+'] '+comment['commentAuthor']+' @ '+comment['commentGMT'];
+            var commentInfo = 'So said '; // '['+comment['commentMid']+'] ';
+            commentInfo += comment['commentName']+' ('+comment['commentEmail']+')';
+            commentInfo += ' @ '+comment['commentGMT'];
 
             var $newRow = $('#comment').clone();
             $newRow.removeClass('template');
+            $newRow.addClass('u'+comment['commentUid']);
             $newRow.removeAttr('ID');
             $newRow.attr('ID', 'mid_'+comment['commentMid']);
 
@@ -252,9 +255,6 @@ HCATS.event.eventbuilder = function()
     module.addComment = function(e) {
         var comment = {};
         comment.commentText = $('.newComment').val();
-        comment.commentAuthor = my.user.email;
-        //my.comments.push(comment);
-        //this.render();
 
         var params = {
             cmd:        'AddComment',

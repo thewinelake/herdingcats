@@ -4546,3 +4546,79 @@
 [Thu Jun 01 19:11:33.670707 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP   7. include() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/e2.php:50, referer: http://127.0.0.1/e_24
 [Thu Jun 01 19:11:33.670713 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP   8. event->GuestUnsubscribeURL() /Users/alexlake/Sites/herdingcats/templates/e1_html.php:10, referer: http://127.0.0.1/e_24
 [Thu Jun 01 19:11:33.670718 2017] [:error] [pid 6266] [client 127.0.0.1:60117] PHP   9. event->GuestURL() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:574, referer: http://127.0.0.1/e_24
+[Thu Jun 01 23:01:04.756345 2017] [:error] [pid 8573] [client 127.0.0.1:52347] PHP Notice:  Undefined index: email in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/loginmanager.php on line 14
+[Thu Jun 01 23:01:04.756539 2017] [:error] [pid 8573] [client 127.0.0.1:52347] PHP Stack trace:
+[Thu Jun 01 23:01:04.756618 2017] [:error] [pid 8573] [client 127.0.0.1:52347] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0
+[Thu Jun 01 23:01:04.756639 2017] [:error] [pid 8573] [client 127.0.0.1:52347] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16
+[Thu Jun 01 23:01:04.756646 2017] [:error] [pid 8573] [client 127.0.0.1:52347] PHP   3. loginmanager->validateLogin() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:141
+[Thu Jun 01 23:01:04.756845 2017] [:error] [pid 8573] [client 127.0.0.1:52347] PHP Notice:  Undefined index: pwd in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/loginmanager.php on line 15
+[Thu Jun 01 23:01:04.756852 2017] [:error] [pid 8573] [client 127.0.0.1:52347] PHP Stack trace:
+[Thu Jun 01 23:01:04.756858 2017] [:error] [pid 8573] [client 127.0.0.1:52347] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0
+[Thu Jun 01 23:01:04.756864 2017] [:error] [pid 8573] [client 127.0.0.1:52347] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16
+[Thu Jun 01 23:01:04.756870 2017] [:error] [pid 8573] [client 127.0.0.1:52347] PHP   3. loginmanager->validateLogin() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:141
+[Thu Jun 01 23:02:00.335328 2017] [:error] [pid 8580] [client 127.0.0.1:52590] PHP Notice:  Undefined index: email in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/loginmanager.php on line 14
+[Thu Jun 01 23:02:00.335440 2017] [:error] [pid 8580] [client 127.0.0.1:52590] PHP Stack trace:
+[Thu Jun 01 23:02:00.335459 2017] [:error] [pid 8580] [client 127.0.0.1:52590] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0
+[Thu Jun 01 23:02:00.335468 2017] [:error] [pid 8580] [client 127.0.0.1:52590] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16
+[Thu Jun 01 23:02:00.335474 2017] [:error] [pid 8580] [client 127.0.0.1:52590] PHP   3. loginmanager->validateLogin() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:141
+[Thu Jun 01 23:02:00.335664 2017] [:error] [pid 8580] [client 127.0.0.1:52590] PHP Notice:  Undefined index: pwd in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/loginmanager.php on line 15
+[Thu Jun 01 23:02:00.335672 2017] [:error] [pid 8580] [client 127.0.0.1:52590] PHP Stack trace:
+[Thu Jun 01 23:02:00.335678 2017] [:error] [pid 8580] [client 127.0.0.1:52590] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0
+[Thu Jun 01 23:02:00.335684 2017] [:error] [pid 8580] [client 127.0.0.1:52590] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16
+[Thu Jun 01 23:02:00.335690 2017] [:error] [pid 8580] [client 127.0.0.1:52590] PHP   3. loginmanager->validateLogin() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:141
+[Thu Jun 01 23:04:12.629483 2017] [:error] [pid 8609] [client 127.0.0.1:53253] PHP Notice:  Undefined offset: 5 in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php on line 614, referer: http://127.0.0.1/login
+[Thu Jun 01 23:04:12.629590 2017] [:error] [pid 8609] [client 127.0.0.1:53253] PHP Stack trace:, referer: http://127.0.0.1/login
+[Thu Jun 01 23:04:12.629610 2017] [:error] [pid 8609] [client 127.0.0.1:53253] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0, referer: http://127.0.0.1/login
+[Thu Jun 01 23:04:12.629620 2017] [:error] [pid 8609] [client 127.0.0.1:53253] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16, referer: http://127.0.0.1/login
+[Thu Jun 01 23:04:12.629626 2017] [:error] [pid 8609] [client 127.0.0.1:53253] PHP   3. event->handleHit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:189, referer: http://127.0.0.1/login
+[Thu Jun 01 23:04:12.629632 2017] [:error] [pid 8609] [client 127.0.0.1:53253] PHP   4. event->renderViewEdit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:91, referer: http://127.0.0.1/login
+[Thu Jun 01 23:04:12.629638 2017] [:error] [pid 8609] [client 127.0.0.1:53253] PHP   5. include() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:359, referer: http://127.0.0.1/login
+[Thu Jun 01 23:04:12.629654 2017] [:error] [pid 8609] [client 127.0.0.1:53253] PHP   6. event->makeUserCSS() /Users/alexlake/Sites/herdingcats/forms/frmEventView.php:7, referer: http://127.0.0.1/login
+[Thu Jun 01 23:04:35.736780 2017] [:error] [pid 8589] [client 127.0.0.1:53374] PHP Notice:  Undefined offset: 5 in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php on line 614, referer: http://127.0.0.1/login
+[Thu Jun 01 23:04:35.736880 2017] [:error] [pid 8589] [client 127.0.0.1:53374] PHP Stack trace:, referer: http://127.0.0.1/login
+[Thu Jun 01 23:04:35.736899 2017] [:error] [pid 8589] [client 127.0.0.1:53374] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0, referer: http://127.0.0.1/login
+[Thu Jun 01 23:04:35.736908 2017] [:error] [pid 8589] [client 127.0.0.1:53374] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16, referer: http://127.0.0.1/login
+[Thu Jun 01 23:04:35.736915 2017] [:error] [pid 8589] [client 127.0.0.1:53374] PHP   3. event->handleHit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:189, referer: http://127.0.0.1/login
+[Thu Jun 01 23:04:35.736921 2017] [:error] [pid 8589] [client 127.0.0.1:53374] PHP   4. event->renderViewEdit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:91, referer: http://127.0.0.1/login
+[Thu Jun 01 23:04:35.736927 2017] [:error] [pid 8589] [client 127.0.0.1:53374] PHP   5. include() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:359, referer: http://127.0.0.1/login
+[Thu Jun 01 23:04:35.736933 2017] [:error] [pid 8589] [client 127.0.0.1:53374] PHP   6. event->makeUserCSS() /Users/alexlake/Sites/herdingcats/forms/frmEventView.php:7, referer: http://127.0.0.1/login
+[Thu Jun 01 23:21:53.458312 2017] [:error] [pid 8640] [client 127.0.0.1:57561] PHP Warning:  Illegal string offset 'uid' in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php on line 613, referer: http://127.0.0.1/e_24
+[Thu Jun 01 23:21:53.458405 2017] [:error] [pid 8640] [client 127.0.0.1:57561] PHP Stack trace:, referer: http://127.0.0.1/e_24
+[Thu Jun 01 23:21:53.458423 2017] [:error] [pid 8640] [client 127.0.0.1:57561] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0, referer: http://127.0.0.1/e_24
+[Thu Jun 01 23:21:53.458432 2017] [:error] [pid 8640] [client 127.0.0.1:57561] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16, referer: http://127.0.0.1/e_24
+[Thu Jun 01 23:21:53.458439 2017] [:error] [pid 8640] [client 127.0.0.1:57561] PHP   3. event->handleHit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:189, referer: http://127.0.0.1/e_24
+[Thu Jun 01 23:21:53.458445 2017] [:error] [pid 8640] [client 127.0.0.1:57561] PHP   4. event->renderViewEdit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:91, referer: http://127.0.0.1/e_24
+[Thu Jun 01 23:21:53.458451 2017] [:error] [pid 8640] [client 127.0.0.1:57561] PHP   5. include() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:360, referer: http://127.0.0.1/e_24
+[Thu Jun 01 23:21:53.458458 2017] [:error] [pid 8640] [client 127.0.0.1:57561] PHP   6. event->makeUserCSS() /Users/alexlake/Sites/herdingcats/forms/frmEventView.php:7, referer: http://127.0.0.1/e_24
+[Thu Jun 01 23:21:55.618081 2017] [:error] [pid 8646] [client 127.0.0.1:57568] PHP Warning:  Illegal string offset 'uid' in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php on line 613, referer: http://127.0.0.1/e_24
+[Thu Jun 01 23:21:55.618176 2017] [:error] [pid 8646] [client 127.0.0.1:57568] PHP Stack trace:, referer: http://127.0.0.1/e_24
+[Thu Jun 01 23:21:55.618205 2017] [:error] [pid 8646] [client 127.0.0.1:57568] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0, referer: http://127.0.0.1/e_24
+[Thu Jun 01 23:21:55.618213 2017] [:error] [pid 8646] [client 127.0.0.1:57568] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16, referer: http://127.0.0.1/e_24
+[Thu Jun 01 23:21:55.618220 2017] [:error] [pid 8646] [client 127.0.0.1:57568] PHP   3. event->handleHit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:189, referer: http://127.0.0.1/e_24
+[Thu Jun 01 23:21:55.618235 2017] [:error] [pid 8646] [client 127.0.0.1:57568] PHP   4. event->renderViewEdit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:91, referer: http://127.0.0.1/e_24
+[Thu Jun 01 23:21:55.618242 2017] [:error] [pid 8646] [client 127.0.0.1:57568] PHP   5. include() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:360, referer: http://127.0.0.1/e_24
+[Thu Jun 01 23:21:55.618248 2017] [:error] [pid 8646] [client 127.0.0.1:57568] PHP   6. event->makeUserCSS() /Users/alexlake/Sites/herdingcats/forms/frmEventView.php:7, referer: http://127.0.0.1/e_24
+[Thu Jun 01 23:22:37.575727 2017] [:error] [pid 8559] [client 127.0.0.1:57778] PHP Warning:  Illegal string offset 'uid' in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php on line 613, referer: http://127.0.0.1/e_24
+[Thu Jun 01 23:22:37.575836 2017] [:error] [pid 8559] [client 127.0.0.1:57778] PHP Stack trace:, referer: http://127.0.0.1/e_24
+[Thu Jun 01 23:22:37.575855 2017] [:error] [pid 8559] [client 127.0.0.1:57778] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0, referer: http://127.0.0.1/e_24
+[Thu Jun 01 23:22:37.575864 2017] [:error] [pid 8559] [client 127.0.0.1:57778] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16, referer: http://127.0.0.1/e_24
+[Thu Jun 01 23:22:37.575870 2017] [:error] [pid 8559] [client 127.0.0.1:57778] PHP   3. event->handleHit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:189, referer: http://127.0.0.1/e_24
+[Thu Jun 01 23:22:37.575876 2017] [:error] [pid 8559] [client 127.0.0.1:57778] PHP   4. event->renderViewEdit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:91, referer: http://127.0.0.1/e_24
+[Thu Jun 01 23:22:37.575882 2017] [:error] [pid 8559] [client 127.0.0.1:57778] PHP   5. include() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:360, referer: http://127.0.0.1/e_24
+[Thu Jun 01 23:22:37.575888 2017] [:error] [pid 8559] [client 127.0.0.1:57778] PHP   6. event->makeUserCSS() /Users/alexlake/Sites/herdingcats/forms/frmEventView.php:7, referer: http://127.0.0.1/e_24
+[Thu Jun 01 23:23:22.594257 2017] [:error] [pid 8604] [client 127.0.0.1:57986] PHP Notice:  Undefined offset: 6 in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php on line 615, referer: http://127.0.0.1/e_24
+[Thu Jun 01 23:23:22.594445 2017] [:error] [pid 8604] [client 127.0.0.1:57986] PHP Stack trace:, referer: http://127.0.0.1/e_24
+[Thu Jun 01 23:23:22.594521 2017] [:error] [pid 8604] [client 127.0.0.1:57986] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0, referer: http://127.0.0.1/e_24
+[Thu Jun 01 23:23:22.594533 2017] [:error] [pid 8604] [client 127.0.0.1:57986] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16, referer: http://127.0.0.1/e_24
+[Thu Jun 01 23:23:22.594540 2017] [:error] [pid 8604] [client 127.0.0.1:57986] PHP   3. event->handleHit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:189, referer: http://127.0.0.1/e_24
+[Thu Jun 01 23:23:22.594546 2017] [:error] [pid 8604] [client 127.0.0.1:57986] PHP   4. event->renderViewEdit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:91, referer: http://127.0.0.1/e_24
+[Thu Jun 01 23:23:22.594552 2017] [:error] [pid 8604] [client 127.0.0.1:57986] PHP   5. include() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:360, referer: http://127.0.0.1/e_24
+[Thu Jun 01 23:23:22.594558 2017] [:error] [pid 8604] [client 127.0.0.1:57986] PHP   6. event->makeUserCSS() /Users/alexlake/Sites/herdingcats/forms/frmEventView.php:7, referer: http://127.0.0.1/e_24
+[Thu Jun 01 23:23:42.701336 2017] [:error] [pid 8694] [client 127.0.0.1:58121] PHP Notice:  Undefined offset: 6 in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php on line 615, referer: http://127.0.0.1/e_24
+[Thu Jun 01 23:23:42.701435 2017] [:error] [pid 8694] [client 127.0.0.1:58121] PHP Stack trace:, referer: http://127.0.0.1/e_24
+[Thu Jun 01 23:23:42.701462 2017] [:error] [pid 8694] [client 127.0.0.1:58121] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0, referer: http://127.0.0.1/e_24
+[Thu Jun 01 23:23:42.701481 2017] [:error] [pid 8694] [client 127.0.0.1:58121] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16, referer: http://127.0.0.1/e_24
+[Thu Jun 01 23:23:42.701488 2017] [:error] [pid 8694] [client 127.0.0.1:58121] PHP   3. event->handleHit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:189, referer: http://127.0.0.1/e_24
+[Thu Jun 01 23:23:42.701494 2017] [:error] [pid 8694] [client 127.0.0.1:58121] PHP   4. event->renderViewEdit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:91, referer: http://127.0.0.1/e_24
+[Thu Jun 01 23:23:42.701500 2017] [:error] [pid 8694] [client 127.0.0.1:58121] PHP   5. include() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:360, referer: http://127.0.0.1/e_24
+[Thu Jun 01 23:23:42.701506 2017] [:error] [pid 8694] [client 127.0.0.1:58121] PHP   6. event->makeUserCSS() /Users/alexlake/Sites/herdingcats/forms/frmEventView.php:7, referer: http://127.0.0.1/e_24

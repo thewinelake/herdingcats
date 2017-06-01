@@ -32,7 +32,7 @@ class event extends hcatUI
 
     }
 
-    public function myEmailAddress() {
+    public function myEmailAddress($guestKey=0) {
 
         $stmt = $this->hcatServer->dbh->prepare("select * from hcat.user where uid=:owneruid");
         $stmt->bindValue(':owneruid', $this->hostUid, PDO::PARAM_INT);
@@ -40,8 +40,12 @@ class event extends hcatUI
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
         $name = valOr($row,'name','Anonymous');
 
-        $emailAddr = "e_{$this->eid}@herdingcats.club";
-        $emailName = "$name's cat herder";
+        $emailAddr = "e_{$this->eid}";
+        if ($guestKey) {
+            $emailAddr = "_{$guestKey}";
+        }
+        $emailAddr .="@herdingcats.club";
+        $emailName = "$name's cat herder for {$this->title}";
 
         return array($emailAddr=>$emailName);
     }
@@ -177,9 +181,11 @@ class event extends hcatUI
         foreach ($rows as $row) {
             $comment = new stdClass();
             $comment->commentMid = $row['mid'];
+            $comment->commentUid = $row['uid'];
             $comment->commentText = $this->renderCommentCompactAsHtml($row['msgtext']);
             $comment->commentHtml = $this->renderCommentCompactAsHtml($row['msgtext']);
-            $comment->commentAuthor = $row['email'];
+            $comment->commentName = $row['name'];
+            $comment->commentEmail = $row['email'];
             $comment->commentGMT = $row['gmt'];
 
             array_push($this->comments,$comment);
@@ -386,9 +392,9 @@ class event extends hcatUI
         $guest = new user();
         if (!$guest->loadByEmailAddr($guestEmail)) {
             // the guest doesn't already exist - we should create it
+            $guest->email = trim($guestEmail);
+            $guest->name = trim($guestDetails->name);
             $this->debug(1,"Creating new user with email address $guestEmail");
-            $guest->email = $guestEmail;
-            $guest->name = $guestDetails->name;
             $guest->saveToDB();
         }
 
@@ -511,8 +517,10 @@ class event extends hcatUI
             $guestUid = $guestrow['uid'];
             if ($guestUid) {
                 $guest = new user($guestUid);
+                $guestKey = $guestrow['ikey'];
             } else {
                 $guest = new stdClass();
+                $guestKey = '';
             }
 
 
@@ -526,7 +534,7 @@ class event extends hcatUI
             $mergedata->mid = $commentMID;
 
             $email = new Email();
-            $email->fromAddress = $this->myEmailAddress();
+            $email->fromAddress = $this->myEmailAddress($guestKey);
             $email->destAddresses = array($guestEmail);
             $email->mergeTemplate('e1',$mergedata);
             $email->send();
@@ -593,6 +601,34 @@ class event extends hcatUI
             }
         }
         return $msgHtml;
+    }
+
+    public function makeUserCSS() {
+        $colIdx = -1;
+        $BGColPalette = array('white::#666','#f66','#c60','#0f0','pink','#00f','#88f');
+        $css = "<style>\n";
+        array_unshift($this->guestList,array('uid'=>$this->hostUid));
+
+        foreach ($this->guestList as $guest) {
+            $guid = $guest['uid'];
+            if ($guid!=$this->hostUid || $colIdx==-1) {
+                if ((++$colIdx) >= sizeof($BGColPalette)) $colIdx = 1;
+                $guestInfoCols = explode(':',$BGColPalette[$colIdx].'::');
+                $guestBGCol = $guestInfoCols[0];
+                $guestInfoTextCol = valOr($guestInfoCols,1);
+                $guestInfoBGCol = valOr($guestInfoCols,2);
+
+                $css .=".u{$guid},td.u{$guid} { background-color: {$guestBGCol} }\n";
+                if ($guestInfoTextCol) {
+                    $css .=".u{$guid} .commentInfo { color: {$guestInfoTextCol} }\n";
+                }
+                if ($guestInfoBGCol) {
+                    $css .=".u{$guid} .commentFooter{ background-color: {$guestInfoBGCol} }\n";
+                }
+            }
+        }
+        $css .="</style>";
+        return $css;
     }
 
 

@@ -48,9 +48,16 @@ h2 {
 .newcomment {
     width: 700px;
 }
+.comment {
+    margin-top: 3px;
+}
+.commentHtml {
+    background: rgba(255, 255, 255, 0.9);
+}
 .commentFooter {
-    width: 700px;
-    background-color: #ccc;
+/*    width: 700px; */
+    /* background-color: #ccc; */
+    /* background: rgba(255, 255, 255, 0.3); */
     color: #fff;
 }
 .commentInfo{

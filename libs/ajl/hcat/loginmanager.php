@@ -11,8 +11,8 @@ class loginmanager extends hcatUI
     public function validateLogin() {
 
         // data must be in $_POST
-        $email = $_POST['email'];
-        $password = $_POST['pwd'];
+        $email = valOr($_REQUEST,'email','');
+        $password = valOr($_REQUEST,'pwd','');
 
         $stmt = $this->hcatServer->dbh->prepare("select * from hcat.user where email=:email");
         $stmt->bindValue(':email', $email, PDO::PARAM_STR);
