@@ -16,7 +16,6 @@ $GLOBALS['HcatConfig'] = array (
         'BaseURL' => 'http://127.0.0.1/',
     ),
 
-
     'Db' => array(
          'hcat'    => array(
              'db_dsn' => "mysql:dbname=hcat;host=hcatjun17.herdingcats.com",

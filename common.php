@@ -31,8 +31,11 @@ ini_set('short_open_tag', 'On');
 if (isset($_REQUEST['q']) && substr($_REQUEST['q'], -11) == 'favicon.ico') exit;
 
 //include '/etc/hcat/hcatini.php';
-include 'hcatini.php';
-
+if (file_exists('/home/sites/herdingcats/hcatini_override.php')) {
+    include 'hcatini_override.php';
+} else {
+    include 'hcatini.php';
+}
 
 date_default_timezone_set('UTC');
 $cacheDefeat    = '?time='.date('His');
