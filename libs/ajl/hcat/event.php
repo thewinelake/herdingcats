@@ -499,7 +499,7 @@ class event extends hcatUI
         }
 
         $sql = "SELECT * FROM hcat.invitation as i left join hcat.user as u on u.uid=i.uid";
-        $sql .= " where i.eid=:eid and i.status not in ('UNSUBSCRIBED','DECLINED')";
+        $sql .= " where i.eid=:eid and i.status not in ('UNSUBSCRIBED','DECLINED','DELETED')";
         $stmt = $this->hcatServer->dbh->prepare($sql);
         $stmt->bindValue(':eid', $this->eid, PDO::PARAM_INT);
 
