@@ -106,7 +106,19 @@ HCATS.event.eventbuilder = function()
         $('button.editEvent').bind('click',function(e) {HCATS.event.eventbuilder.editEvent();});
 
 
+        if (my.event.iAmHost) {
 
+        } else {
+            $('button.editEvent').hide();
+            $('button.addGuest').hide();
+            $('button.remove').hide();
+            $('button.nudge').hide();
+            $('button.broadcastComment').hide();
+            $('button.deleteComment').hide();
+            $('button.deleteEvent').hide();
+            $('button.cancelEvent').hide();
+
+        }
     }
 
     module.render = function() {
@@ -115,26 +127,26 @@ HCATS.event.eventbuilder = function()
         $('#guestListContainer').html('');
         $('#commentContainer').html('');
 
-        var $newRow = $('#guestHeader').clone();
-        $newRow.removeClass('template');
-        $newRow.removeAttr('ID');
-        $('#guestListContainer').append($newRow);
+        var newRow = $('#guestHeader').clone();
+        newRow.removeClass('template');
+        newRow.removeAttr('ID');
+        $('#guestListContainer').append(newRow);
 
         for (guestIdx in my.guestList) {
             console.dir(my.guestList[guestIdx]);
             var guestDetails = my.guestList[guestIdx];
-            var $newRow = $('#guestRow').clone();
-            $newRow.removeClass('template');
-            $newRow.removeAttr('ID');
-            $newRow.attr('ID','uid_'+guestDetails['uid']);
+            var newRow = $('#guestRow').clone();
+            newRow.removeClass('template');
+            newRow.removeAttr('ID');
+            newRow.attr('ID','uid_'+guestDetails['uid']);
 
 
-            $newRow.find('td[name=colourkey]').addClass('u'+guestDetails['uid']);
-            $newRow.find('td[name=name]').text(guestDetails['name']);
-            $newRow.find('td[name=email]').text(guestDetails['email']);
-            $newRow.find('td[name=status]').text( my.guestList[guestIdx]['status']);
+            newRow.find('td[name=colourkey]').addClass('u'+guestDetails['uid']);
+            newRow.find('td[name=name]').text(guestDetails['name']);
+            newRow.find('td[name=email]').text(guestDetails['email']);
+            newRow.find('td[name=status]').text( my.guestList[guestIdx]['status']);
 
-            $('#guestListContainer').append($newRow);
+            $('#guestListContainer').append(newRow);
         }
 
         for (commentIdx in my.comments) {
@@ -145,19 +157,21 @@ HCATS.event.eventbuilder = function()
             commentInfo += comment['commentName']+' ('+comment['commentEmail']+')';
             commentInfo += ' @ '+comment['commentGMT'];
 
-            var $newRow = $('#comment').clone();
-            $newRow.removeClass('template');
-            $newRow.addClass('u'+comment['commentUid']);
-            $newRow.removeAttr('ID');
-            $newRow.attr('ID', 'mid_'+comment['commentMid']);
+            var newRow = $('#comment').clone();
+            newRow.removeClass('template');
+            newRow.addClass('u'+comment['commentUid']);
+            newRow.removeAttr('ID');
+            newRow.attr('ID', 'mid_'+comment['commentMid']);
 
-            $newRow.find('.commentHtml').html(commentHtml);
-            $newRow.find('.commentInfo').text(commentInfo);
+            newRow.find('.commentHtml').html(commentHtml);
+            newRow.find('.commentInfo').text(commentInfo);
+
+
 
 
             //$newRow.find('.commentActions').html(commentActions);
 
-            $('#commentContainer').append($newRow);
+            $('#commentContainer').append(newRow);
         }
 
 

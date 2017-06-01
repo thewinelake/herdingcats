@@ -87,8 +87,10 @@ console.dir(event);
 
 
 <form name="comment" id="comment" method="POST" action="e_<?= $event->eid ?>">
-    <p><textarea name="comment" class="newComment"></textarea></p>
+    <div class='newCommentArea'>
+    <textarea name="comment" class="newComment"></textarea></p>
     <button class='addcomment'>Add Comment</button>
+    </div>
 </form>
 
 <button class='deleteevent'>Delete Event</button>

@@ -45,8 +45,14 @@ h2 {
     color: #006;
     font-weight: bold;
 }
+
+.newCommentArea {
+    margin-top: 10px;
+    max-width: 800px;
+
+}
 .newcomment {
-    width: 700px;
+    width: 100%;
 }
 .comment {
     margin-top: 3px;

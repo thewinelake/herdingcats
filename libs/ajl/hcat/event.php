@@ -19,6 +19,7 @@ class event extends hcatUI
     public $date;
     public $guestList; // array
     public $comments; // array
+    public $iAmHost;
 
     public function event($hcatServer,$eid=0) {
         $this->host = new stdClass();
@@ -214,6 +215,7 @@ class event extends hcatUI
         $this->date = $a['date'];
         $this->descriptionMid = $a['descriptionmid'];
 
+        $this->iAmHost = $this->iAmHost();
     }
 
     public function handleEmail() {
@@ -358,6 +360,10 @@ class event extends hcatUI
         $event = $this;
         $eventJson = json_encode($event);
         include "forms/frmEventView.php";
+    }
+
+    public function iAmHost() {
+        return (valOr($_SESSION,'uid')==$this->hostUid);
     }
 
     public function inviteUser() {
