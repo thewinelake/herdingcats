@@ -401,7 +401,7 @@ class event extends hcatUI
         $ikey = sprintf('%d',rand (100000,999999)).sprintf('%d',rand (100000,999999));
         if (sizeof($rows)==1) {
             // Already in the db
-            $sql = "update hcat.invitation set name=:name, crtgmt=:crtgmt, status=:status, statusgmt=:statusgmt where eid=:eid and uid=:uid;";
+            $sql = "update hcat.invitation set name=:name, ikey=:ikey, crtgmt=:crtgmt, status=:status, statusgmt=:statusgmt where eid=:eid and uid=:uid;";
         } else {
             // this is a new one
             $sql = "insert into hcat.invitation (eid,uid,ikey,name,crtgmt,status,statusgmt) values (:eid,:uid,:ikey,:name,:crtgmt,:status,:statusgmt);";
