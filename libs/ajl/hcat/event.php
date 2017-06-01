@@ -552,7 +552,7 @@ class event extends hcatUI
     public function GuestURL($guestUid=0) {
 
         $baseURL = $GLOBALS['HcatConfig']['GenConfig']['BaseURL'];
-        $baseURL = $_REQUEST['REQUEST_SCHEME'].'://'.$_REQUEST['SERVER_ADDR'].'/';
+        $baseURL = $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['SERVER_ADDR'].'/';
 
         $url = $baseURL.'e_'.$this->eid;
 

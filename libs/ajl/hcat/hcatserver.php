@@ -161,6 +161,13 @@ class hcatServer
                 case 'phpinfo':
                     phpInfo();
                     break;
+                case 'request':
+                    print "<p>REQUEST</p><pre>";
+                    print_r($_REQUEST);
+                    print "</pre><pre>@";
+                    print_r($_SERVER);
+                    print "</pre>";
+                    break;
                 case 'poll':
                     $this->pollEmail();
                     break;
