@@ -43,7 +43,7 @@ class event extends hcatUI
 
         $emailAddr = "e_{$this->eid}";
         if ($guestKey) {
-            $emailAddr = "_{$guestKey}";
+            $emailAddr .= "_{$guestKey}";
         }
         $emailAddr .="@herdingcats.club";
         $emailName = "$name's cat herder for {$this->title}";
@@ -334,7 +334,7 @@ class event extends hcatUI
             $stmt = $this->hcatServer->dbh->prepare($sql);
             $now = date('Y-m-d H:i:s');
             $stmt->bindValue(':eid', $this->eid, PDO::PARAM_INT);
-            $stmt->bindValue(':uid', $guest->uid, PDO::PARAM_STR);
+            $stmt->bindValue(':uid', $guest->uid, PDO::PARAM_INT);
             if ($insert) $stmt->bindValue(':ikey', $ikey, PDO::PARAM_STR);
             $stmt->bindValue(':status', 'new', PDO::PARAM_STR);
             $stmt->bindValue(':crtgmt', $now, PDO::PARAM_STR);
@@ -514,7 +514,6 @@ class event extends hcatUI
         $sql .= " where i.eid=:eid and i.status not in ('UNSUBSCRIBED','DECLINED','DELETED')";
         $stmt = $this->hcatServer->dbh->prepare($sql);
         $stmt->bindValue(':eid', $this->eid, PDO::PARAM_INT);
-
         $this->dbExecute($stmt);
         while ($guestrow = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
@@ -542,6 +541,8 @@ class event extends hcatUI
             $email = new Email();
             $email->fromAddress = $this->myEmailAddress($guestKey);
             $email->destAddresses = array($guestEmail);
+            $email->eid = $this->eid;
+            $email->uid = $guestUid;
             $email->mergeTemplate('e1',$mergedata);
             $email->send();
 
@@ -567,6 +568,8 @@ class event extends hcatUI
 
         $baseURL = $GLOBALS['HcatConfig']['GenConfig']['BaseURL'];
         $baseURL = $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['SERVER_ADDR'].'/';
+
+        $baseURL = 'http://herdingcats.club/';
 
         $url = $baseURL.'e_'.$this->eid;
 
@@ -637,5 +640,34 @@ class event extends hcatUI
         return $css;
     }
 
+    public function inspectorHtml() {
+        $html='<p>This is an event</p>';
+
+        $html .= $this->inspectorHtmlEmails();
+
+        return $html;
+    }
+
+    private function inspectorHtmlEmails() {
+        $html = '<table>';
+        $html.="<tr>";
+        $html.="<td>From/To</td><td>Body</td>";
+        $html.="<tr>";
+        $sql = "SELECT * FROM hcat.emailarchive where eid=:eid order by gmt";
+        $stmt = hcatServer()->dbh->prepare($sql);
+        $stmt->bindValue(':eid', $this->eid, PDO::PARAM_INT);
+        $this->dbExecute($stmt);
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $bodyURL = "/emailbody?i={$row['idx']}";
+            $html.="<tr>";
+            $html.="<td>{$row['fromaddr']}<br/>--&gt;{$row['toaddr']}<p>@{$row['gmt']}</p></td>";
+            $html.="<td><iframe src='{$bodyURL}'></iframe></td>";
+            $html.="<tr>";
+
+        }
+        $html .= '</table>';
+        return $html;
+
+    }
 
 }

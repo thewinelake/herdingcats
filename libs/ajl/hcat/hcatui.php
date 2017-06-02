@@ -26,6 +26,6 @@ class hcatUI
     }
 
     public function dbExecute($stmt) {
-        return $this->hcatServer->dbExecute($stmt);
+        return hcatServer()->dbExecute($stmt);
     }
 }

@@ -4622,3 +4622,227 @@
 [Thu Jun 01 23:23:42.701494 2017] [:error] [pid 8694] [client 127.0.0.1:58121] PHP   4. event->renderViewEdit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:91, referer: http://127.0.0.1/e_24
 [Thu Jun 01 23:23:42.701500 2017] [:error] [pid 8694] [client 127.0.0.1:58121] PHP   5. include() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:360, referer: http://127.0.0.1/e_24
 [Thu Jun 01 23:23:42.701506 2017] [:error] [pid 8694] [client 127.0.0.1:58121] PHP   6. event->makeUserCSS() /Users/alexlake/Sites/herdingcats/forms/frmEventView.php:7, referer: http://127.0.0.1/e_24
+[Fri Jun 02 07:32:28.502764 2017] [:error] [pid 9121] [client 127.0.0.1:58707] PHP Fatal error:  Call to undefined method Email::dbExecute() in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/e2.php on line 119, referer: http://127.0.0.1/e_24
+[Fri Jun 02 07:32:28.503487 2017] [:error] [pid 9121] [client 127.0.0.1:58707] PHP Stack trace:, referer: http://127.0.0.1/e_24
+[Fri Jun 02 07:32:28.503588 2017] [:error] [pid 9121] [client 127.0.0.1:58707] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0, referer: http://127.0.0.1/e_24
+[Fri Jun 02 07:32:28.503599 2017] [:error] [pid 9121] [client 127.0.0.1:58707] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16, referer: http://127.0.0.1/e_24
+[Fri Jun 02 07:32:28.503607 2017] [:error] [pid 9121] [client 127.0.0.1:58707] PHP   3. event->handleHit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:189, referer: http://127.0.0.1/e_24
+[Fri Jun 02 07:32:28.503614 2017] [:error] [pid 9121] [client 127.0.0.1:58707] PHP   4. event->handleAJAXHit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:70, referer: http://127.0.0.1/e_24
+[Fri Jun 02 07:32:28.503623 2017] [:error] [pid 9121] [client 127.0.0.1:58707] PHP   5. event->ajax_BroadcastComment($result = *uninitialized*) /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:129, referer: http://127.0.0.1/e_24
+[Fri Jun 02 07:32:28.503630 2017] [:error] [pid 9121] [client 127.0.0.1:58707] PHP   6. Email->send() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:546, referer: http://127.0.0.1/e_24
+[Fri Jun 02 07:34:26.502820 2017] [:error] [pid 9154] [client 127.0.0.1:59148] PHP Fatal error:  Call to undefined method Email::dbExecute() in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/e2.php on line 119, referer: http://127.0.0.1/e_24
+[Fri Jun 02 07:34:26.502915 2017] [:error] [pid 9154] [client 127.0.0.1:59148] PHP Stack trace:, referer: http://127.0.0.1/e_24
+[Fri Jun 02 07:34:26.502923 2017] [:error] [pid 9154] [client 127.0.0.1:59148] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0, referer: http://127.0.0.1/e_24
+[Fri Jun 02 07:34:26.502931 2017] [:error] [pid 9154] [client 127.0.0.1:59148] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16, referer: http://127.0.0.1/e_24
+[Fri Jun 02 07:34:26.502937 2017] [:error] [pid 9154] [client 127.0.0.1:59148] PHP   3. event->handleHit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:189, referer: http://127.0.0.1/e_24
+[Fri Jun 02 07:34:26.502943 2017] [:error] [pid 9154] [client 127.0.0.1:59148] PHP   4. event->handleAJAXHit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:70, referer: http://127.0.0.1/e_24
+[Fri Jun 02 07:34:26.502950 2017] [:error] [pid 9154] [client 127.0.0.1:59148] PHP   5. event->ajax_BroadcastComment($result = *uninitialized*) /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:129, referer: http://127.0.0.1/e_24
+[Fri Jun 02 07:34:26.502964 2017] [:error] [pid 9154] [client 127.0.0.1:59148] PHP   6. Email->send() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:546, referer: http://127.0.0.1/e_24
+[Fri Jun 02 07:35:11.885687 2017] [:error] [pid 8957] [client 127.0.0.1:59381] PHP Fatal error:  Call to undefined method Email::dbExecute() in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/e2.php on line 119, referer: http://127.0.0.1/e_24
+[Fri Jun 02 07:35:11.885796 2017] [:error] [pid 8957] [client 127.0.0.1:59381] PHP Stack trace:, referer: http://127.0.0.1/e_24
+[Fri Jun 02 07:35:11.885805 2017] [:error] [pid 8957] [client 127.0.0.1:59381] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0, referer: http://127.0.0.1/e_24
+[Fri Jun 02 07:35:11.885812 2017] [:error] [pid 8957] [client 127.0.0.1:59381] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16, referer: http://127.0.0.1/e_24
+[Fri Jun 02 07:35:11.885818 2017] [:error] [pid 8957] [client 127.0.0.1:59381] PHP   3. event->handleHit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:189, referer: http://127.0.0.1/e_24
+[Fri Jun 02 07:35:11.885824 2017] [:error] [pid 8957] [client 127.0.0.1:59381] PHP   4. event->handleAJAXHit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:70, referer: http://127.0.0.1/e_24
+[Fri Jun 02 07:35:11.885830 2017] [:error] [pid 8957] [client 127.0.0.1:59381] PHP   5. event->ajax_BroadcastComment($result = *uninitialized*) /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:129, referer: http://127.0.0.1/e_24
+[Fri Jun 02 07:35:11.885836 2017] [:error] [pid 8957] [client 127.0.0.1:59381] PHP   6. Email->send() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:546, referer: http://127.0.0.1/e_24
+[Fri Jun 02 07:37:56.495842 2017] [:error] [pid 8957] [client 127.0.0.1:59381] PHP Fatal error:  Call to undefined method Email::dbExecute() in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/e2.php on line 119, referer: http://127.0.0.1/e_24
+[Fri Jun 02 07:37:56.495968 2017] [:error] [pid 8957] [client 127.0.0.1:59381] PHP Stack trace:, referer: http://127.0.0.1/e_24
+[Fri Jun 02 07:37:56.495979 2017] [:error] [pid 8957] [client 127.0.0.1:59381] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0, referer: http://127.0.0.1/e_24
+[Fri Jun 02 07:37:56.495988 2017] [:error] [pid 8957] [client 127.0.0.1:59381] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:16, referer: http://127.0.0.1/e_24
+[Fri Jun 02 07:37:56.495996 2017] [:error] [pid 8957] [client 127.0.0.1:59381] PHP   3. event->handleHit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:189, referer: http://127.0.0.1/e_24
+[Fri Jun 02 07:37:56.496004 2017] [:error] [pid 8957] [client 127.0.0.1:59381] PHP   4. event->handleAJAXHit() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:70, referer: http://127.0.0.1/e_24
+[Fri Jun 02 07:37:56.496013 2017] [:error] [pid 8957] [client 127.0.0.1:59381] PHP   5. event->ajax_BroadcastComment($result = *uninitialized*) /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:129, referer: http://127.0.0.1/e_24
+[Fri Jun 02 07:37:56.496020 2017] [:error] [pid 8957] [client 127.0.0.1:59381] PHP   6. Email->send() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:546, referer: http://127.0.0.1/e_24
+[Fri Jun 02 08:03:53.006179 2017] [:error] [pid 9348] [client 127.0.0.1:64244] PHP Fatal error:  Call to undefined function inspectorHtmlEmails() in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php on line 646
+[Fri Jun 02 08:03:53.006271 2017] [:error] [pid 9348] [client 127.0.0.1:64244] PHP Stack trace:
+[Fri Jun 02 08:03:53.006280 2017] [:error] [pid 9348] [client 127.0.0.1:64244] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0
+[Fri Jun 02 08:03:53.006288 2017] [:error] [pid 9348] [client 127.0.0.1:64244] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:17
+[Fri Jun 02 08:03:53.006294 2017] [:error] [pid 9348] [client 127.0.0.1:64244] PHP   3. inspector->render() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:184
+[Fri Jun 02 08:03:53.006307 2017] [:error] [pid 9348] [client 127.0.0.1:64244] PHP   4. include() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/inspector.php:41
+[Fri Jun 02 08:03:53.006313 2017] [:error] [pid 9348] [client 127.0.0.1:64244] PHP   5. event->inspectorHtml() /Users/alexlake/Sites/herdingcats/forms/frmInspector.php:8
+[Fri Jun 02 08:04:01.939165 2017] [:error] [pid 9462] [client 127.0.0.1:64294] PHP Fatal error:  Call to undefined function inspectorHtmlEmails() in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php on line 646
+[Fri Jun 02 08:04:01.939276 2017] [:error] [pid 9462] [client 127.0.0.1:64294] PHP Stack trace:
+[Fri Jun 02 08:04:01.939316 2017] [:error] [pid 9462] [client 127.0.0.1:64294] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0
+[Fri Jun 02 08:04:01.939331 2017] [:error] [pid 9462] [client 127.0.0.1:64294] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:17
+[Fri Jun 02 08:04:01.939338 2017] [:error] [pid 9462] [client 127.0.0.1:64294] PHP   3. inspector->render() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:184
+[Fri Jun 02 08:04:01.939345 2017] [:error] [pid 9462] [client 127.0.0.1:64294] PHP   4. include() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/inspector.php:41
+[Fri Jun 02 08:04:01.939351 2017] [:error] [pid 9462] [client 127.0.0.1:64294] PHP   5. event->inspectorHtml() /Users/alexlake/Sites/herdingcats/forms/frmInspector.php:8
+[Fri Jun 02 08:04:04.318458 2017] [:error] [pid 9462] [client 127.0.0.1:64294] PHP Notice:  Trying to get property of non-object in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php on line 654
+[Fri Jun 02 08:04:04.318541 2017] [:error] [pid 9462] [client 127.0.0.1:64294] PHP Stack trace:
+[Fri Jun 02 08:04:04.318550 2017] [:error] [pid 9462] [client 127.0.0.1:64294] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0
+[Fri Jun 02 08:04:04.318556 2017] [:error] [pid 9462] [client 127.0.0.1:64294] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:17
+[Fri Jun 02 08:04:04.318562 2017] [:error] [pid 9462] [client 127.0.0.1:64294] PHP   3. inspector->render() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:184
+[Fri Jun 02 08:04:04.318568 2017] [:error] [pid 9462] [client 127.0.0.1:64294] PHP   4. include() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/inspector.php:41
+[Fri Jun 02 08:04:04.318574 2017] [:error] [pid 9462] [client 127.0.0.1:64294] PHP   5. event->inspectorHtml() /Users/alexlake/Sites/herdingcats/forms/frmInspector.php:8
+[Fri Jun 02 08:04:04.318580 2017] [:error] [pid 9462] [client 127.0.0.1:64294] PHP   6. event->inspectorHtmlEmails() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:646
+[Fri Jun 02 08:04:04.318634 2017] [:error] [pid 9462] [client 127.0.0.1:64294] PHP Fatal error:  Call to a member function prepare() on a non-object in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php on line 654
+[Fri Jun 02 08:04:04.318640 2017] [:error] [pid 9462] [client 127.0.0.1:64294] PHP Stack trace:
+[Fri Jun 02 08:04:04.318646 2017] [:error] [pid 9462] [client 127.0.0.1:64294] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0
+[Fri Jun 02 08:04:04.318652 2017] [:error] [pid 9462] [client 127.0.0.1:64294] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:17
+[Fri Jun 02 08:04:04.318657 2017] [:error] [pid 9462] [client 127.0.0.1:64294] PHP   3. inspector->render() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:184
+[Fri Jun 02 08:04:04.318663 2017] [:error] [pid 9462] [client 127.0.0.1:64294] PHP   4. include() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/inspector.php:41
+[Fri Jun 02 08:04:04.318669 2017] [:error] [pid 9462] [client 127.0.0.1:64294] PHP   5. event->inspectorHtml() /Users/alexlake/Sites/herdingcats/forms/frmInspector.php:8
+[Fri Jun 02 08:04:04.318675 2017] [:error] [pid 9462] [client 127.0.0.1:64294] PHP   6. event->inspectorHtmlEmails() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:646
+[Fri Jun 02 08:04:31.330816 2017] [:error] [pid 9121] [client 127.0.0.1:64431] PHP Notice:  Trying to get property of non-object in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php on line 654
+[Fri Jun 02 08:04:31.330908 2017] [:error] [pid 9121] [client 127.0.0.1:64431] PHP Stack trace:
+[Fri Jun 02 08:04:31.330917 2017] [:error] [pid 9121] [client 127.0.0.1:64431] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0
+[Fri Jun 02 08:04:31.330924 2017] [:error] [pid 9121] [client 127.0.0.1:64431] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:17
+[Fri Jun 02 08:04:31.330931 2017] [:error] [pid 9121] [client 127.0.0.1:64431] PHP   3. inspector->render() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:184
+[Fri Jun 02 08:04:31.330937 2017] [:error] [pid 9121] [client 127.0.0.1:64431] PHP   4. include() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/inspector.php:41
+[Fri Jun 02 08:04:31.330943 2017] [:error] [pid 9121] [client 127.0.0.1:64431] PHP   5. event->inspectorHtml() /Users/alexlake/Sites/herdingcats/forms/frmInspector.php:8
+[Fri Jun 02 08:04:31.330950 2017] [:error] [pid 9121] [client 127.0.0.1:64431] PHP   6. event->inspectorHtmlEmails() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:646
+[Fri Jun 02 08:04:31.330992 2017] [:error] [pid 9121] [client 127.0.0.1:64431] PHP Fatal error:  Call to a member function prepare() on a non-object in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php on line 654
+[Fri Jun 02 08:04:31.330997 2017] [:error] [pid 9121] [client 127.0.0.1:64431] PHP Stack trace:
+[Fri Jun 02 08:04:31.331003 2017] [:error] [pid 9121] [client 127.0.0.1:64431] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0
+[Fri Jun 02 08:04:31.331009 2017] [:error] [pid 9121] [client 127.0.0.1:64431] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:17
+[Fri Jun 02 08:04:31.331015 2017] [:error] [pid 9121] [client 127.0.0.1:64431] PHP   3. inspector->render() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:184
+[Fri Jun 02 08:04:31.331024 2017] [:error] [pid 9121] [client 127.0.0.1:64431] PHP   4. include() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/inspector.php:41
+[Fri Jun 02 08:04:31.331032 2017] [:error] [pid 9121] [client 127.0.0.1:64431] PHP   5. event->inspectorHtml() /Users/alexlake/Sites/herdingcats/forms/frmInspector.php:8
+[Fri Jun 02 08:04:31.331040 2017] [:error] [pid 9121] [client 127.0.0.1:64431] PHP   6. event->inspectorHtmlEmails() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:646
+[Fri Jun 02 08:04:33.725100 2017] [:error] [pid 9121] [client 127.0.0.1:64431] PHP Fatal error:  Call to a member function dbExecute() on a non-object in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatui.php on line 29
+[Fri Jun 02 08:04:33.725185 2017] [:error] [pid 9121] [client 127.0.0.1:64431] PHP Stack trace:
+[Fri Jun 02 08:04:33.725193 2017] [:error] [pid 9121] [client 127.0.0.1:64431] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0
+[Fri Jun 02 08:04:33.725200 2017] [:error] [pid 9121] [client 127.0.0.1:64431] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:17
+[Fri Jun 02 08:04:33.725206 2017] [:error] [pid 9121] [client 127.0.0.1:64431] PHP   3. inspector->render() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:184
+[Fri Jun 02 08:04:33.725212 2017] [:error] [pid 9121] [client 127.0.0.1:64431] PHP   4. include() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/inspector.php:41
+[Fri Jun 02 08:04:33.725218 2017] [:error] [pid 9121] [client 127.0.0.1:64431] PHP   5. event->inspectorHtml() /Users/alexlake/Sites/herdingcats/forms/frmInspector.php:8
+[Fri Jun 02 08:04:33.725224 2017] [:error] [pid 9121] [client 127.0.0.1:64431] PHP   6. event->inspectorHtmlEmails() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:646
+[Fri Jun 02 08:04:33.725230 2017] [:error] [pid 9121] [client 127.0.0.1:64431] PHP   7. hcatUI->dbExecute() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:656
+[Fri Jun 02 08:05:00.511913 2017] [:error] [pid 9060] [client 127.0.0.1:64565] PHP Fatal error:  Call to a member function dbExecute() on a non-object in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatui.php on line 29
+[Fri Jun 02 08:05:00.512025 2017] [:error] [pid 9060] [client 127.0.0.1:64565] PHP Stack trace:
+[Fri Jun 02 08:05:00.512045 2017] [:error] [pid 9060] [client 127.0.0.1:64565] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0
+[Fri Jun 02 08:05:00.512053 2017] [:error] [pid 9060] [client 127.0.0.1:64565] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:17
+[Fri Jun 02 08:05:00.512059 2017] [:error] [pid 9060] [client 127.0.0.1:64565] PHP   3. inspector->render() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:184
+[Fri Jun 02 08:05:00.512065 2017] [:error] [pid 9060] [client 127.0.0.1:64565] PHP   4. include() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/inspector.php:41
+[Fri Jun 02 08:05:00.512071 2017] [:error] [pid 9060] [client 127.0.0.1:64565] PHP   5. event->inspectorHtml() /Users/alexlake/Sites/herdingcats/forms/frmInspector.php:8
+[Fri Jun 02 08:05:00.512077 2017] [:error] [pid 9060] [client 127.0.0.1:64565] PHP   6. event->inspectorHtmlEmails() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:646
+[Fri Jun 02 08:05:00.512082 2017] [:error] [pid 9060] [client 127.0.0.1:64565] PHP   7. hcatUI->dbExecute() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:656
+[Fri Jun 02 08:13:11.995832 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP Notice:  Undefined index: fromAddr in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php on line 660
+[Fri Jun 02 08:13:11.995967 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP Stack trace:
+[Fri Jun 02 08:13:11.995977 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0
+[Fri Jun 02 08:13:11.995984 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:17
+[Fri Jun 02 08:13:11.996006 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP   3. inspector->render() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:184
+[Fri Jun 02 08:13:11.996028 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP   4. include() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/inspector.php:42
+[Fri Jun 02 08:13:11.996041 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP   5. event->inspectorHtml() /Users/alexlake/Sites/herdingcats/forms/frmInspector.php:8
+[Fri Jun 02 08:13:11.996052 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP   6. event->inspectorHtmlEmails() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:646
+[Fri Jun 02 08:13:11.996252 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP Notice:  Undefined index: toAddr in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php on line 660
+[Fri Jun 02 08:13:11.996263 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP Stack trace:
+[Fri Jun 02 08:13:11.996271 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0
+[Fri Jun 02 08:13:11.996278 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:17
+[Fri Jun 02 08:13:11.996284 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP   3. inspector->render() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:184
+[Fri Jun 02 08:13:11.996290 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP   4. include() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/inspector.php:42
+[Fri Jun 02 08:13:11.996296 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP   5. event->inspectorHtml() /Users/alexlake/Sites/herdingcats/forms/frmInspector.php:8
+[Fri Jun 02 08:13:11.996303 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP   6. event->inspectorHtmlEmails() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:646
+[Fri Jun 02 08:13:11.996375 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP Notice:  Undefined index: fromAddr in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php on line 660
+[Fri Jun 02 08:13:11.996391 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP Stack trace:
+[Fri Jun 02 08:13:11.996398 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0
+[Fri Jun 02 08:13:11.996404 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:17
+[Fri Jun 02 08:13:11.996411 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP   3. inspector->render() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:184
+[Fri Jun 02 08:13:11.996416 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP   4. include() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/inspector.php:42
+[Fri Jun 02 08:13:11.996422 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP   5. event->inspectorHtml() /Users/alexlake/Sites/herdingcats/forms/frmInspector.php:8
+[Fri Jun 02 08:13:11.996428 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP   6. event->inspectorHtmlEmails() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:646
+[Fri Jun 02 08:13:11.996466 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP Notice:  Undefined index: toAddr in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php on line 660
+[Fri Jun 02 08:13:11.996471 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP Stack trace:
+[Fri Jun 02 08:13:11.996476 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0
+[Fri Jun 02 08:13:11.996482 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:17
+[Fri Jun 02 08:13:11.996488 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP   3. inspector->render() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:184
+[Fri Jun 02 08:13:11.996494 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP   4. include() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/inspector.php:42
+[Fri Jun 02 08:13:11.996499 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP   5. event->inspectorHtml() /Users/alexlake/Sites/herdingcats/forms/frmInspector.php:8
+[Fri Jun 02 08:13:11.996505 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP   6. event->inspectorHtmlEmails() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:646
+[Fri Jun 02 08:13:11.996619 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP Notice:  Undefined index: fromAddr in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php on line 660
+[Fri Jun 02 08:13:11.996629 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP Stack trace:
+[Fri Jun 02 08:13:11.996639 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0
+[Fri Jun 02 08:13:11.996647 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:17
+[Fri Jun 02 08:13:11.996657 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP   3. inspector->render() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:184
+[Fri Jun 02 08:13:11.996663 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP   4. include() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/inspector.php:42
+[Fri Jun 02 08:13:11.996669 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP   5. event->inspectorHtml() /Users/alexlake/Sites/herdingcats/forms/frmInspector.php:8
+[Fri Jun 02 08:13:11.996679 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP   6. event->inspectorHtmlEmails() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:646
+[Fri Jun 02 08:13:11.996718 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP Notice:  Undefined index: toAddr in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php on line 660
+[Fri Jun 02 08:13:11.996732 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP Stack trace:
+[Fri Jun 02 08:13:11.996738 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0
+[Fri Jun 02 08:13:11.996749 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:17
+[Fri Jun 02 08:13:11.996755 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP   3. inspector->render() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:184
+[Fri Jun 02 08:13:11.996760 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP   4. include() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/inspector.php:42
+[Fri Jun 02 08:13:11.996766 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP   5. event->inspectorHtml() /Users/alexlake/Sites/herdingcats/forms/frmInspector.php:8
+[Fri Jun 02 08:13:11.996771 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP   6. event->inspectorHtmlEmails() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:646
+[Fri Jun 02 08:13:11.996815 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP Notice:  Undefined index: fromAddr in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php on line 660
+[Fri Jun 02 08:13:11.996821 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP Stack trace:
+[Fri Jun 02 08:13:11.996826 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0
+[Fri Jun 02 08:13:11.996832 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:17
+[Fri Jun 02 08:13:11.996837 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP   3. inspector->render() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:184
+[Fri Jun 02 08:13:11.996842 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP   4. include() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/inspector.php:42
+[Fri Jun 02 08:13:11.996847 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP   5. event->inspectorHtml() /Users/alexlake/Sites/herdingcats/forms/frmInspector.php:8
+[Fri Jun 02 08:13:11.996852 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP   6. event->inspectorHtmlEmails() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:646
+[Fri Jun 02 08:13:11.996884 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP Notice:  Undefined index: toAddr in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php on line 660
+[Fri Jun 02 08:13:11.996889 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP Stack trace:
+[Fri Jun 02 08:13:11.996894 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0
+[Fri Jun 02 08:13:11.996899 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:17
+[Fri Jun 02 08:13:11.996905 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP   3. inspector->render() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:184
+[Fri Jun 02 08:13:11.996909 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP   4. include() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/inspector.php:42
+[Fri Jun 02 08:13:11.996915 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP   5. event->inspectorHtml() /Users/alexlake/Sites/herdingcats/forms/frmInspector.php:8
+[Fri Jun 02 08:13:11.996921 2017] [:error] [pid 9553] [client 127.0.0.1:49719] PHP   6. event->inspectorHtmlEmails() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:646
+[Fri Jun 02 08:13:38.944897 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP Notice:  Undefined index: fromAddr in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php on line 660
+[Fri Jun 02 08:13:38.945012 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP Stack trace:
+[Fri Jun 02 08:13:38.945021 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0
+[Fri Jun 02 08:13:38.945028 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:17
+[Fri Jun 02 08:13:38.945035 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP   3. inspector->render() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:184
+[Fri Jun 02 08:13:38.945049 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP   4. include() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/inspector.php:42
+[Fri Jun 02 08:13:38.945056 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP   5. event->inspectorHtml() /Users/alexlake/Sites/herdingcats/forms/frmInspector.php:8
+[Fri Jun 02 08:13:38.945062 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP   6. event->inspectorHtmlEmails() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:646
+[Fri Jun 02 08:13:38.945202 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP Notice:  Undefined index: toAddr in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php on line 660
+[Fri Jun 02 08:13:38.945209 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP Stack trace:
+[Fri Jun 02 08:13:38.945215 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0
+[Fri Jun 02 08:13:38.945221 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:17
+[Fri Jun 02 08:13:38.945227 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP   3. inspector->render() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:184
+[Fri Jun 02 08:13:38.945233 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP   4. include() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/inspector.php:42
+[Fri Jun 02 08:13:38.945238 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP   5. event->inspectorHtml() /Users/alexlake/Sites/herdingcats/forms/frmInspector.php:8
+[Fri Jun 02 08:13:38.945244 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP   6. event->inspectorHtmlEmails() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:646
+[Fri Jun 02 08:13:38.945318 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP Notice:  Undefined index: fromAddr in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php on line 660
+[Fri Jun 02 08:13:38.945327 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP Stack trace:
+[Fri Jun 02 08:13:38.945335 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0
+[Fri Jun 02 08:13:38.945344 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:17
+[Fri Jun 02 08:13:38.945350 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP   3. inspector->render() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:184
+[Fri Jun 02 08:13:38.945356 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP   4. include() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/inspector.php:42
+[Fri Jun 02 08:13:38.945361 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP   5. event->inspectorHtml() /Users/alexlake/Sites/herdingcats/forms/frmInspector.php:8
+[Fri Jun 02 08:13:38.945367 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP   6. event->inspectorHtmlEmails() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:646
+[Fri Jun 02 08:13:38.945401 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP Notice:  Undefined index: toAddr in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php on line 660
+[Fri Jun 02 08:13:38.945406 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP Stack trace:
+[Fri Jun 02 08:13:38.945475 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0
+[Fri Jun 02 08:13:38.945493 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:17
+[Fri Jun 02 08:13:38.945505 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP   3. inspector->render() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:184
+[Fri Jun 02 08:13:38.945515 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP   4. include() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/inspector.php:42
+[Fri Jun 02 08:13:38.945535 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP   5. event->inspectorHtml() /Users/alexlake/Sites/herdingcats/forms/frmInspector.php:8
+[Fri Jun 02 08:13:38.945546 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP   6. event->inspectorHtmlEmails() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:646
+[Fri Jun 02 08:13:38.945737 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP Notice:  Undefined index: fromAddr in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php on line 660
+[Fri Jun 02 08:13:38.945750 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP Stack trace:
+[Fri Jun 02 08:13:38.945761 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0
+[Fri Jun 02 08:13:38.945770 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:17
+[Fri Jun 02 08:13:38.945777 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP   3. inspector->render() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:184
+[Fri Jun 02 08:13:38.945810 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP   4. include() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/inspector.php:42
+[Fri Jun 02 08:13:38.945826 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP   5. event->inspectorHtml() /Users/alexlake/Sites/herdingcats/forms/frmInspector.php:8
+[Fri Jun 02 08:13:38.945836 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP   6. event->inspectorHtmlEmails() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:646
+[Fri Jun 02 08:13:38.945894 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP Notice:  Undefined index: toAddr in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php on line 660
+[Fri Jun 02 08:13:38.945901 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP Stack trace:
+[Fri Jun 02 08:13:38.945908 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0
+[Fri Jun 02 08:13:38.945915 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:17
+[Fri Jun 02 08:13:38.945923 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP   3. inspector->render() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:184
+[Fri Jun 02 08:13:38.945932 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP   4. include() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/inspector.php:42
+[Fri Jun 02 08:13:38.945941 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP   5. event->inspectorHtml() /Users/alexlake/Sites/herdingcats/forms/frmInspector.php:8
+[Fri Jun 02 08:13:38.945951 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP   6. event->inspectorHtmlEmails() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:646
+[Fri Jun 02 08:13:38.946025 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP Notice:  Undefined index: fromAddr in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php on line 660
+[Fri Jun 02 08:13:38.946035 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP Stack trace:
+[Fri Jun 02 08:13:38.946044 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0
+[Fri Jun 02 08:13:38.946054 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:17
+[Fri Jun 02 08:13:38.946064 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP   3. inspector->render() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:184
+[Fri Jun 02 08:13:38.946072 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP   4. include() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/inspector.php:42
+[Fri Jun 02 08:13:38.946081 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP   5. event->inspectorHtml() /Users/alexlake/Sites/herdingcats/forms/frmInspector.php:8
+[Fri Jun 02 08:13:38.946091 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP   6. event->inspectorHtmlEmails() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:646
+[Fri Jun 02 08:13:38.946232 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP Notice:  Undefined index: toAddr in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php on line 660
+[Fri Jun 02 08:13:38.946243 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP Stack trace:
+[Fri Jun 02 08:13:38.946253 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0
+[Fri Jun 02 08:13:38.946265 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:17
+[Fri Jun 02 08:13:38.946287 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP   3. inspector->render() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php:184
+[Fri Jun 02 08:13:38.946299 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP   4. include() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/inspector.php:42
+[Fri Jun 02 08:13:38.946305 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP   5. event->inspectorHtml() /Users/alexlake/Sites/herdingcats/forms/frmInspector.php:8
+[Fri Jun 02 08:13:38.946312 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP   6. event->inspectorHtmlEmails() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:646

@@ -18,6 +18,8 @@ class Email {
     public $banner;
     public $fromAddress;
     public $bodyHtml;
+    public $eid;
+    public $uid;
 
     public $secret;
 
@@ -26,6 +28,8 @@ class Email {
         $this->params = array();
         $this->secret = false;
         $this->fromAddress = array('notification@herdingcats.club'=>'herding cats');
+        $this->eid = 0;
+        $this->uid = 0;
     }
 
     public function debug($level,$msg) {
@@ -68,6 +72,10 @@ class Email {
         foreach($this->fromAddress as $fromemail=>$fromname) {
             $fromSummary.="[$fromemail($fromname)]";
         }
+        $toSummary = '';
+        foreach($this->destAddresses as $email=>$name) {
+            $toSummary.="[$email($name)]";
+        }
 
         if ($this->secret) {
             $message->setTo('notification@herdingcats.club');
@@ -94,6 +102,22 @@ class Email {
 
         $x = $swiftmailer->send($message);
         $this->debug(1,"Send from $fromSummary returns $x");
+
+
+        $sql="insert into hcat.emailarchive (gmt,fromaddr,toaddr,body,eid,uid) ";
+        $sql.="values (:gmt,:fromaddr,:toaddr,:body,:eid,:uid); ";
+
+        $stmt = $GLOBALS['dbh']->prepare($sql);
+        $stmt->bindValue(':gmt', date('Y-m-d H:i:s'), PDO::PARAM_STR);
+        $stmt->bindValue(':fromaddr', $fromSummary, PDO::PARAM_STR);
+        $stmt->bindValue(':toaddr', $toSummary, PDO::PARAM_STR);
+        $stmt->bindValue(':body', $this->bodyHtml, PDO::PARAM_STR);
+
+        $stmt->bindValue(':eid', $this->eid, PDO::PARAM_INT);
+        $stmt->bindValue(':uid', $this->uid, PDO::PARAM_INT);
+
+        $r = hcatServer()->dbExecute($stmt);
+
 
         return $x;
 

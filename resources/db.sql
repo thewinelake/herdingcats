@@ -90,6 +90,19 @@ primary key (mid)
 );
 
 
+drop table if exists emailarchive;
+create table emailarchive (
+  idx INTEGER NOT NULL AUTO_INCREMENT,
+  gmt datetime,
+  eid integer,
+  uid integer,
+  toaddr varchar(200),
+  fromaddr varchar(200),
+  body text,
+  primary key (idx)
+
+);
+
 create user 'garfield'@'%' identified by 'JimDavis';
 
 grant all on hcat.* to 'garfield'@'%';

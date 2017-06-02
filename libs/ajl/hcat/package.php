@@ -21,3 +21,4 @@ include_once 'libs/ajl/hcat/user.php';
 include_once 'libs/ajl/hcat/usergroup.php';
 
 include_once 'libs/ajl/hcat/loginmanager.php';
+include_once 'libs/ajl/hcat/inspector.php';

@@ -179,6 +179,15 @@ class hcatServer
                     $_SESSION['uid']='';
                     include "furniture/loggedout.php";
                     break;
+                case 'inspector': // event (should this code live in the event class itself?)
+                    $i = new inspector($this);
+                    $i->render();
+                    break;
+                case 'emailbody':
+                    //$i = new raw_inspector($this);
+                    //$i->render();
+                    echo "Work in progress";
+                    break;
                 case 'e': // event (should this code live in the event class itself?)
                     $eid = $actionchunks[1];
                     $this->debug(1,"hit to event $eid. path_info=".$_SERVER['PATH_INFO']);

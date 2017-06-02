@@ -13,11 +13,16 @@ try
 {
     // RESTServer handles everything
     $hcatServer = new hcatServer();
+    $GLOBALS['hcatServer'] = $hcatServer;
     $hcatServer->handleHit();
 }
 catch (Exception $e)
 {
     echo "ERROR : ".$e->getMessage();
+}
+
+function hcatServer() {
+    return $GLOBALS['hcatServer'];
 }
 
 /**
