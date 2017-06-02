@@ -4846,3 +4846,24 @@
 [Fri Jun 02 08:13:38.946299 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP   4. include() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/inspector.php:42
 [Fri Jun 02 08:13:38.946305 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP   5. event->inspectorHtml() /Users/alexlake/Sites/herdingcats/forms/frmInspector.php:8
 [Fri Jun 02 08:13:38.946312 2017] [:error] [pid 9566] [client 127.0.0.1:50350] PHP   6. event->inspectorHtmlEmails() /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/event.php:646
+[Fri Jun 02 21:42:32.837654 2017] [:error] [pid 9154] [client 127.0.0.1:61267] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php on line 190
+[Fri Jun 02 21:42:32.838927 2017] [:error] [pid 9154] [client 127.0.0.1:61267] PHP Stack trace:
+[Fri Jun 02 21:42:32.838993 2017] [:error] [pid 9154] [client 127.0.0.1:61267] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0
+[Fri Jun 02 21:42:32.839001 2017] [:error] [pid 9154] [client 127.0.0.1:61267] PHP   2. include() /Users/alexlake/Sites/herdingcats/index.php:10
+[Fri Jun 02 21:42:32.839008 2017] [:error] [pid 9154] [client 127.0.0.1:61267] PHP   3. require_once() /Users/alexlake/Sites/herdingcats/common.php:25
+[Fri Jun 02 21:42:43.565039 2017] [:error] [pid 9084] [client 127.0.0.1:61312] PHP Notice:  Undefined property: inspector::$getEmailArchiveBody in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php on line 188, referer: http://127.0.0.1/inspector?e=24&XDEBUG_SESSION_START=13861
+[Fri Jun 02 21:42:43.565080 2017] [:error] [pid 9084] [client 127.0.0.1:61312] PHP Stack trace:, referer: http://127.0.0.1/inspector?e=24&XDEBUG_SESSION_START=13861
+[Fri Jun 02 21:42:43.565096 2017] [:error] [pid 9084] [client 127.0.0.1:61312] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0, referer: http://127.0.0.1/inspector?e=24&XDEBUG_SESSION_START=13861
+[Fri Jun 02 21:42:43.565110 2017] [:error] [pid 9084] [client 127.0.0.1:61312] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:17, referer: http://127.0.0.1/inspector?e=24&XDEBUG_SESSION_START=13861
+[Fri Jun 02 21:42:43.573010 2017] [:error] [pid 9060] [client 127.0.0.1:61319] PHP Notice:  Undefined property: inspector::$getEmailArchiveBody in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php on line 188, referer: http://127.0.0.1/inspector?e=24&XDEBUG_SESSION_START=13861
+[Fri Jun 02 21:42:43.573066 2017] [:error] [pid 9060] [client 127.0.0.1:61319] PHP Stack trace:, referer: http://127.0.0.1/inspector?e=24&XDEBUG_SESSION_START=13861
+[Fri Jun 02 21:42:43.573083 2017] [:error] [pid 9060] [client 127.0.0.1:61319] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0, referer: http://127.0.0.1/inspector?e=24&XDEBUG_SESSION_START=13861
+[Fri Jun 02 21:42:43.573096 2017] [:error] [pid 9060] [client 127.0.0.1:61319] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:17, referer: http://127.0.0.1/inspector?e=24&XDEBUG_SESSION_START=13861
+[Fri Jun 02 21:42:43.575014 2017] [:error] [pid 9348] [client 127.0.0.1:61315] PHP Notice:  Undefined property: inspector::$getEmailArchiveBody in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php on line 188, referer: http://127.0.0.1/inspector?e=24&XDEBUG_SESSION_START=13861
+[Fri Jun 02 21:42:43.575073 2017] [:error] [pid 9348] [client 127.0.0.1:61315] PHP Stack trace:, referer: http://127.0.0.1/inspector?e=24&XDEBUG_SESSION_START=13861
+[Fri Jun 02 21:42:43.575090 2017] [:error] [pid 9348] [client 127.0.0.1:61315] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0, referer: http://127.0.0.1/inspector?e=24&XDEBUG_SESSION_START=13861
+[Fri Jun 02 21:42:43.575102 2017] [:error] [pid 9348] [client 127.0.0.1:61315] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:17, referer: http://127.0.0.1/inspector?e=24&XDEBUG_SESSION_START=13861
+[Fri Jun 02 21:42:43.578377 2017] [:error] [pid 9897] [client 127.0.0.1:61317] PHP Notice:  Undefined property: inspector::$getEmailArchiveBody in /Users/alexlake/Sites/herdingcats/libs/ajl/hcat/hcatserver.php on line 188, referer: http://127.0.0.1/inspector?e=24&XDEBUG_SESSION_START=13861
+[Fri Jun 02 21:42:43.578414 2017] [:error] [pid 9897] [client 127.0.0.1:61317] PHP Stack trace:, referer: http://127.0.0.1/inspector?e=24&XDEBUG_SESSION_START=13861
+[Fri Jun 02 21:42:43.578440 2017] [:error] [pid 9897] [client 127.0.0.1:61317] PHP   1. {main}() /Users/alexlake/Sites/herdingcats/index.php:0, referer: http://127.0.0.1/inspector?e=24&XDEBUG_SESSION_START=13861
+[Fri Jun 02 21:42:43.578455 2017] [:error] [pid 9897] [client 127.0.0.1:61317] PHP   2. hcatServer->handleHit() /Users/alexlake/Sites/herdingcats/index.php:17, referer: http://127.0.0.1/inspector?e=24&XDEBUG_SESSION_START=13861

@@ -41,4 +41,15 @@ class inspector extends hcatUI {
     function render() {
         include 'forms/frmInspector.php';
     }
+
+    function getEmailArchiveBody($idx) {
+        // This should probably be a class getter
+        $sql = 'select * from hcat.emailarchive where idx=:idx;';
+        $stmt = hcatServer()->dbh->prepare($sql);
+        $stmt->bindValue(':idx', $idx, PDO::PARAM_INT);
+        $this->dbExecute($stmt);
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        $body = $row['body'];
+        return $body;
+    }
 }

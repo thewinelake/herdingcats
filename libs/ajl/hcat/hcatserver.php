@@ -184,9 +184,9 @@ class hcatServer
                     $i->render();
                     break;
                 case 'emailbody':
-                    //$i = new raw_inspector($this);
-                    //$i->render();
-                    echo "Work in progress";
+                    $i = new inspector($this);
+                    $idx = valOr($_REQUEST,'i');
+                    print $i->getEmailArchiveBody($idx);
                     break;
                 case 'e': // event (should this code live in the event class itself?)
                     $eid = $actionchunks[1];
