@@ -19,6 +19,7 @@ include_once 'libs/ajl/hcat/register.php';
 include_once 'libs/ajl/hcat/hcatserver.php';
 include_once 'libs/ajl/hcat/user.php';
 include_once 'libs/ajl/hcat/usergroup.php';
+include_once 'libs/ajl/hcat/invitation.php';
 
 include_once 'libs/ajl/hcat/loginmanager.php';
 include_once 'libs/ajl/hcat/inspector.php';

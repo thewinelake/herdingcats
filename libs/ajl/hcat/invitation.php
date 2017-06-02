@@ -16,5 +16,9 @@
 // maybe - guest is possibly coming
 //
 class invitation {
+    public $crtgmt;
 
+    public function loadFromAssocArray($a) {
+        $this->crtgmt = valOr($a,'crtgmt','?');
+    }
 }

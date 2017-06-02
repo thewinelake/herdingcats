@@ -88,7 +88,6 @@ class Email {
         //$bannerPath = $this->templateDir."APCustBill_$this->banner.png";
         //if (file_exists($bannerPath)) $bodyHtml = str_replace('<<banner-content-id>>', $message->embed(Swift_Image::fromPath($bannerPath)), $bodyHtml);
 
-        $message->setBody($bodyHtml, 'text/html');
 
 
         $transport = Swift_SmtpTransport::newInstance('smtp-relay.sendinblue.com',587)
@@ -99,6 +98,16 @@ class Email {
         $to = '';
         foreach($message->getTo() as $e=>$n) $to.="[$e]";
         $this->debug(1,"Sending from $fromSummary to $to...");
+
+        if ($this->banner) {
+            $bannerPath = "{$this->templateDir}/banner_{$this->banner}.png";
+            if (file_exists($bannerPath)) {
+                $bodyHtml = str_replace('<<banner-content-id>>', $message->embed(Swift_Image::fromPath($bannerPath)), $bodyHtml);
+            }
+        }
+
+        $message->setBody($bodyHtml, 'text/html');
+
 
         $x = $swiftmailer->send($message);
         $this->debug(1,"Send from $fromSummary returns $x");

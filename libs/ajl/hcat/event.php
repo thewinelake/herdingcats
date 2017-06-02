@@ -517,6 +517,8 @@ class event extends hcatUI
         $this->dbExecute($stmt);
         while ($guestrow = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
+            $invitation = new invitation();
+            $invitation->loadFromAssocArray($guestrow);
             $guestEmail = $guestrow['email'];
 
             $guestUid = $guestrow['uid'];
@@ -533,17 +535,18 @@ class event extends hcatUI
             $mergedata->comment = new stdClass();
             $mergedata->comment->Text = $row['msgtext'];
             $mergedata->comment->Author = $row['email'];
-            $mergedata->comment->GMT = $row['gmt'];
+            $mergedata->comment->GMT = strtotime($row['gmt']);
             $mergedata->event = $this;
             $mergedata->user = $guest;
             $mergedata->mid = $commentMID;
+            $mergedata->invitation = $invitation;
 
             $email = new Email();
             $email->fromAddress = $this->myEmailAddress($guestKey);
             $email->destAddresses = array($guestEmail);
             $email->eid = $this->eid;
             $email->uid = $guestUid;
-            $email->mergeTemplate('e1',$mergedata);
+            $email->mergeTemplate('e_comment',$mergedata);
             $email->send();
 
         }
@@ -653,7 +656,7 @@ class event extends hcatUI
         $html.="<tr>";
         $html.="<td>From/To</td><td style='width:70%'>Body</td>";
         $html.="<tr>";
-        $sql = "SELECT * FROM hcat.emailarchive where eid=:eid order by gmt";
+        $sql = "SELECT * FROM hcat.emailarchive where eid=:eid order by gmt desc";
         $stmt = hcatServer()->dbh->prepare($sql);
         $stmt->bindValue(':eid', $this->eid, PDO::PARAM_INT);
         $this->dbExecute($stmt);

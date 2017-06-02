@@ -8,7 +8,7 @@
 #
 
 ReWriteEngine On
-RewriteCond %{REQUEST_URI} !(\.gif|\.jpg|\.png|\.jpeg|\.js|\.css)$ [NC]
+RewriteCond %{REQUEST_URI} !(\.gif|\.jpg|\.png|\.jpeg|\.js|\.css|\.html)$ [NC]
 RewriteCond %{REQUEST_URI} !^/index.php/
 
 RewriteRule ^(.*)$      /index.php/$1       [QSA]
