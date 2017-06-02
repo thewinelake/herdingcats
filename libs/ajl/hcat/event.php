@@ -649,9 +649,9 @@ class event extends hcatUI
     }
 
     private function inspectorHtmlEmails() {
-        $html = '<table>';
+        $html = '<table class="inspector">';
         $html.="<tr>";
-        $html.="<td>From/To</td><td>Body</td>";
+        $html.="<td>From/To</td><td style='width:70%'>Body</td>";
         $html.="<tr>";
         $sql = "SELECT * FROM hcat.emailarchive where eid=:eid order by gmt";
         $stmt = hcatServer()->dbh->prepare($sql);
@@ -661,7 +661,7 @@ class event extends hcatUI
             $bodyURL = "/emailbody?i={$row['idx']}";
             $html.="<tr>";
             $html.="<td>{$row['fromaddr']}<br/>--&gt;{$row['toaddr']}<p>@{$row['gmt']}</p></td>";
-            $html.="<td><iframe src='{$bodyURL}'></iframe></td>";
+            $html.="<td><iframe src='{$bodyURL}' width=100%></iframe></td>";
             $html.="<tr>";
 
         }

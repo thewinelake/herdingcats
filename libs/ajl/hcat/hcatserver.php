@@ -186,7 +186,9 @@ class hcatServer
                 case 'emailbody':
                     $i = new inspector($this);
                     $idx = valOr($_REQUEST,'i');
+                    include 'furniture/emailinspectorheader.php';
                     print $i->getEmailArchiveBody($idx);
+                    include 'furniture/emailinspectorfooter.php';
                     break;
                 case 'e': // event (should this code live in the event class itself?)
                     $eid = $actionchunks[1];

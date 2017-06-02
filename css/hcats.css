@@ -176,3 +176,7 @@ th {
 .rightalign {
     float:right;
 }
+
+table.inspector tr {
+    font-size: small;
+}
