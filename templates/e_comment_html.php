@@ -4,7 +4,7 @@
 /* @var $mergedata->user user */
 
 $this->banner = 'hcats';
-$this->subject = "Update for {$mergedata->event->title} [$mergedata->mid]";
+$this->subject = "Update from {$mergedata->comment->AuthorName} for {$mergedata->event->title} [$mergedata->mid]";
 $guestURL = $mergedata->event->GuestURL($mergedata->user->uid);
 $guestUnsubscribeURL = $mergedata->event->GuestUnsubscribeURL($mergedata->user->uid, $mergedata->event->eid);
 $guestUnsubscribeAllURL = $mergedata->event->GuestUnsubscribeURL($mergedata->user->uid,'ALL');
