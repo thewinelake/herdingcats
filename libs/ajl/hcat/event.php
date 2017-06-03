@@ -185,9 +185,9 @@ class event extends hcatUI
             $comment->commentUid = $row['uid'];
             $comment->commentText = $this->renderCommentCompactAsHtml($row['msgtext']);
             $comment->commentHtml = $this->renderCommentCompactAsHtml($row['msgtext']);
-            $comment->commentName = $row['name'];
+            $comment->commentAuthor = $row['name'];
             $comment->commentEmail = $row['email'];
-            $comment->commentGMT = $row['gmt'];
+            $comment->commentGMT = date('D d-M @ H:i',strtotime($row['gmt']));
 
             array_push($this->comments,$comment);
         }
@@ -535,6 +535,7 @@ class event extends hcatUI
             $mergedata->comment = new stdClass();
             $mergedata->comment->Text = $row['msgtext'];
             $mergedata->comment->Author = $row['email'];
+            $mergedata->comment->AuthorName = $row['name'];
             $mergedata->comment->GMT = strtotime($row['gmt']);
             $mergedata->event = $this;
             $mergedata->user = $guest;
@@ -617,26 +618,19 @@ class event extends hcatUI
 
     public function makeUserCSS() {
         $colIdx = -1;
-        $BGColPalette = array('white::#666','#f66','#c60','#0f0','pink','#00f','#88f');
+        // THis is a list of Author Text colour
+        $UColPalette = array('#000','#f66','#c60','#0f0','pink','#00f','#88f');
         $css = "<style>\n";
         array_unshift($this->guestList,array('uid'=>$this->hostUid));
 
         foreach ($this->guestList as $guest) {
             $guid = $guest['uid'];
             if ($guid!=$this->hostUid || $colIdx==-1) {
-                if ((++$colIdx) >= sizeof($BGColPalette)) $colIdx = 1;
-                $guestInfoCols = explode(':',$BGColPalette[$colIdx].'::');
-                $guestBGCol = $guestInfoCols[0];
-                $guestInfoTextCol = valOr($guestInfoCols,1);
-                $guestInfoBGCol = valOr($guestInfoCols,2);
-
-                $css .=".u{$guid},td.u{$guid} { background-color: {$guestBGCol} }\n";
-                if ($guestInfoTextCol) {
-                    $css .=".u{$guid} .commentInfo { color: {$guestInfoTextCol} }\n";
-                }
-                if ($guestInfoBGCol) {
-                    $css .=".u{$guid} .commentFooter{ background-color: {$guestInfoBGCol} }\n";
-                }
+                if ((++$colIdx) >= sizeof($UColPalette)) $colIdx = 1;
+                $authorInfoCols = explode(':',$UColPalette[$colIdx].'::');
+                $authorTextCol = $authorInfoCols[0];
+                $css .=".u{$guid} .commentAuthor { color: {$authorTextCol} }\n";
+                $css .="td.u{$guid}  { background-color: {$authorTextCol} }\n";
             }
         }
         $css .="</style>";

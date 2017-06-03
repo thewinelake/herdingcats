@@ -151,19 +151,26 @@ HCATS.event.eventbuilder = function()
 
         for (commentIdx in my.comments) {
             var comment = my.comments[commentIdx];
-            var commentHtml = comment['commentHtml'];
 
-            var commentInfo = 'So said '; // '['+comment['commentMid']+'] ';
-            commentInfo += comment['commentName']+' ('+comment['commentEmail']+')';
-            commentInfo += ' @ '+comment['commentGMT'];
+            commentInfo = comment['commentGMT'];
 
             var newRow = $('#comment').clone();
             newRow.removeClass('template');
             newRow.addClass('u'+comment['commentUid']);
             newRow.removeAttr('ID');
             newRow.attr('ID', 'mid_'+comment['commentMid']);
+            if (comment.commentUid==my.user.uid) {
+                newRow.addClass('myComment');
+            }
+            if (comment.commentUid==my.event.hostUid) {
+                newRow.addClass('hostComment');
+            } else {
+                newRow.addClass('guestComment');
+            }
 
-            newRow.find('.commentHtml').html(commentHtml);
+
+            newRow.find('.commentAuthor').html(comment['commentAuthor']);
+            newRow.find('.commentHtml').html(comment['commentHtml']);
             newRow.find('.commentInfo').text(commentInfo);
 
 

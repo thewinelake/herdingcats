@@ -24,9 +24,7 @@ button
 	background-color: #FFD095; */
 }
 
-.commentAuthor {
-    font-style: oblique;
-}
+
 
 h1 {
     font-size: 18px;
@@ -54,11 +52,17 @@ h2 {
 .newcomment {
     width: 100%;
 }
+
+.shadow {
+    box-shadow: 3px 3px 3px #ccc;
+}
 .comment {
     margin-top: 3px;
 }
+.commentAuthor {
+    font-weight: bold;
+}
 .commentHtml {
-    background: rgba(255, 255, 255, 0.9);
 }
 .commentFooter {
 /*    width: 700px; */
@@ -70,6 +74,7 @@ h2 {
     display: inline-block;
     font-size: small;
     font-style: oblique;
+    float:right;
 
 }
 .commentActions {

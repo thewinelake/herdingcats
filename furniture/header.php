@@ -14,6 +14,7 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="css/hcats.css"/>
+    <link rel="stylesheet" type="text/css" href="css/bubbles.css"/>
     <script src="jquery-3.2.1.min.js"></script>
     <script src="js/event.js"></script>
     <script src="js/console.js"></script>

@@ -43,6 +43,7 @@ $this->debug(1,'e1_html template');
             background-color: saddlebrown;
             clear: left;
             color:white;
+            padding-left: 5px;
         }
 
         .emailfooter {
@@ -61,7 +62,7 @@ $this->debug(1,'e1_html template');
 <p class=eventdescription><?= $mergedata->event->description ?></p>
 \
 <div class="commentheader">
-Comment made by <?= $mergedata->comment->Author ?> on <?= Date('D d-M-Y',$mergedata->comment->GMT) ?> at <?= Date('H:i',$mergedata->comment->GMT) ?>
+Comment made by <?= $mergedata->comment->AuthorName ?> on <?= Date('D d-M-Y',$mergedata->comment->GMT) ?> at <?= Date('H:i',$mergedata->comment->GMT) ?>
 </div>
 <div class="comment">
 <?= $mergedata->comment->Text ?>
@@ -69,7 +70,12 @@ Comment made by <?= $mergedata->comment->Author ?> on <?= Date('D d-M-Y',$merged
 
 <div class='emailfooter'>
 <p>You were invited to this event by <?= $hostName ?> on Sunday 29th May 2017 at 21:19.</p>
-<p>Replies to this email will be added to the online event discussion</p>
+<p>You can...<br/>
+    <ul>
+        <li><b>Reply to this email</b> and this will be added to the online event discussion</li>
+        <li><b>Press the More Info button</b> to see more about the event including the discussion, and contribute there</li>
+    </ul>
+
 <p>If this email is unwelcome, sorry! You can raise a complaint and unsubscribe from this event by
     <a href="<?= $guestUnsubscribeURL ?>">clicking here</a>
     or block all herding cats emails by

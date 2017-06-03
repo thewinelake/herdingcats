@@ -76,8 +76,8 @@ class emailParser {
                         $this->debug(1,"Binning spam to $toMailbox");
                 }
 
-                //$r = imap_delete($inbox,$email_number); // But does this really not shuffle up?
-                //$this->debug(1,"Delete $email_number returns $r");
+                $r = imap_delete($inbox,$email_number); // But does this really not shuffle up?
+                $this->debug(1,"Delete $email_number returns $r");
 
             }
 

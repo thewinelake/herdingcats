@@ -18,6 +18,7 @@ include "furniture/header.php"
 
 <script>
 var event = <?= $eventJson ?>;
+console.log("EventJSON:");
 console.dir(event);
 </script>
 <table>
@@ -36,14 +37,15 @@ console.dir(event);
         <td name="actions"><button class="button remove">Remove</button><button class="button nudge">Nudge</button></td>
     </tr>
 </table>
+
 <div id="comment" class="comment template">
-    <div class="commentHtml"></div>
-    <div class="commentFooter">
-    <div class="commentInfo"></div>
-    <div class="commentActions"><button class="broadcastComment">Broadcast</button><button class="deleteComment">Delete</button></div>
+    <div class="triangle-border shadow">
+        <span class="commentAuthor">Author</span><br/>
+        <span class="commentHtml">Author</span><br/>
+        <span class="commentInfo"></span>
+        <span class="commentActions"><button class="broadcastComment">Broadcast</button><button class="deleteComment">Delete</button></span>
     </div>
 </div>
-
 
 
 <?php if ($mode=='edit') { ?>
